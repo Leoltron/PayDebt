@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayDebt", "PayDebt\PayDebt.csproj", "{45A1A929-C0B8-4C18-AD1D-FBB7F3C1DCAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayDebtTests", "PayDebtTests\PayDebtTests.csproj", "{471DAF59-52EF-46DC-B9BE-18356E76FED7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45A1A929-C0B8-4C18-AD1D-FBB7F3C1DCAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A1A929-C0B8-4C18-AD1D-FBB7F3C1DCAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A1A929-C0B8-4C18-AD1D-FBB7F3C1DCAF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{45A1A929-C0B8-4C18-AD1D-FBB7F3C1DCAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A1A929-C0B8-4C18-AD1D-FBB7F3C1DCAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A1A929-C0B8-4C18-AD1D-FBB7F3C1DCAF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{471DAF59-52EF-46DC-B9BE-18356E76FED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{471DAF59-52EF-46DC-B9BE-18356E76FED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{471DAF59-52EF-46DC-B9BE-18356E76FED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{471DAF59-52EF-46DC-B9BE-18356E76FED7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D26A588D-84EF-4229-8582-9F72B4B9A106}
+	EndGlobalSection
+EndGlobal

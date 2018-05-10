@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="given_debts">Given debts</string>
+  <string name="taken_debts">Taken debts</string>
+  <string name="lending">Lending</string>
+  <string name="borrowing">Borrowing</string>
+  <string name="app_name">PayDebt</string>
+  <string name="settings">Settings</string>
+  <string name="debt_history">Debt history</string>
+  <string name="add_debt">Add debt</string>
+  <string name="back">Back</string>
+  <string name="name">Name</string>
+  <string name="comment">Comment</string>
+  <string name="amount">Amount</string>
+  <string name="cancel">Cancel</string>
+  <string name="hasPaymentDate">Has payment date</string>
+  <string name="setPaid">Set paid</string>
+  <string name="setUnpaid">Set unpaid</string>
+</resources>

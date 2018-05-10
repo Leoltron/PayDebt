@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="given_debts">Выданные займы</string>
+  <string name="taken_debts">Взятые займы</string>
+  <string name="lending">Даю взаймы</string>
+  <string name="borrowing">Беру взаймы</string>
+  <string name="app_name">PayDebt</string>
+  <string name="settings">Настройки</string>
+  <string name="debt_history">История долгов</string>
+  <string name="add_debt">Добавить долг</string>
+  <string name="back">Назад</string>
+  <string name="name">Имя</string>
+  <string name="comment">Комментарий</string>
+  <string name="amount">Сумма</string>
+  <string name="cancel">Отменить</string>
+  <string name="hasPaymentDate">Установлена дата выплаты</string>
+</resources>
