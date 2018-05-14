@@ -5,7 +5,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 
-namespace PayDebt.Resources.layout
+namespace PayDebt
 {
     [Activity(Label = "AddDebtActivity")]
     public class AddDebtActivity : Activity, DatePickerDialog.IOnDateSetListener
@@ -20,7 +20,7 @@ namespace PayDebt.Resources.layout
         private DatePickerDialog datePickerDialog;
         private DateTime lastPaymentDateChoosed;
 
-        private Spinner currencySpinner;
+        private CurrencySpinner currencySpinner;
 
         private Switch isBorrowingDebtSwitch;
 
@@ -28,7 +28,7 @@ namespace PayDebt.Resources.layout
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            SetContentView(Resource.Layout.AddDebt);
+            SetContentView(Resource.Layout.AddDebtLayout);
             base.OnCreate(savedInstanceState);
             SetResult(Result.Canceled);
             InitViews();
@@ -58,13 +58,8 @@ namespace PayDebt.Resources.layout
 
         private void InitCurrencySpinner()
         {
-            var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem,
-                Currency.Currencies.Select(c => c.Name).ToList());
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-
-            currencySpinner = FindViewById<Spinner>(Resource.Id.currencySpinner);
-            currencySpinner.Adapter = adapter;
-            currencySpinner.SetSelection(0);
+            currencySpinner = FindViewById<CurrencySpinner>(Resource.Id.currencySpinner);
+            currencySpinner.Initialize(this);
         }
 
         private void InitPaymentDateChoosingArea()

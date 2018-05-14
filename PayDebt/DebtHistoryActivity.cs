@@ -20,7 +20,7 @@ namespace PayDebt
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.DebtHistory);
+            SetContentView(Resource.Layout.DebtHistoryLayout);
             SetResult(Result.Canceled);
 
             FindViewById<Button>(Resource.Id.backButton).Click += (sender, args) => Finish();
@@ -36,7 +36,7 @@ namespace PayDebt
         {
             var options = new[]
             {
-                GetString(debt.IsPaid ? Resource.String.setUnpaid : Resource.String.setPaid)
+                GetString(debt.IsPaid ? Resource.String.set_unpaid : Resource.String.set_paid)
             };
 
             var builder = new AlertDialog.Builder(this);

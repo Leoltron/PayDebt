@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-using Android;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
-using Android.Content.PM;
-using Android.Widget;
 using Android.OS;
-using Android.Provider;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
-using Android.Util;
 using Android.Views;
-using PayDebt.Resources.layout;
+using Android.Widget;
 using static Android.Graphics.Color;
+using Fragment = Android.Support.V4.App.Fragment;
 
 namespace PayDebt
 {
@@ -30,13 +22,13 @@ namespace PayDebt
         public static IDebtsStorageAccess Storage;
         public static Debts Debts;
 
-        private bool initialized = false;
+        private bool initialized;
         private TabLayout tabLayout;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.MainLayout);
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(toolbar);
@@ -65,7 +57,7 @@ namespace PayDebt
         private void InitTabLayout()
         {
             tabLayout.SetTabTextColors(Aqua, AntiqueWhite);
-            var fragments = new Android.Support.V4.App.Fragment[]
+            var fragments = new Fragment[]
             {
                 myDebtsListFragment = new DebtListFragment(Debts, debt => !debt.IsPaid && debt.IsMyDebt),
                 theirDebtsListFragment = new DebtListFragment(Debts, debt => !debt.IsPaid && debt.IsTheirDebt)
@@ -73,7 +65,7 @@ namespace PayDebt
             var titles = CharSequence.ArrayFromStringArray(new[]
             {
                 GetString(Resource.String.taken_debts),
-                GetString(Resource.String.given_debts),
+                GetString(Resource.String.given_debts)
             });
 
             var viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
@@ -95,9 +87,14 @@ namespace PayDebt
                 StartActivityForResult(new Intent(this, typeof(DebtHistoryActivity)), HistoryRequestCode);
                 return true;
             }
-            else if (item.ItemId == Resource.Id.menu_add)
+            if (item.ItemId == Resource.Id.menu_add)
             {
                 StartActivityForResult(new Intent(this, typeof(AddDebtActivity)), AddDebtRequestCode);
+                return true;
+            }
+            if(item.ItemId == Resource.Id.menu_settings)
+            {
+                StartActivity(new Intent(this, typeof(SettingsActivity)));
                 return true;
             }
 

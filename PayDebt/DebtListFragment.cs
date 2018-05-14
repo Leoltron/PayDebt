@@ -39,7 +39,7 @@ namespace PayDebt
         {
             var options = new[]
             {
-                GetString(debt.IsPaid ? Resource.String.setUnpaid : Resource.String.setPaid)
+                GetString(debt.IsPaid ? Resource.String.set_unpaid : Resource.String.set_paid)
             };
 
             var builder = new AlertDialog.Builder(Context);

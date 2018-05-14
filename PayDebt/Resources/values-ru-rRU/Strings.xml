@@ -13,5 +13,10 @@
   <string name="comment">Комментарий</string>
   <string name="amount">Сумма</string>
   <string name="cancel">Отменить</string>
-  <string name="hasPaymentDate">Установлена дата выплаты</string>
+  <string name="has_payment_date">Установлена дата выплаты</string>
+  <string name="set_paid">Оплачен</string>
+  <string name="set_unpaid">Не оплачен</string>
+  <string name="default_currency">Валюта по умолчанию</string>
+  <string name="set_date">Установить дату</string>
+  <string name="message_template">Шаблон сообщения</string>
 </resources>

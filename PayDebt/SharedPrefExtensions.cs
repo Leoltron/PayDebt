@@ -1,12 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using Android.App;
 using Android.Content;
 
 namespace PayDebt
 {
     public static class SharedPrefExtensions
     {
+        public static ISharedPreferences GetAppSharedPref(Activity activity)
+        {
+            return activity.GetSharedPreferences(activity.GetString(Resource.String.app_name), FileCreationMode.Private);
+        }
+
+        private const string DefaultCurrencyKey = "defaultCurrencyName";
+
+        public static void PutDefaultCurrency(this ISharedPreferencesEditor editor, Currency currency)
+        {
+            editor.PutDefaultCurrency(currency.Name);
+        }
+
+        public static void PutDefaultCurrency(this ISharedPreferencesEditor editor, string currencyName)
+        {
+            editor.PutString(DefaultCurrencyKey, currencyName);
+        }
+
+        public static void PutDefaultCurrency(this ISharedPreferencesEditor editor)
+        {
+            editor.Remove(DefaultCurrencyKey);
+        }
+
+        public static Currency GetDefaultCurrency(this ISharedPreferences sharedPref)
+        {
+            var name = sharedPref.GetString(DefaultCurrencyKey, "NONE");
+            return Currency.Currencies.FirstOrDefault(c => c.Name == name);
+        }
+
+        private const string MessageTemplateKey = "messageTemplate";
+
+        public static void PutMessageTemplate(this ISharedPreferencesEditor editor, string messageTemplate)
+        {
+            editor.PutString(MessageTemplateKey, messageTemplate);
+        }
+
+        public static string GetMessageTemplate(this ISharedPreferences sharedPref)
+        {
+            return sharedPref.GetString(MessageTemplateKey, "");
+        }
+
         private const string IdSuffix = "_id";
         private const string ContactSuffix = "_contact";
         private const string MoneySuffix = "_money";
