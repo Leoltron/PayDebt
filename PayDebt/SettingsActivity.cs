@@ -3,6 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using Com.VK.Sdk;
 
 namespace PayDebt
 {
@@ -20,11 +21,28 @@ namespace PayDebt
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.SettingsLayout);
+            SetContentView(Resource.Layout.SettingsActivityLayout);
             InitActionBar();
 
             InitCurrencySpinner();
             InitMessageTemplateEditText();
+            InitVkLoginButton();
+        }
+
+        private void InitVkLoginButton()
+        {
+            switchVkUsingButton = FindViewById<Button>(Resource.Id.vkConnectButton);
+            switchVkUsingButton.Click += (sender, args) => SwitchVkLoggedInState();
+            UpdateVkButton();
+        }
+
+        private void SwitchVkLoggedInState()
+        {
+            if (VKSdk.IsLoggedIn)
+                VKSdk.Logout();
+            else
+                VKSdk.Login(this, "friends", "messages");
+            UpdateVkButton();
         }
 
         private void InitActionBar()
@@ -67,13 +85,25 @@ namespace PayDebt
                 if (defaultCurrencyChanged)
                     editor.PutDefaultCurrency((string) defaultCurrencySpinner.SelectedItem);
 
-                if(messageTemplateChanged)
+                if (messageTemplateChanged)
                     editor.PutMessageTemplate(messageTemplateEditText.Text);
 
                 editor.Commit();
             }
 
             base.OnDestroy();
+        }
+
+        private void UpdateVkButton()
+        {
+            switchVkUsingButton.Text =
+                GetString(VKSdk.IsLoggedIn ? Resource.String.vk_logout : Resource.String.vk_login);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            UpdateVkButton();
+            base.OnActivityResult(requestCode, resultCode, data);
         }
     }
 }

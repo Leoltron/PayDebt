@@ -14,6 +14,7 @@ namespace PayDebt
             this.fragments = fragments;
             this.titles = titles;
         }
+
         public override int Count => fragments.Length;
 
         public override Fragment GetItem(int position)

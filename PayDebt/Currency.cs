@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Reflection;
-using Java.Lang;
-using Exception = Java.Lang.Exception;
 
 namespace PayDebt
 {

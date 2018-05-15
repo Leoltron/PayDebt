@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Linq;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using Com.VK.Sdk;
+using Com.VK.Sdk.Api;
 
 namespace PayDebt
 {
     [Activity(Label = "AddDebtActivity")]
     public class AddDebtActivity : Activity, DatePickerDialog.IOnDateSetListener
     {
+        private Random rand = new Random();
+
+        private const int FindVkFriendRequestCode = 339000236;
         private Button finishButton;
 
         private EditText nameEditText;
         private EditText amountEditText;
+        private Button inputTypeSwitchButton;
 
         private Button dateButton;
         private Switch dateSwitch;
@@ -26,9 +33,13 @@ namespace PayDebt
 
         private EditText commentEditText;
 
+        private bool usingVkFriendAsName = false;
+        private string lastVkFriendName = "";
+        private string lastVkFriendId = "";
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            SetContentView(Resource.Layout.AddDebtLayout);
+            SetContentView(Resource.Layout.AddDebtActivityLayout);
             base.OnCreate(savedInstanceState);
             SetResult(Result.Canceled);
             InitViews();
@@ -95,6 +106,52 @@ namespace PayDebt
             finishButton = FindViewById<Button>(Resource.Id.finishDebtAddition);
             finishButton.Enabled = false;
             finishButton.Click += (sender, args) => AddDebtAndFinish();
+
+            inputTypeSwitchButton = FindViewById<Button>(Resource.Id.vkFriendsButton);
+            inputTypeSwitchButton.Click += (sender, args) => SwitchNameInputType();
+            UpdateButtons();
+        }
+
+        private void SendMessageToLastChoosedFriend(Money money)
+        {
+            if (string.IsNullOrWhiteSpace(lastVkFriendId)) return;
+            var vkParams = new VKParameters();
+            vkParams.Put("user_id", lastVkFriendId);
+            var sharedPref = SharedPrefExtensions.GetAppSharedPref(this);
+            vkParams.Put("message", sharedPref.GetMessageTemplate().Replace("%MONEY%", money.ToString()));
+            new VKRequest("messages.send", vkParams).ExecuteWithListener(new VkRequestListener(OnAttemptFailed, OnRequestComplete));
+        }
+
+        private void OnRequestComplete(VKResponse obj)
+        {
+            //Toast.MakeText(this, Resource.String.msg_sent_sucessfully, ToastLength.Short);
+        }
+
+        private void OnAttemptFailed(VKRequest arg1, int arg2, int arg3)
+        {
+            //Toast.MakeText(this, Resource.String.msg_sent_failed, ToastLength.Short);
+        }
+
+        private void SwitchNameInputType()
+        {
+            if (usingVkFriendAsName)
+            {
+                nameEditText.Enabled = true;
+                usingVkFriendAsName = false;
+            }
+            else
+            {
+                StartActivityForResult(new Intent(this, typeof(VkFriendPickerActivity)), FindVkFriendRequestCode);
+            }
+
+            UpdateButtons();
+        }
+
+        private void UpdateButtons()
+        {
+            inputTypeSwitchButton.Visibility = VKSdk.IsLoggedIn ? ViewStates.Visible : ViewStates.Gone;
+            inputTypeSwitchButton.Text =
+                GetString(usingVkFriendAsName ? Resource.String.manually : Resource.String.vk_friends);
         }
 
         private void AddDebtAndFinish()
@@ -113,7 +170,21 @@ namespace PayDebt
                 : new Debt(id, assosiatedContact, money, comment, DateTime.Now);
             MainActivity.Debts.Add(debt, MainActivity.Storage);
             SetResult(Result.Ok);
-            Finish();
+
+            if (usingVkFriendAsName && isBorrowingDebtSwitch.Checked)
+            {
+                var builder = new AlertDialog.Builder(this);
+                builder.SetMessage(Resource.String.send_debt_ask_msq);
+                builder.SetNegativeButton(Android.Resource.String.No, (sender, args) => { Finish(); });
+                builder.SetPositiveButton(Android.Resource.String.Yes, (sender, args) =>
+                {
+                    SendMessageToLastChoosedFriend(money);
+                    Finish();
+                });
+                builder.Show();
+            }
+            else
+                Finish();
         }
 
         private decimal GetAmount()
@@ -158,6 +229,23 @@ namespace PayDebt
         {
             lastPaymentDateChoosed = new DateTime(year, month, dayOfMonth);
             ShowDateButton(lastPaymentDateChoosed.ToShortDateString());
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            if (requestCode == FindVkFriendRequestCode)
+            {
+                if (resultCode == Result.Canceled)
+                    return;
+                lastVkFriendName = data.GetStringExtra(VkFriendPickerActivity.IntentExtraNameKey);
+                lastVkFriendId = data.GetStringExtra(VkFriendPickerActivity.IntentExtraIdKey);
+                usingVkFriendAsName = true;
+                nameEditText.Text = lastVkFriendName;
+                nameEditText.Enabled = false;
+                UpdateButtons();
+            }
+            else
+                base.OnActivityResult(requestCode, resultCode, data);
         }
     }
 }

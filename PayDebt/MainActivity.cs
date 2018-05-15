@@ -7,6 +7,7 @@ using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
+using Com.VK.Sdk;
 using static Android.Graphics.Color;
 using Fragment = Android.Support.V4.App.Fragment;
 
@@ -28,7 +29,7 @@ namespace PayDebt
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.MainLayout);
+            SetContentView(Resource.Layout.MainActivityLayout);
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(toolbar);
@@ -43,6 +44,10 @@ namespace PayDebt
                 Debts = Debts.LoadFrom(Storage);
                 InitTabLayout();
             }
+
+
+            VKSdk.Initialize(this);
+            //VKSdk.Login(this);
         }
 
         private DebtListFragment myDebtsListFragment;
@@ -87,12 +92,14 @@ namespace PayDebt
                 StartActivityForResult(new Intent(this, typeof(DebtHistoryActivity)), HistoryRequestCode);
                 return true;
             }
+
             if (item.ItemId == Resource.Id.menu_add)
             {
                 StartActivityForResult(new Intent(this, typeof(AddDebtActivity)), AddDebtRequestCode);
                 return true;
             }
-            if(item.ItemId == Resource.Id.menu_settings)
+
+            if (item.ItemId == Resource.Id.menu_settings)
             {
                 StartActivity(new Intent(this, typeof(SettingsActivity)));
                 return true;

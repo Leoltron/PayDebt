@@ -56,6 +56,9 @@
     <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bindings_VkApi">
+      <HintPath>..\..\Bindings_VkApi\Bindings_VkApi\obj\Release\Bindings_VkApi.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -108,9 +111,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contact.cs" />
-    <Compile Include="ContantPicker.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="CurrencySpinner.cs" />
+    <Compile Include="CustomApplication.cs" />
     <Compile Include="Debt.cs" />
     <Compile Include="DebtHistoryActivity.cs" />
     <Compile Include="DebtInfoAdapter.cs" />
@@ -127,6 +130,8 @@
     <Compile Include="SharedPrefExtensions.cs" />
     <Compile Include="TabsFragmentPagerAdapter.cs" />
     <Compile Include="ViewExtensions.cs" />
+    <Compile Include="VkFriendPickerActivity.cs" />
+    <Compile Include="VkRequestListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\DebtListLayout.axml">
@@ -143,12 +148,12 @@
     <AndroidResource Include="Resources\layout\toolbar.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\DebtHistoryLayout.axml">
+    <AndroidResource Include="Resources\layout\DebtHistoryActivityLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\MainLayout.axml">
+    <AndroidResource Include="Resources\layout\MainActivityLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\values\Strings.xml">
@@ -161,7 +166,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\SettingsLayout.axml">
+    <AndroidResource Include="Resources\layout\SettingsActivityLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -222,7 +227,7 @@
     <AndroidResource Include="Resources\menu\menu.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\AddDebtLayout.axml">
+    <AndroidResource Include="Resources\layout\AddDebtActivityLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -291,6 +296,14 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_more_vert_black_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Values.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\VkFriendPickerActivityLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Annotations.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Annotations.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.Annotations.targets')" />

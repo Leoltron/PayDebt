@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.OS;
-using Android.Preferences;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 
 namespace PayDebt
@@ -17,10 +8,11 @@ namespace PayDebt
     public class DebtHistoryActivity : Activity
     {
         private DebtInfoAdapter adapter;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.DebtHistoryLayout);
+            SetContentView(Resource.Layout.DebtHistoryActivityLayout);
             SetResult(Result.Canceled);
 
             FindViewById<Button>(Resource.Id.backButton).Click += (sender, args) => Finish();

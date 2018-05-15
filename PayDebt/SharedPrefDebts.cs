@@ -55,7 +55,7 @@ namespace PayDebt
 
             var editor = sharedPreferences.Edit();
             editor.PutStringSet(DebtIdsSetKey, ids);
-            editor.PutDebt(GetDebtKey(debt.Id),debt);
+            editor.PutDebt(GetDebtKey(debt.Id), debt);
             editor.Apply();
         }
 

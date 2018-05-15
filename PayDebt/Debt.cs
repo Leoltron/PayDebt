@@ -36,7 +36,8 @@ namespace PayDebt
             IsPaid = false;
         }
 
-        public Debt(int id, Contact assosiatedContact, Money money, string comment, DateTime creationDate, DateTime paymentDate) :
+        public Debt(int id, Contact assosiatedContact, Money money, string comment, DateTime creationDate,
+            DateTime paymentDate) :
             this(id, assosiatedContact, money, comment, creationDate)
         {
             HasPaymentDate = true;

@@ -11,7 +11,8 @@ namespace PayDebt
     {
         public static ISharedPreferences GetAppSharedPref(Activity activity)
         {
-            return activity.GetSharedPreferences(activity.GetString(Resource.String.app_name), FileCreationMode.Private);
+            return activity.GetSharedPreferences(activity.GetString(Resource.String.app_name),
+                FileCreationMode.Private);
         }
 
         private const string DefaultCurrencyKey = "defaultCurrencyName";

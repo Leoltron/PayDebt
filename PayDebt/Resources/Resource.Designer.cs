@@ -1187,44 +1187,44 @@ namespace PayDebt
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0c004d
-			public const int abc_background_cache_hint_selector_material_dark = 2131492941;
+			// aapt resource value: 0x7f0c0059
+			public const int abc_background_cache_hint_selector_material_dark = 2131492953;
 			
-			// aapt resource value: 0x7f0c004e
-			public const int abc_background_cache_hint_selector_material_light = 2131492942;
+			// aapt resource value: 0x7f0c005a
+			public const int abc_background_cache_hint_selector_material_light = 2131492954;
 			
-			// aapt resource value: 0x7f0c004f
-			public const int abc_btn_colored_borderless_text_material = 2131492943;
+			// aapt resource value: 0x7f0c005b
+			public const int abc_btn_colored_borderless_text_material = 2131492955;
 			
-			// aapt resource value: 0x7f0c0050
-			public const int abc_btn_colored_text_material = 2131492944;
+			// aapt resource value: 0x7f0c005c
+			public const int abc_btn_colored_text_material = 2131492956;
 			
-			// aapt resource value: 0x7f0c0051
-			public const int abc_color_highlight_material = 2131492945;
+			// aapt resource value: 0x7f0c005d
+			public const int abc_color_highlight_material = 2131492957;
 			
-			// aapt resource value: 0x7f0c0052
-			public const int abc_hint_foreground_material_dark = 2131492946;
+			// aapt resource value: 0x7f0c005e
+			public const int abc_hint_foreground_material_dark = 2131492958;
 			
-			// aapt resource value: 0x7f0c0053
-			public const int abc_hint_foreground_material_light = 2131492947;
+			// aapt resource value: 0x7f0c005f
+			public const int abc_hint_foreground_material_light = 2131492959;
 			
 			// aapt resource value: 0x7f0c0000
 			public const int abc_input_method_navigation_guard = 2131492864;
 			
-			// aapt resource value: 0x7f0c0054
-			public const int abc_primary_text_disable_only_material_dark = 2131492948;
+			// aapt resource value: 0x7f0c0060
+			public const int abc_primary_text_disable_only_material_dark = 2131492960;
 			
-			// aapt resource value: 0x7f0c0055
-			public const int abc_primary_text_disable_only_material_light = 2131492949;
+			// aapt resource value: 0x7f0c0061
+			public const int abc_primary_text_disable_only_material_light = 2131492961;
 			
-			// aapt resource value: 0x7f0c0056
-			public const int abc_primary_text_material_dark = 2131492950;
+			// aapt resource value: 0x7f0c0062
+			public const int abc_primary_text_material_dark = 2131492962;
 			
-			// aapt resource value: 0x7f0c0057
-			public const int abc_primary_text_material_light = 2131492951;
+			// aapt resource value: 0x7f0c0063
+			public const int abc_primary_text_material_light = 2131492963;
 			
-			// aapt resource value: 0x7f0c0058
-			public const int abc_search_url_text = 2131492952;
+			// aapt resource value: 0x7f0c0064
+			public const int abc_search_url_text = 2131492964;
 			
 			// aapt resource value: 0x7f0c0001
 			public const int abc_search_url_text_normal = 2131492865;
@@ -1235,32 +1235,32 @@ namespace PayDebt
 			// aapt resource value: 0x7f0c0003
 			public const int abc_search_url_text_selected = 2131492867;
 			
-			// aapt resource value: 0x7f0c0059
-			public const int abc_secondary_text_material_dark = 2131492953;
+			// aapt resource value: 0x7f0c0065
+			public const int abc_secondary_text_material_dark = 2131492965;
 			
-			// aapt resource value: 0x7f0c005a
-			public const int abc_secondary_text_material_light = 2131492954;
+			// aapt resource value: 0x7f0c0066
+			public const int abc_secondary_text_material_light = 2131492966;
 			
-			// aapt resource value: 0x7f0c005b
-			public const int abc_tint_btn_checkable = 2131492955;
+			// aapt resource value: 0x7f0c0067
+			public const int abc_tint_btn_checkable = 2131492967;
 			
-			// aapt resource value: 0x7f0c005c
-			public const int abc_tint_default = 2131492956;
+			// aapt resource value: 0x7f0c0068
+			public const int abc_tint_default = 2131492968;
 			
-			// aapt resource value: 0x7f0c005d
-			public const int abc_tint_edittext = 2131492957;
+			// aapt resource value: 0x7f0c0069
+			public const int abc_tint_edittext = 2131492969;
 			
-			// aapt resource value: 0x7f0c005e
-			public const int abc_tint_seek_thumb = 2131492958;
+			// aapt resource value: 0x7f0c006a
+			public const int abc_tint_seek_thumb = 2131492970;
 			
-			// aapt resource value: 0x7f0c005f
-			public const int abc_tint_spinner = 2131492959;
+			// aapt resource value: 0x7f0c006b
+			public const int abc_tint_spinner = 2131492971;
 			
-			// aapt resource value: 0x7f0c0060
-			public const int abc_tint_switch_track = 2131492960;
+			// aapt resource value: 0x7f0c006c
+			public const int abc_tint_switch_track = 2131492972;
 			
-			// aapt resource value: 0x7f0c0049
-			public const int accent = 2131492937;
+			// aapt resource value: 0x7f0c0055
+			public const int accent = 2131492949;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int accent_material_dark = 2131492868;
@@ -1307,8 +1307,8 @@ namespace PayDebt
 			// aapt resource value: 0x7f0c003c
 			public const int design_bottom_navigation_shadow_color = 2131492924;
 			
-			// aapt resource value: 0x7f0c0061
-			public const int design_error = 2131492961;
+			// aapt resource value: 0x7f0c006d
+			public const int design_error = 2131492973;
 			
 			// aapt resource value: 0x7f0c003d
 			public const int design_fab_shadow_end_color = 2131492925;
@@ -1334,8 +1334,8 @@ namespace PayDebt
 			// aapt resource value: 0x7f0c0044
 			public const int design_snackbar_background_color = 2131492932;
 			
-			// aapt resource value: 0x7f0c0062
-			public const int design_tint_password_toggle = 2131492962;
+			// aapt resource value: 0x7f0c006e
+			public const int design_tint_password_toggle = 2131492974;
 			
 			// aapt resource value: 0x7f0c0012
 			public const int dim_foreground_disabled_material_dark = 2131492882;
@@ -1400,8 +1400,8 @@ namespace PayDebt
 			// aapt resource value: 0x7f0c0026
 			public const int material_grey_900 = 2131492902;
 			
-			// aapt resource value: 0x7f0c004a
-			public const int myDebtAmountColor = 2131492938;
+			// aapt resource value: 0x7f0c0056
+			public const int myDebtAmountColor = 2131492950;
 			
 			// aapt resource value: 0x7f0c0045
 			public const int notification_action_color_filter = 2131492933;
@@ -1412,11 +1412,11 @@ namespace PayDebt
 			// aapt resource value: 0x7f0c003b
 			public const int notification_material_background_media_default_color = 2131492923;
 			
-			// aapt resource value: 0x7f0c0047
-			public const int primary = 2131492935;
+			// aapt resource value: 0x7f0c0053
+			public const int primary = 2131492947;
 			
-			// aapt resource value: 0x7f0c0048
-			public const int primaryDark = 2131492936;
+			// aapt resource value: 0x7f0c0054
+			public const int primaryDark = 2131492948;
 			
 			// aapt resource value: 0x7f0c0027
 			public const int primary_dark_material_dark = 2131492903;
@@ -1466,11 +1466,11 @@ namespace PayDebt
 			// aapt resource value: 0x7f0c0036
 			public const int switch_thumb_disabled_material_light = 2131492918;
 			
-			// aapt resource value: 0x7f0c0063
-			public const int switch_thumb_material_dark = 2131492963;
+			// aapt resource value: 0x7f0c006f
+			public const int switch_thumb_material_dark = 2131492975;
 			
-			// aapt resource value: 0x7f0c0064
-			public const int switch_thumb_material_light = 2131492964;
+			// aapt resource value: 0x7f0c0070
+			public const int switch_thumb_material_light = 2131492976;
 			
 			// aapt resource value: 0x7f0c0037
 			public const int switch_thumb_normal_material_dark = 2131492919;
@@ -1478,17 +1478,53 @@ namespace PayDebt
 			// aapt resource value: 0x7f0c0038
 			public const int switch_thumb_normal_material_light = 2131492920;
 			
-			// aapt resource value: 0x7f0c004b
-			public const int theirDebtAmountColor = 2131492939;
+			// aapt resource value: 0x7f0c0057
+			public const int theirDebtAmountColor = 2131492951;
 			
-			// aapt resource value: 0x7f0c004c
-			public const int title_text_color = 2131492940;
+			// aapt resource value: 0x7f0c0058
+			public const int title_text_color = 2131492952;
 			
 			// aapt resource value: 0x7f0c0039
 			public const int tooltip_background_dark = 2131492921;
 			
 			// aapt resource value: 0x7f0c003a
 			public const int tooltip_background_light = 2131492922;
+			
+			// aapt resource value: 0x7f0c0047
+			public const int vk_black = 2131492935;
+			
+			// aapt resource value: 0x7f0c0048
+			public const int vk_black_pressed = 2131492936;
+			
+			// aapt resource value: 0x7f0c0049
+			public const int vk_clear = 2131492937;
+			
+			// aapt resource value: 0x7f0c004a
+			public const int vk_color = 2131492938;
+			
+			// aapt resource value: 0x7f0c004b
+			public const int vk_grey_color = 2131492939;
+			
+			// aapt resource value: 0x7f0c004c
+			public const int vk_light_color = 2131492940;
+			
+			// aapt resource value: 0x7f0c004d
+			public const int vk_share_blue_color = 2131492941;
+			
+			// aapt resource value: 0x7f0c004e
+			public const int vk_share_gray_line = 2131492942;
+			
+			// aapt resource value: 0x7f0c004f
+			public const int vk_share_link_color = 2131492943;
+			
+			// aapt resource value: 0x7f0c0050
+			public const int vk_share_link_title_color = 2131492944;
+			
+			// aapt resource value: 0x7f0c0051
+			public const int vk_share_top_blue_color = 2131492945;
+			
+			// aapt resource value: 0x7f0c0052
+			public const int vk_white = 2131492946;
 			
 			static Color()
 			{
@@ -1968,6 +2004,51 @@ namespace PayDebt
 			// aapt resource value: 0x7f070060
 			public const int tooltip_y_offset_touch = 2131165280;
 			
+			// aapt resource value: 0x7f07009c
+			public const int vk_share_dialog_padding = 2131165340;
+			
+			// aapt resource value: 0x7f07009d
+			public const int vk_share_dialog_padding_top = 2131165341;
+			
+			// aapt resource value: 0x7f07009b
+			public const int vk_share_dialog_view_padding = 2131165339;
+			
+			// aapt resource value: 0x7f07009e
+			public const int vk_share_link_top_margin = 2131165342;
+			
+			// aapt resource value: 0x7f07009f
+			public const int vk_share_send_text_size = 2131165343;
+			
+			// aapt resource value: 0x7f0700a0
+			public const int vk_share_settings_button_min_height = 2131165344;
+			
+			// aapt resource value: 0x7f0700a1
+			public const int vk_share_title_link_host_size = 2131165345;
+			
+			// aapt resource value: 0x7f0700a2
+			public const int vk_share_title_link_title_size = 2131165346;
+			
+			// aapt resource value: 0x7f0700a3
+			public const int vk_share_title_text_size = 2131165347;
+			
+			// aapt resource value: 0x7f0700a4
+			public const int vk_share_top_button_padding_left = 2131165348;
+			
+			// aapt resource value: 0x7f0700a5
+			public const int vk_share_top_button_padding_right = 2131165349;
+			
+			// aapt resource value: 0x7f0700a6
+			public const int vk_share_top_image_margin = 2131165350;
+			
+			// aapt resource value: 0x7f0700a7
+			public const int vk_share_top_line_margin = 2131165351;
+			
+			// aapt resource value: 0x7f0700a8
+			public const int vk_share_top_panel_height = 2131165352;
+			
+			// aapt resource value: 0x7f0700a9
+			public const int vk_share_top_title_margin = 2131165353;
+			
 			static Dimension()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -2233,26 +2314,26 @@ namespace PayDebt
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020072
-			public const int avd_hide_password_1 = 2130837618;
+			// aapt resource value: 0x7f020078
+			public const int avd_hide_password_1 = 2130837624;
 			
-			// aapt resource value: 0x7f020073
-			public const int avd_hide_password_2 = 2130837619;
+			// aapt resource value: 0x7f020079
+			public const int avd_hide_password_2 = 2130837625;
 			
-			// aapt resource value: 0x7f020074
-			public const int avd_hide_password_3 = 2130837620;
+			// aapt resource value: 0x7f02007a
+			public const int avd_hide_password_3 = 2130837626;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020075
-			public const int avd_show_password_1 = 2130837621;
+			// aapt resource value: 0x7f02007b
+			public const int avd_show_password_1 = 2130837627;
 			
-			// aapt resource value: 0x7f020076
-			public const int avd_show_password_2 = 2130837622;
+			// aapt resource value: 0x7f02007c
+			public const int avd_show_password_2 = 2130837628;
 			
-			// aapt resource value: 0x7f020077
-			public const int avd_show_password_3 = 2130837623;
+			// aapt resource value: 0x7f02007d
+			public const int avd_show_password_3 = 2130837629;
 			
 			// aapt resource value: 0x7f020055
 			public const int baseline_more_vert_24 = 2130837589;
@@ -2270,76 +2351,94 @@ namespace PayDebt
 			public const int baseline_more_vert_black_48 = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int design_bottom_navigation_item_background = 2130837594;
+			public const int bg_toolbar_shadow_dark = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int design_fab_background = 2130837595;
+			public const int design_bottom_navigation_item_background = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int design_ic_visibility = 2130837596;
+			public const int design_fab_background = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int design_ic_visibility_off = 2130837597;
+			public const int design_ic_visibility = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int design_password_eye = 2130837598;
+			public const int design_ic_visibility_off = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int design_snackbar_background = 2130837599;
+			public const int design_password_eye = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int ic_add_circle_outline_white_36dp = 2130837600;
+			public const int design_snackbar_background = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int ic_history_white_36dp = 2130837601;
+			public const int ic_ab_app = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int ic_settings_white_36dp = 2130837602;
+			public const int ic_add_circle_outline_white_36dp = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int navigation_empty_icon = 2130837603;
+			public const int ic_close_white_24dp = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int notification_action_background = 2130837604;
+			public const int ic_history_white_36dp = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int notification_bg = 2130837605;
+			public const int ic_settings_white_36dp = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int notification_bg_low = 2130837606;
+			public const int navigation_empty_icon = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int notification_bg_low_normal = 2130837607;
+			public const int notification_action_background = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int notification_bg_low_pressed = 2130837608;
+			public const int notification_bg = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int notification_bg_normal = 2130837609;
+			public const int notification_bg_low = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int notification_bg_normal_pressed = 2130837610;
+			public const int notification_bg_low_normal = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int notification_icon_background = 2130837611;
-			
-			// aapt resource value: 0x7f020070
-			public const int notification_template_icon_bg = 2130837616;
-			
-			// aapt resource value: 0x7f020071
-			public const int notification_template_icon_low_bg = 2130837617;
+			public const int notification_bg_low_pressed = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int notification_tile_bg = 2130837612;
+			public const int notification_bg_normal = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int notify_panel_notification_icon_bg = 2130837613;
+			public const int notification_bg_normal_pressed = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int tooltip_frame_dark = 2130837614;
+			public const int notification_icon_background = 2130837614;
+			
+			// aapt resource value: 0x7f020076
+			public const int notification_template_icon_bg = 2130837622;
+			
+			// aapt resource value: 0x7f020077
+			public const int notification_template_icon_low_bg = 2130837623;
 			
 			// aapt resource value: 0x7f02006f
-			public const int tooltip_frame_light = 2130837615;
+			public const int notification_tile_bg = 2130837615;
+			
+			// aapt resource value: 0x7f020070
+			public const int notify_panel_notification_icon_bg = 2130837616;
+			
+			// aapt resource value: 0x7f020071
+			public const int tooltip_frame_dark = 2130837617;
+			
+			// aapt resource value: 0x7f020072
+			public const int tooltip_frame_light = 2130837618;
+			
+			// aapt resource value: 0x7f020073
+			public const int vk_clear_shape = 2130837619;
+			
+			// aapt resource value: 0x7f020074
+			public const int vk_gray_transparent_shape = 2130837620;
+			
+			// aapt resource value: 0x7f020075
+			public const int vk_share_send_button_background = 2130837621;
 			
 			static Drawable()
 			{
@@ -2462,6 +2561,9 @@ namespace PayDebt
 			// aapt resource value: 0x7f080056
 			public const int async = 2131230806;
 			
+			// aapt resource value: 0x7f0800e1
+			public const int attachmentLinkLayout = 2131230945;
+			
 			// aapt resource value: 0x7f080044
 			public const int auto = 2131230788;
 			
@@ -2483,9 +2585,6 @@ namespace PayDebt
 			// aapt resource value: 0x7f08003d
 			public const int bottom = 2131230781;
 			
-			// aapt resource value: 0x7f0800cf
-			public const int button1 = 2131230927;
-			
 			// aapt resource value: 0x7f080063
 			public const int buttonPanel = 2131230819;
 			
@@ -2494,6 +2593,12 @@ namespace PayDebt
 			
 			// aapt resource value: 0x7f0800bd
 			public const int cancel_action = 2131230909;
+			
+			// aapt resource value: 0x7f0800d7
+			public const int captchaAnswer = 2131230935;
+			
+			// aapt resource value: 0x7f0800d4
+			public const int captcha_container = 2131230932;
 			
 			// aapt resource value: 0x7f080045
 			public const int center = 2131230789;
@@ -2516,6 +2621,9 @@ namespace PayDebt
 			// aapt resource value: 0x7f08004f
 			public const int clip_vertical = 2131230799;
 			
+			// aapt resource value: 0x7f0800db
+			public const int close_btn = 2131230939;
+			
 			// aapt resource value: 0x7f080039
 			public const int collapseActionView = 2131230777;
 			
@@ -2536,6 +2644,9 @@ namespace PayDebt
 			
 			// aapt resource value: 0x7f0800aa
 			public const int coordinator = 2131230890;
+			
+			// aapt resource value: 0x7f0800d9
+			public const int copyUrl = 2131230937;
 			
 			// aapt resource value: 0x7f080099
 			public const int currencySpinner = 2131230873;
@@ -2630,6 +2741,15 @@ namespace PayDebt
 			// aapt resource value: 0x7f080058
 			public const int forever = 2131230808;
 			
+			// aapt resource value: 0x7f0800e8
+			public const int friendsListLL = 2131230952;
+			
+			// aapt resource value: 0x7f0800ea
+			public const int friendsListView = 2131230954;
+			
+			// aapt resource value: 0x7f0800eb
+			public const int friendsProgressBar = 2131230955;
+			
 			// aapt resource value: 0x7f08000a
 			public const int ghost_view = 2131230730;
 			
@@ -2653,6 +2773,15 @@ namespace PayDebt
 			
 			// aapt resource value: 0x7f08005f
 			public const int image = 2131230815;
+			
+			// aapt resource value: 0x7f0800d6
+			public const int imageView = 2131230934;
+			
+			// aapt resource value: 0x7f0800e0
+			public const int imagesContainer = 2131230944;
+			
+			// aapt resource value: 0x7f0800df
+			public const int imagesScrollView = 2131230943;
 			
 			// aapt resource value: 0x7f0800c6
 			public const int info = 2131230918;
@@ -2684,26 +2813,32 @@ namespace PayDebt
 			// aapt resource value: 0x7f08009d
 			public const int linearLayout1 = 2131230877;
 			
+			// aapt resource value: 0x7f0800e3
+			public const int linkHost = 2131230947;
+			
+			// aapt resource value: 0x7f0800e2
+			public const int linkTitle = 2131230946;
+			
 			// aapt resource value: 0x7f08001d
 			public const int listMode = 2131230749;
 			
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f0800d5
-			public const int masked = 2131230933;
+			// aapt resource value: 0x7f0800ed
+			public const int masked = 2131230957;
 			
 			// aapt resource value: 0x7f0800bf
 			public const int media_actions = 2131230911;
 			
-			// aapt resource value: 0x7f0800d6
-			public const int menu_add = 2131230934;
+			// aapt resource value: 0x7f0800ee
+			public const int menu_add = 2131230958;
 			
-			// aapt resource value: 0x7f0800d7
-			public const int menu_debt_history = 2131230935;
+			// aapt resource value: 0x7f0800ef
+			public const int menu_debt_history = 2131230959;
 			
-			// aapt resource value: 0x7f0800d8
-			public const int menu_settings = 2131230936;
+			// aapt resource value: 0x7f0800f0
+			public const int menu_settings = 2131230960;
 			
 			// aapt resource value: 0x7f0800d3
 			public const int message = 2131230931;
@@ -2767,6 +2902,21 @@ namespace PayDebt
 			
 			// aapt resource value: 0x7f08004d
 			public const int pin = 2131230797;
+			
+			// aapt resource value: 0x7f0800dc
+			public const int postContent = 2131230940;
+			
+			// aapt resource value: 0x7f0800dd
+			public const int postContentLayout = 2131230941;
+			
+			// aapt resource value: 0x7f0800e4
+			public const int postSettingsLayout = 2131230948;
+			
+			// aapt resource value: 0x7f0800d8
+			public const int progress = 2131230936;
+			
+			// aapt resource value: 0x7f0800d5
+			public const int progressBar = 2131230933;
 			
 			// aapt resource value: 0x7f080006
 			public const int progress_circular = 2131230726;
@@ -2855,8 +3005,17 @@ namespace PayDebt
 			// aapt resource value: 0x7f08008a
 			public const int select_dialog_listview = 2131230858;
 			
-			// aapt resource value: 0x7f080095
-			public const int setNameFromOtherSource = 2131230869;
+			// aapt resource value: 0x7f0800e7
+			public const int sendButton = 2131230951;
+			
+			// aapt resource value: 0x7f0800e5
+			public const int sendButtonLayout = 2131230949;
+			
+			// aapt resource value: 0x7f0800e6
+			public const int sendProgress = 2131230950;
+			
+			// aapt resource value: 0x7f0800de
+			public const int shareText = 2131230942;
 			
 			// aapt resource value: 0x7f080074
 			public const int shortcut = 2131230836;
@@ -2960,6 +3119,9 @@ namespace PayDebt
 			// aapt resource value: 0x7f08003e
 			public const int top = 2131230782;
 			
+			// aapt resource value: 0x7f0800da
+			public const int topBarLayout = 2131230938;
+			
 			// aapt resource value: 0x7f08006e
 			public const int topPanel = 2131230830;
 			
@@ -2987,6 +3149,9 @@ namespace PayDebt
 			// aapt resource value: 0x7f080009
 			public const int up = 2131230729;
 			
+			// aapt resource value: 0x7f0800e9
+			public const int update = 2131230953;
+			
 			// aapt resource value: 0x7f080026
 			public const int useLogo = 2131230758;
 			
@@ -2996,8 +3161,14 @@ namespace PayDebt
 			// aapt resource value: 0x7f0800b8
 			public const int viewpager = 2131230904;
 			
-			// aapt resource value: 0x7f0800d4
-			public const int visible = 2131230932;
+			// aapt resource value: 0x7f0800ec
+			public const int visible = 2131230956;
+			
+			// aapt resource value: 0x7f0800cf
+			public const int vkConnectButton = 2131230927;
+			
+			// aapt resource value: 0x7f080095
+			public const int vkFriendsButton = 2131230869;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;
@@ -3032,6 +3203,9 @@ namespace PayDebt
 			
 			// aapt resource value: 0x7f0d0002
 			public const int cancel_button_image_alpha = 2131558402;
+			
+			// aapt resource value: 0x7f0d000a
+			public const int com_vk_sdk_AppId = 2131558410;
 			
 			// aapt resource value: 0x7f0d0003
 			public const int config_tooltipAnimTime = 2131558403;
@@ -3140,10 +3314,10 @@ namespace PayDebt
 			public const int abc_select_dialog_material = 2130968601;
 			
 			// aapt resource value: 0x7f04001a
-			public const int AddDebtLayout = 2130968602;
+			public const int AddDebtActivityLayout = 2130968602;
 			
 			// aapt resource value: 0x7f04001b
-			public const int DebtHistoryLayout = 2130968603;
+			public const int DebtHistoryActivityLayout = 2130968603;
 			
 			// aapt resource value: 0x7f04001c
 			public const int DebtListItem = 2130968604;
@@ -3194,7 +3368,7 @@ namespace PayDebt
 			public const int design_text_input_password_icon = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int MainLayout = 2130968620;
+			public const int MainActivityLayout = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
 			public const int notification_action = 2130968621;
@@ -3251,7 +3425,7 @@ namespace PayDebt
 			public const int select_dialog_singlechoice_material = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int SettingsLayout = 2130968639;
+			public const int SettingsActivityLayout = 2130968639;
 			
 			// aapt resource value: 0x7f040040
 			public const int support_simple_spinner_dropdown_item = 2130968640;
@@ -3261,6 +3435,18 @@ namespace PayDebt
 			
 			// aapt resource value: 0x7f040042
 			public const int tooltip = 2130968642;
+			
+			// aapt resource value: 0x7f040043
+			public const int vk_captcha_dialog = 2130968643;
+			
+			// aapt resource value: 0x7f040044
+			public const int vk_open_auth_dialog = 2130968644;
+			
+			// aapt resource value: 0x7f040045
+			public const int vk_share_dialog = 2130968645;
+			
+			// aapt resource value: 0x7f040046
+			public const int VkFriendPickerActivityLayout = 2130968646;
 			
 			static Layout()
 			{
@@ -3394,56 +3580,62 @@ namespace PayDebt
 			// aapt resource value: 0x7f090010
 			public const int abc_toolbar_collapse_description = 2131296272;
 			
-			// aapt resource value: 0x7f09002e
-			public const int add_debt = 2131296302;
+			// aapt resource value: 0x7f090034
+			public const int add_debt = 2131296308;
 			
-			// aapt resource value: 0x7f090032
-			public const int amount = 2131296306;
+			// aapt resource value: 0x7f090038
+			public const int amount = 2131296312;
 			
-			// aapt resource value: 0x7f090027
-			public const int app_name = 2131296295;
+			// aapt resource value: 0x7f09002d
+			public const int app_name = 2131296301;
 			
 			// aapt resource value: 0x7f09001e
 			public const int appbar_scrolling_view_behavior = 2131296286;
 			
-			// aapt resource value: 0x7f09002f
-			public const int back = 2131296303;
+			// aapt resource value: 0x7f090035
+			public const int back = 2131296309;
 			
-			// aapt resource value: 0x7f09002b
-			public const int borrowing = 2131296299;
+			// aapt resource value: 0x7f090031
+			public const int borrowing = 2131296305;
 			
 			// aapt resource value: 0x7f09001f
 			public const int bottom_sheet_behavior = 2131296287;
 			
-			// aapt resource value: 0x7f090033
-			public const int cancel = 2131296307;
+			// aapt resource value: 0x7f090039
+			public const int cancel = 2131296313;
 			
 			// aapt resource value: 0x7f090020
 			public const int character_counter_pattern = 2131296288;
 			
-			// aapt resource value: 0x7f090031
-			public const int comment = 2131296305;
-			
-			// aapt resource value: 0x7f09002d
-			public const int debt_history = 2131296301;
-			
 			// aapt resource value: 0x7f090037
-			public const int default_currency = 2131296311;
+			public const int comment = 2131296311;
 			
-			// aapt resource value: 0x7f090028
-			public const int given_debts = 2131296296;
+			// aapt resource value: 0x7f090033
+			public const int debt_history = 2131296307;
 			
-			// aapt resource value: 0x7f090034
-			public const int has_payment_date = 2131296308;
+			// aapt resource value: 0x7f09003d
+			public const int default_currency = 2131296317;
 			
-			// aapt resource value: 0x7f09002a
-			public const int lending = 2131296298;
+			// aapt resource value: 0x7f090045
+			public const int friend_list_load_failed = 2131296325;
 			
-			// aapt resource value: 0x7f090039
-			public const int message_template = 2131296313;
+			// aapt resource value: 0x7f09002e
+			public const int given_debts = 2131296302;
+			
+			// aapt resource value: 0x7f09003a
+			public const int has_payment_date = 2131296314;
 			
 			// aapt resource value: 0x7f090030
-			public const int name = 2131296304;
+			public const int lending = 2131296304;
+			
+			// aapt resource value: 0x7f090043
+			public const int manually = 2131296323;
+			
+			// aapt resource value: 0x7f09003f
+			public const int message_template = 2131296319;
+			
+			// aapt resource value: 0x7f090036
+			public const int name = 2131296310;
 			
 			// aapt resource value: 0x7f090021
 			public const int password_toggle_content_description = 2131296289;
@@ -3463,23 +3655,56 @@ namespace PayDebt
 			// aapt resource value: 0x7f090011
 			public const int search_menu_title = 2131296273;
 			
-			// aapt resource value: 0x7f090038
-			public const int set_date = 2131296312;
+			// aapt resource value: 0x7f090046
+			public const int send_debt_ask_msq = 2131296326;
 			
-			// aapt resource value: 0x7f090035
-			public const int set_paid = 2131296309;
+			// aapt resource value: 0x7f09003e
+			public const int set_date = 2131296318;
 			
-			// aapt resource value: 0x7f090036
-			public const int set_unpaid = 2131296310;
+			// aapt resource value: 0x7f09003b
+			public const int set_paid = 2131296315;
 			
-			// aapt resource value: 0x7f09002c
-			public const int settings = 2131296300;
+			// aapt resource value: 0x7f09003c
+			public const int set_unpaid = 2131296316;
+			
+			// aapt resource value: 0x7f090032
+			public const int settings = 2131296306;
 			
 			// aapt resource value: 0x7f090026
 			public const int status_bar_notification_info_overflow = 2131296294;
 			
+			// aapt resource value: 0x7f09002f
+			public const int taken_debts = 2131296303;
+			
+			// aapt resource value: 0x7f090044
+			public const int update = 2131296324;
+			
+			// aapt resource value: 0x7f090027
+			public const int vk_enter_captcha_text = 2131296295;
+			
+			// aapt resource value: 0x7f090042
+			public const int vk_friends = 2131296322;
+			
+			// aapt resource value: 0x7f090040
+			public const int vk_login = 2131296320;
+			
+			// aapt resource value: 0x7f090041
+			public const int vk_logout = 2131296321;
+			
+			// aapt resource value: 0x7f090028
+			public const int vk_name = 2131296296;
+			
 			// aapt resource value: 0x7f090029
-			public const int taken_debts = 2131296297;
+			public const int vk_new_message_text = 2131296297;
+			
+			// aapt resource value: 0x7f09002a
+			public const int vk_new_post_settings = 2131296298;
+			
+			// aapt resource value: 0x7f09002b
+			public const int vk_retry = 2131296299;
+			
+			// aapt resource value: 0x7f09002c
+			public const int vk_send = 2131296300;
 			
 			static String()
 			{
@@ -4001,11 +4226,11 @@ namespace PayDebt
 			// aapt resource value: 0x7f0a0161
 			public const int Base_Widget_Design_TabLayout = 2131362145;
 			
-			// aapt resource value: 0x7f0a0180
-			public const int DesignTheme = 2131362176;
+			// aapt resource value: 0x7f0a0182
+			public const int DesignTheme = 2131362178;
 			
-			// aapt resource value: 0x7f0a0181
-			public const int DesignTheme1 = 2131362177;
+			// aapt resource value: 0x7f0a0183
+			public const int DesignTheme1 = 2131362179;
 			
 			// aapt resource value: 0x7f0a001e
 			public const int Platform_AppCompat = 2131361822;
@@ -4396,6 +4621,12 @@ namespace PayDebt
 			
 			// aapt resource value: 0x7f0a010d
 			public const int ThemeOverlay_AppCompat_Light = 2131362061;
+			
+			// aapt resource value: 0x7f0a0180
+			public const int VK_Transparent = 2131362176;
+			
+			// aapt resource value: 0x7f0a0181
+			public const int VKAlertDialog = 2131362177;
 			
 			// aapt resource value: 0x7f0a010e
 			public const int Widget_AppCompat_ActionBar = 2131362062;

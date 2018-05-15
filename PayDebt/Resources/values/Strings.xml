@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
   <string name="app_name">PayDebt</string>
   <string name="given_debts">Given debts</string>
@@ -18,5 +19,12 @@
   <string name="set_unpaid">Set unpaid</string>
   <string name="default_currency">Default currency</string>
   <string name="set_date">Set date</string>
-  <string name="message_template">Message template</string>
+  <string name="message_template">Message template (%MONEY% will be raplced with money amount)</string>
+  <string name="vk_login">VK Login</string>
+  <string name="vk_logout">VK Logout</string>
+  <string name="vk_friends">VK Friends</string>
+  <string name="manually">Manually</string>
+  <string name="update">Update</string>
+  <string name="friend_list_load_failed">Load failed. Check your Internet connection.</string>
+  <string name="send_debt_ask_msq">Debt created. Want to send template message (can be changed in Settings) to a friend?</string>
 </resources>
