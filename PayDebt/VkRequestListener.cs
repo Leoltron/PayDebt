@@ -1,5 +1,5 @@
 ﻿using System;
-using Com.VK.Sdk.Api;
+using VKontakte.API;
 
 namespace PayDebt
 {

@@ -5,12 +5,12 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Com.VK.Sdk;
-using Com.VK.Sdk.Api;
+using VKontakte;
+using VKontakte.API;
 
 namespace PayDebt
 {
-    [Activity(Label = "AddDebtActivity")]
+    [Activity(Label = "AddDebtActivity", Name = "ru.leoltron.PayDebt.AddDebtActivity")]
     public class AddDebtActivity : Activity, DatePickerDialog.IOnDateSetListener
     {
         private Random rand = new Random();

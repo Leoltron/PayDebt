@@ -1,14 +1,14 @@
 ﻿using System;
 using Android.App;
 using Android.Runtime;
-using Com.VK.Sdk;
+using VKontakte;
 
 namespace PayDebt
 {
 #if DEBUG
-    [Application(Debuggable = true)]
+    [Application(Debuggable = true, Name = "ru.leoltron.PayDebt.CustomApplication", AllowBackup =true, Label = "@string/app_name", Theme = "@style/DesignTheme", Icon = "@mipmap/ic_launcher")]
 #else
-    [Application(Debuggable = false)]
+    [Application(Debuggable = false, Name = "ru.leoltron.PayDebt.CustomApplication", AllowBackup =true, Label = "@string/app_name", Theme = "@style/DesignTheme", Icon = "@mipmap/ic_launcher")]
 #endif
     // ReSharper disable once UnusedMember.Global
     public class CustomApplication : Application

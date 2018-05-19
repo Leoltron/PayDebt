@@ -6,15 +6,13 @@ using Android.OS;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Com.VK.Sdk;
-using Com.VK.Sdk.Api;
-using Com.VK.Sdk.Api.Model;
 using Org.Json;
+using VKontakte.API;
 
 namespace PayDebt
 {
 
-    [Activity(Label = "", Theme = "@style/DesignTheme1")]
+    [Activity(Name= "ru.leoltron.PayDebt.VkFriendPickerActivity", Label = "", Theme = "@style/DesignTheme1")]
     public class VkFriendPickerActivity : Activity
     {
         public const string IntentExtraNameKey = "VKFriendName";
@@ -23,7 +21,9 @@ namespace PayDebt
         private List<string> names = new List<string>();
         private List<string> ids = new List<string>();
 
+#pragma warning disable 414
         private bool isLoading = true;
+#pragma warning restore 414
 
         private ProgressBar loadingProgressBar;
 
@@ -81,7 +81,7 @@ namespace PayDebt
             //parameters.Put(VKApiConst.UserId, VKApiConst.OwnerId);
             parameters.Put("order", "hints");
             parameters.Put(VKApiConst.Fields, "first_name,last_name");
-            var request = VKApi.Friends().Get(parameters);
+            var request = VKApi.Friends.Get(parameters);
             request.Attempts = 5;
             request.ExecuteWithListener(new VkRequestListener(AttemptFailed, OnComplete));
         }

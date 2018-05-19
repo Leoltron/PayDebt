@@ -3,11 +3,11 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Com.VK.Sdk;
+using VKontakte;
 
 namespace PayDebt
 {
-    [Activity(Label = "SettingsActivity", Theme = "@style/DesignTheme1")]
+    [Activity(Name = "ru.leoltron.PayDebt.SettingsActivity", Label = "SettingsActivity", Theme = "@style/DesignTheme1")]
     public class SettingsActivity : Activity
     {
         private bool defaultCurrencyChanged = false;

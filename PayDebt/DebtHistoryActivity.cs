@@ -4,7 +4,7 @@ using Android.Widget;
 
 namespace PayDebt
 {
-    [Activity]
+    [Activity(Name = "ru.leoltron.PayDebt.DebtHistoryActivity")]
     public class DebtHistoryActivity : Activity
     {
         private DebtInfoAdapter adapter;

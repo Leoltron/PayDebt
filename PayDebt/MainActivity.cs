@@ -7,13 +7,14 @@ using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
-using Com.VK.Sdk;
+using VKontakte;
 using static Android.Graphics.Color;
 using Fragment = Android.Support.V4.App.Fragment;
 
 namespace PayDebt
 {
-    [Activity(Label = "PayDebt", MainLauncher = true, Icon = "@mipmap/icon", Name = "PayDebt.MainActivity")]
+    [Activity(Label = "PayDebt", MainLauncher = true, Name = "ru.leoltron.PayDebt.MainActivity",
+        ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     // ReSharper disable once UnusedMember.Global
     public class MainActivity : FragmentActivity
     {
