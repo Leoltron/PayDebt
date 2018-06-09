@@ -20,6 +20,7 @@ namespace PayDebt
 
         private EditText nameEditText;
         private EditText amountEditText;
+        private EditText messageEditText;
         private Button inputTypeSwitchButton;
 
         private Button dateButton;
@@ -59,6 +60,13 @@ namespace PayDebt
         {
             InitAmountEditText();
             InitCurrencySpinner();
+            InitMessageEditText();
+        }
+
+        private void InitMessageEditText()
+        {
+            messageEditText = FindViewById<EditText>(Resource.Id.messageEditText);
+            messageEditText.Enabled = VKSdk.IsLoggedIn;
         }
 
         private void InitAmountEditText()
@@ -117,8 +125,7 @@ namespace PayDebt
             if (string.IsNullOrWhiteSpace(lastVkFriendId)) return;
             var vkParams = new VKParameters();
             vkParams.Put("user_id", lastVkFriendId);
-            var sharedPref = SharedPrefExtensions.GetAppSharedPref(this);
-            vkParams.Put("message", sharedPref.GetMessageTemplate().Replace("%MONEY%", money.ToString()));
+            vkParams.Put("message", messageEditText.Text);
             new VKRequest("messages.send", vkParams).ExecuteWithListener(new VkRequestListener(OnAttemptFailed, OnRequestComplete));
         }
 

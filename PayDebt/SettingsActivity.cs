@@ -25,7 +25,6 @@ namespace PayDebt
             InitActionBar();
 
             InitCurrencySpinner();
-            InitMessageTemplateEditText();
             InitVkLoginButton();
         }
 
@@ -50,14 +49,6 @@ namespace PayDebt
             ActionBar.SetDisplayHomeAsUpEnabled(true);
             ActionBar.SetHomeButtonEnabled(true);
             SetTitle(Resource.String.settings);
-        }
-
-        private void InitMessageTemplateEditText()
-        {
-            messageTemplateEditText = FindViewById<EditText>(Resource.Id.messageTemplateEditText);
-            var sharedPref = SharedPrefExtensions.GetAppSharedPref(this);
-            messageTemplateEditText.Text = sharedPref.GetMessageTemplate();
-            messageTemplateEditText.TextChanged += (sender, args) => messageTemplateChanged = true;
         }
 
         public override bool OnMenuItemSelected(int featureId, IMenuItem item)

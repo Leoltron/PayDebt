@@ -6,7 +6,7 @@ namespace PayDebt
 {
     public class Debts : IEnumerable<Debt>
     {
-        private Dictionary<int, Debt> debts;
+        private readonly Dictionary<int, Debt> debts;
         public Debt this[int id] => debts[id];
         private int nextId = 0;
 

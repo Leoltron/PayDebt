@@ -20,6 +20,7 @@
   <string name="default_currency">Валюта по умолчанию</string>
   <string name="set_date">Установить дату</string>
   <string name="message_template">Шаблон сообщения (%MONEY% заменится на сумму долга)</string>
+  <string name="message">Сообщение </string>
   <string name="vk_login">Присоединить ВК</string>
   <string name="vk_logout">Отсоединить ВК</string>
   <string name="vk_friends">Друзья ВК</string>

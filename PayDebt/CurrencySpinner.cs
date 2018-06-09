@@ -25,7 +25,7 @@ namespace PayDebt
         {
             var currenciesNames = Currency.Currencies.Select(c => c.Name).ToList();
             var defaultCurrency = SharedPrefExtensions.GetAppSharedPref(activity).GetDefaultCurrency();
-            var selected = currenciesNames.FindIndex(s => s == defaultCurrency.Name);
+            var selected = currenciesNames.FindIndex(s => s == defaultCurrency?.Name);
 
             var adapter =
                 new ArrayAdapter<string>(activity, Android.Resource.Layout.SimpleSpinnerItem, currenciesNames);
