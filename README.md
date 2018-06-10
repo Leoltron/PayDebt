@@ -15,7 +15,7 @@
 *   [ValueType](Infrastructure/ValueType.cs) - базовый класс для Value-типов
 *   [Entity](Infrastructure/Entity.cs) - базовый класс для сущностей
 *   [ScalarType](Infrastructure/ScalarType.cs) - Value-тип, имеющий единицы измерения
-*   [StaticStorage](Infrastructure/StaticStorage.cs) - класс, предоставляющий наследникам возможность получить перечислений всех значений статических полей определенного типа
+*   [StaticStorage](Infrastructure/StaticStorage.cs) - класс, предоставляющий наследникам возможность получить перечисление всех значений статических полей определенного типа
 *   [IEntityStorageAccess](Infrastructure/IEntityStorageAccess.cs) - интерфейс хранилища сущностей
 
 [AndroidInfrastructure](PayDebt/AndroidInfrastructure)
