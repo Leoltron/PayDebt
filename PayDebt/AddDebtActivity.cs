@@ -5,6 +5,7 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using DebtModel;
 using VKontakte;
 using VKontakte.API;
 

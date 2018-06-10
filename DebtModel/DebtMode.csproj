@@ -35,15 +35,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contact.cs" />
-    <Compile Include="Currencies.cs" />
-    <Compile Include="Currency.cs" />
-    <Compile Include="Debt.cs" />
-    <Compile Include="Debts.cs" />
-    <Compile Include="IDebtsStorageAccess.cs" />
-    <Compile Include="Money.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{96e50196-77f7-446f-92a8-d9ff98a1a789}</Project>
       <Name>Infrastructure</Name>

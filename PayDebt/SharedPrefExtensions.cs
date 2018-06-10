@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using Android.App;
 using Android.Content;
+using DebtModel;
 
 namespace PayDebt
 {

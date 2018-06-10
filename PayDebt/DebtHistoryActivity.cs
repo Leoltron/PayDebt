@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.OS;
 using Android.Widget;
+using DebtModel;
 
 namespace PayDebt
 {

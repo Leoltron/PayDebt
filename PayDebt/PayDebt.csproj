@@ -155,6 +155,10 @@
       <Project>{96E50196-77F7-446F-92A8-D9FF98A1A789}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ModelDebt\DebtModel.csproj">
+      <Project>{9dd5e78d-24d2-4dff-a006-e0a47afc8dd7}</Project>
+      <Name>DebtModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />

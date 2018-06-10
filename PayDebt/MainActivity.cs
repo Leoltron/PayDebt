@@ -7,6 +7,7 @@ using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
+using DebtModel;
 using VKontakte;
 using static Android.Graphics.Color;
 using Fragment = Android.Support.V4.App.Fragment;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Android.Content;
 using Android.Util;
+using DebtModel;
 
 namespace PayDebt
 {
