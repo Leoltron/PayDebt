@@ -1,11 +1,20 @@
-﻿using Java.Lang;
+﻿using System;
+using Java.Lang;
 
 namespace PayDebt
 {
-    public class ScalarType<TValue, TUnit> : ValueType<ScalarType<TValue, TUnit>>
+    public abstract class ScalarType<TValue, TUnit> 
+        : ValueType<ScalarType<TValue, TUnit>> 
+        where TUnit : IEquatable<TUnit>
     {
         public TUnit Unit { get; }
         public TValue Value { get; }
+
+        protected ScalarType(TValue value, TUnit unit)
+        {
+            Unit = unit;
+            Value = value;
+        }
 
         protected static void CheckUnitEquals
             (ScalarType<TValue, TUnit> first, ScalarType<TValue, TUnit> second)
