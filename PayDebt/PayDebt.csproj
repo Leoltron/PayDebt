@@ -116,6 +116,7 @@
   <ItemGroup>
     <Compile Include="AddDebtActivity.cs" />
     <Compile Include="Contact.cs" />
+    <Compile Include="Currencies.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="CurrencyAttribute.cs" />
     <Compile Include="CurrencySpinner.cs" />
@@ -133,7 +134,9 @@
     <Compile Include="SettingsActivity.cs" />
     <Compile Include="SharedPrefDebts.cs" />
     <Compile Include="SharedPrefExtensions.cs" />
+    <Compile Include="StaticStorage.cs" />
     <Compile Include="TabsFragmentPagerAdapter.cs" />
+    <Compile Include="ValueType.cs" />
     <Compile Include="ViewExtensions.cs" />
     <Compile Include="VkFriendPickerActivity.cs" />
     <Compile Include="VkRequestListener.cs" />

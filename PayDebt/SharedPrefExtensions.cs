@@ -35,7 +35,7 @@ namespace PayDebt
         public static Currency GetDefaultCurrency(this ISharedPreferences sharedPref)
         {
             var name = sharedPref.GetString(DefaultCurrencyKey, "NONE");
-            return Currency.Currencies.FirstOrDefault(c => c.Name == name);
+            return Currencies.CurrencyTypes.FirstOrDefault(c => c.Name == name);
         }
 
         private const string MessageTemplateKey = "messageTemplate";
@@ -47,7 +47,7 @@ namespace PayDebt
 
         public static string GetMessageTemplate(this ISharedPreferences sharedPref)
         {
-            return sharedPref.GetString(MessageTemplateKey, "");
+            return sharedPref.GetString(MessageTemplateKey, "PayDebt");
         }
 
         private const string IdSuffix = "_id";

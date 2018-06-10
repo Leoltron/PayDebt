@@ -125,7 +125,8 @@ namespace PayDebt
             if (string.IsNullOrWhiteSpace(lastVkFriendId)) return;
             var vkParams = new VKParameters();
             vkParams.Put("user_id", lastVkFriendId);
-            vkParams.Put("message", messageEditText.Text);
+            var sharedPref = SharedPrefExtensions.GetAppSharedPref(this);
+            vkParams.Put("message", $"[{sharedPref.GetMessageTemplate()}] {messageEditText.Text}");
             new VKRequest("messages.send", vkParams).ExecuteWithListener(new VkRequestListener(OnAttemptFailed, OnRequestComplete));
         }
 

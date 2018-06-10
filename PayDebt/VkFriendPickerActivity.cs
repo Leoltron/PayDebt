@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Android.App;
 using Android.Content;
@@ -29,6 +30,7 @@ namespace PayDebt
 
         private LinearLayout friendListLl;
         private ListView friendList;
+        private EditText searchEditText;
         private ArrayAdapter<string> friendListAdapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -47,8 +49,19 @@ namespace PayDebt
             loadingProgressBar = FindViewById<ProgressBar>(Resource.Id.friendsProgressBar);
             friendListLl = FindViewById<LinearLayout>(Resource.Id.friendsListLL);
 
+            searchEditText = FindViewById<EditText>(Resource.Id.searchEditText);
+            searchEditText.TextChanged += (sender, args) => FilterFriendList();
+
             InitActionBar();
             UpdateFriendList();
+        }
+
+        private void FilterFriendList()
+        {
+            friendListAdapter.Clear();
+            foreach (var name in names.Where(n => n.StartsWith(searchEditText.Text, StringComparison.OrdinalIgnoreCase)))
+                friendListAdapter.Add(name);
+            friendListAdapter.NotifyDataSetInvalidated();
         }
 
         private void FriendListOnItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -116,10 +129,7 @@ namespace PayDebt
                 for (int i = 0; i < jsonArray.Length(); i++)
                     AddFriend(jsonArray.GetJSONObject(i));
 
-                friendListAdapter.Clear();
-                foreach (var name in names)
-                    friendListAdapter.Add(name);
-                friendListAdapter.NotifyDataSetInvalidated();
+                FilterFriendList();
             }
 
 

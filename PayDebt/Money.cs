@@ -1,4 +1,5 @@
 ﻿using Java.Lang;
+using Math = System.Math;
 
 namespace PayDebt
 {
@@ -15,7 +16,7 @@ namespace PayDebt
 
         public override string ToString()
         {
-            return Amount < 0 ? (-Amount).ToString("C", Currency) : Amount.ToString("C", Currency);
+            return Math.Abs(Amount).ToString("C", Currency);
         }
 
         private static void CheckCurrencyEquals(Money m1, Money m2)
