@@ -1,5 +1,4 @@
 ﻿using System;
-using Java.Lang;
 
 namespace PayDebt
 {
@@ -20,11 +19,8 @@ namespace PayDebt
             (ScalarType<TValue, TUnit> first, ScalarType<TValue, TUnit> second)
         {
             if (Equals(first.Unit, second.Unit)) return;
-            throw new IllegalArgumentException(
+            throw new ArgumentException(
                 $"Unit of measurement of {first} ({first.Unit}) and {second} ({second.Unit}) are not equal");
         }
-
-        
-
     }
 }
