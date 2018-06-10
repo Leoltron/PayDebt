@@ -1,9 +1,8 @@
-﻿using Java.Lang;
-using Math = System.Math;
+﻿using System;
 
 namespace PayDebt
 {
-    public struct Money
+    public struct Money : IEquatable<Money>
     {
         public decimal Amount { get; }
         public Currency Currency { get; }
@@ -22,7 +21,7 @@ namespace PayDebt
         private static void CheckCurrencyEquals(Money m1, Money m2)
         {
             if (!Equals(m1.Currency, m2.Currency))
-                throw new IllegalArgumentException(
+                throw new ArgumentException(
                     $"Currencies of {m1} ({m1.Currency.Name}) and {m2} ({m2.Currency.Name}) are not equal");
         }
 

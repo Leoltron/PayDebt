@@ -6,14 +6,13 @@ using System.Reflection;
 
 namespace PayDebt
 {
-    public class ValueType<T> where T : class
+    public class ValueType<T>: IEquatable<T> where T : class
     {
         private static readonly Func<T, int> GetHashCodeFast;
 
         static ValueType()
         {
             var props = GetPublicInstanceProperties();
-
 
             var valueTypeParam = Expression.Parameter(typeof(T));
             var ghc = typeof(object).GetMethod("GetHashCode");
