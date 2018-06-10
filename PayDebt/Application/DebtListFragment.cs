@@ -7,7 +7,7 @@ using Android.Widget;
 using DebtModel;
 using Fragment = Android.Support.V4.App.Fragment;
 
-namespace PayDebt
+namespace PayDebt.Application
 {
     class DebtListFragment : Fragment
     {

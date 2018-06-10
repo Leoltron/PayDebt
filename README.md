@@ -20,8 +20,10 @@
 [Infrastructure](Infrastructure)
 *   [IEnumerableExtension](Infrastructure/IEnumerableExtension.cs), [TypeExtensions](Infrastructure/TypeExtensions.cs) - методы расширения
 *   [ValueType](Infrastructure/ValueType.cs) - базовый класс для Value-типов
+*   [Entity](Infrastructure/Entity.cs) - базовый класс для сущностей
 *   [ScalarType](Infrastructure/ScalarType.cs) - Value-тип, имеющий единицы измерения
 *   [StaticStorage](Infrastructure/StaticStorage.cs) - класс, предоставляющий наследникам возможность получить перечислений всех значений статических полей определенного типа
+*   [IEntityStorageAccess](Infrastructure/IEntityStorageAccess.cs) - интерфейс хранилища сущностей
 
 [AndroidInfrastructure](PayDebt/AndroidInfrastructure)
 *   [TabsFragmentPagerAdapter](PayDebt/AndroidInfrastructure/TabsFragmentPagerAdapter.cs)
@@ -37,4 +39,8 @@
 *   [Money](ModelDebt/Money.cs) - модель денег, представляет из себя скалярную величину(размерность - `Currency`, значение - `decimal`)
 *   [Debt](ModelDebt/Debt.cs) - запись о долге, сущность
 *   [IDebtStorageAccess](ModelDebt/IDebtStarageAccess.cs) - интерфейс хранилища долгов.
-*	[Debts](ModelDebt/Debts.cs) - 
+*	[Debts](ModelDebt/Debts.cs) - ???
+
+### 
+
+

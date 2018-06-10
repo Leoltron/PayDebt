@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -12,7 +10,7 @@ using Org.Json;
 using PayDebt.AndroidInfrastructure;
 using VKontakte.API;
 
-namespace PayDebt
+namespace PayDebt.Application
 {
 
     [Activity(Name= "ru.leoltron.PayDebt.VkFriendPickerActivity", Label = "", Theme = "@style/DesignTheme1")]

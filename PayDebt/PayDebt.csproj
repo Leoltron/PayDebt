@@ -114,21 +114,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddDebtActivity.cs" />
-    <Compile Include="CurrencySpinner.cs" />
-    <Compile Include="CustomApplication.cs" />
-    <Compile Include="DebtHistoryActivity.cs" />
-    <Compile Include="DebtInfoAdapter.cs" />
-    <Compile Include="DebtListFragment.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="Application\AddDebtActivity.cs" />
+    <Compile Include="Application\CurrencySpinner.cs" />
+    <Compile Include="Application\CustomApplication.cs" />
+    <Compile Include="Application\DebtHistoryActivity.cs" />
+    <Compile Include="Application\DebtInfoAdapter.cs" />
+    <Compile Include="Application\DebtListFragment.cs" />
+    <Compile Include="Application\MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsActivity.cs" />
-    <Compile Include="SharedPrefDebts.cs" />
-    <Compile Include="SharedPrefExtensions.cs" />
+    <Compile Include="Application\SettingsActivity.cs" />
+    <Compile Include="Application\SharedPrefDebts.cs" />
+    <Compile Include="Application\SharedPrefExtensions.cs" />
     <Compile Include="AndroidInfrastructure\TabsFragmentPagerAdapter.cs" />
     <Compile Include="AndroidInfrastructure\ViewExtensions.cs" />
-    <Compile Include="VkFriendPickerActivity.cs" />
+    <Compile Include="Application\VkFriendPickerActivity.cs" />
     <Compile Include="AndroidInfrastructure\VkRequestListener.cs" />
   </ItemGroup>
   <ItemGroup>

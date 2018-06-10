@@ -5,7 +5,7 @@ using Android.Util;
 using DebtModel;
 using Infrastructure;
 
-namespace PayDebt
+namespace PayDebt.Application
 {
     public class SharedPrefDebts : IEntityStorageAccess<int, Debt>
     {

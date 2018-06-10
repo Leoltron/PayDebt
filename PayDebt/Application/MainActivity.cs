@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -11,10 +12,9 @@ using DebtModel;
 using Infrastructure;
 using PayDebt.AndroidInfrastructure;
 using VKontakte;
-using static Android.Graphics.Color;
 using Fragment = Android.Support.V4.App.Fragment;
 
-namespace PayDebt
+namespace PayDebt.Application
 {
     [Activity(Label = "PayDebt", MainLauncher = true, Name = "ru.leoltron.PayDebt.MainActivity",
         ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
@@ -65,7 +65,7 @@ namespace PayDebt
 
         private void InitTabLayout()
         {
-            tabLayout.SetTabTextColors(Aqua, AntiqueWhite);
+            tabLayout.SetTabTextColors(Color.Aqua, Color.AntiqueWhite);
             var fragments = new Fragment[]
             {
                 myDebtsListFragment = new DebtListFragment(Debts, debt => !debt.IsPaid && debt.IsMyDebt),

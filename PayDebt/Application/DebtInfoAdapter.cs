@@ -9,7 +9,7 @@ using Android.Widget;
 using DebtModel;
 using PayDebt.AndroidInfrastructure;
 
-namespace PayDebt
+namespace PayDebt.Application
 {
     internal class DebtInfoAdapter : BaseAdapter<Debt>
     {

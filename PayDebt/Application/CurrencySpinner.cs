@@ -6,7 +6,7 @@ using Android.Util;
 using Android.Widget;
 using DebtModel;
 
-namespace PayDebt
+namespace PayDebt.Application
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     [SuppressMessage("ReSharper", "UnusedMember.Global")]

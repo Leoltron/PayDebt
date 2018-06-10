@@ -6,7 +6,7 @@ using Android.App;
 using Android.Content;
 using DebtModel;
 
-namespace PayDebt
+namespace PayDebt.Application
 {
     public static class SharedPrefExtensions
     {

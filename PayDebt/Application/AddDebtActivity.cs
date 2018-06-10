@@ -10,7 +10,7 @@ using PayDebt.AndroidInfrastructure;
 using VKontakte;
 using VKontakte.API;
 
-namespace PayDebt
+namespace PayDebt.Application
 {
     [Activity(Label = "AddDebtActivity", Name = "ru.leoltron.PayDebt.AddDebtActivity")]
     public class AddDebtActivity : Activity, DatePickerDialog.IOnDateSetListener

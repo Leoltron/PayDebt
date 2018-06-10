@@ -3,7 +3,7 @@ using Android.OS;
 using Android.Widget;
 using DebtModel;
 
-namespace PayDebt
+namespace PayDebt.Application
 {
     [Activity(Name = "ru.leoltron.PayDebt.DebtHistoryActivity")]
     public class DebtHistoryActivity : Activity
