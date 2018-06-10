@@ -1,27 +1,29 @@
 # PayDebt
 
-### Описание
-Мобильное приложение под Android для контроля долгов и займов.
+### РћРїРёСЃР°РЅРёРµ
+РњРѕР±РёР»СЊРЅРѕРµ РїСЂРёР»РѕР¶РµРЅРёРµ РїРѕРґ Android РґР»СЏ РєРѕРЅС‚СЂРѕР»СЏ РґРѕР»РіРѕРІ Рё Р·Р°Р№РјРѕРІ.
 
-### Реализованные функции
-*  Запись и удаление долгов
-*  Возможность установки даты выплаты
-*  Привязка к VK, отправка сообщения о взятии займа пользователю
-*  Выбор валюты
-*  История займов
+### Р РµР°Р»РёР·РѕРІР°РЅРЅС‹Рµ С„СѓРЅРєС†РёРё
+*  Р—Р°РїРёСЃСЊ Рё СѓРґР°Р»РµРЅРёРµ РґРѕР»РіРѕРІ
+*  Р’РѕР·РјРѕР¶РЅРѕСЃС‚СЊ СѓСЃС‚Р°РЅРѕРІРєРё РґР°С‚С‹ РІС‹РїР»Р°С‚С‹
+*  РџСЂРёРІСЏР·РєР° Рє VK, РѕС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёСЏ Рѕ РІР·СЏС‚РёРё Р·Р°Р№РјР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ
+*  Р’С‹Р±РѕСЂ РІР°Р»СЋС‚С‹
+*  РСЃС‚РѕСЂРёСЏ Р·Р°Р№РјРѕРІ
 
-### Требования
+### РўСЂРµР±РѕРІР°РЅРёСЏ
 *   Android 5.0
 
-### Структура решения
-##### Слой инфраструктуры
-Представлен [Infrastructure](Infrastructure) и [AndroidInfrastructure](PayDebt/AndroidInfrastructure).
+### РЎС‚СЂСѓРєС‚СѓСЂР° СЂРµС€РµРЅРёСЏ
+##### РЎР»РѕР№ РёРЅС„СЂР°СЃС‚СЂСѓРєС‚СѓСЂС‹
+РџСЂРµРґСЃС‚Р°РІР»РµРЅ [Infrastructure](Infrastructure) Рё [AndroidInfrastructure](PayDebt/AndroidInfrastructure).
 
 [Infrastructure](Infrastructure)
-*   [IEnumerableExtension](Infrastructure/IEnumerableExtension.cs), [TypeExtensions](Infrastructure/TypeExtensions.cs) - методы расширения
-*   [ValueType](Infrastructure/ValueType.cs) - базовый класс для Value-типов
-*   [ScalarType](Infrastructure/ScalarType.cs) - Value-тип, имеющий единицы измерения
-*   [StaticStorage](Infrastructure/StaticStorage.cs) - класс, предоставляющий наследникам возможность получить перечислений всех значений статических полей определенного типа
+*   [IEnumerableExtension](Infrastructure/IEnumerableExtension.cs), [TypeExtensions](Infrastructure/TypeExtensions.cs) - РјРµС‚РѕРґС‹ СЂР°СЃС€РёСЂРµРЅРёСЏ
+*   [ValueType](Infrastructure/ValueType.cs) - Р±Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ РґР»СЏ Value-С‚РёРїРѕРІ
+*   [Entity](Infrastructure/Entity.cs) - Р±Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ РґР»СЏ СЃСѓС‰РЅРѕСЃС‚РµР№
+*   [ScalarType](Infrastructure/ScalarType.cs) - Value-С‚РёРї, РёРјРµСЋС‰РёР№ РµРґРёРЅРёС†С‹ РёР·РјРµСЂРµРЅРёСЏ
+*   [StaticStorage](Infrastructure/StaticStorage.cs) - РєР»Р°СЃСЃ, РїСЂРµРґРѕСЃС‚Р°РІР»СЏСЋС‰РёР№ РЅР°СЃР»РµРґРЅРёРєР°Рј РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕР»СѓС‡РёС‚СЊ РїРµСЂРµС‡РёСЃР»РµРЅРёР№ РІСЃРµС… Р·РЅР°С‡РµРЅРёР№ СЃС‚Р°С‚РёС‡РµСЃРєРёС… РїРѕР»РµР№ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ С‚РёРїР°
+*   [IEntityStorageAccess](Infrastructure/IEntityStorageAccess.cs) - РёРЅС‚РµСЂС„РµР№СЃ С…СЂР°РЅРёР»РёС‰Р° СЃСѓС‰РЅРѕСЃС‚РµР№
 
 [AndroidInfrastructure](PayDebt/AndroidInfrastructure)
 *   [TabsFragmentPagerAdapter](PayDebt/AndroidInfrastructure/TabsFragmentPagerAdapter.cs)
@@ -29,12 +31,11 @@
 *   [VkRequestListener](PayDebt/AndroidInfrastructure/VkRequestListener.cs)
 
 
-### Предметная область
-Полностью представлена в проекте [ModelDebt](DebtModel):
-*   [Contact](ModelDebt/Contact.cs) - контакт
-*   [Currency](ModelDebt/Currency.cs) - валюта, Value-тип
-*   [Currencies](ModelDebt/Currencies.cs) - хранилище валют, наследуется от `StaticStorage<Currency, Currencies>`
-*   [Money](ModelDebt/Money.cs) - модель денег, представляет из себя скалярную величину(размерность - `Currency`, значение - `decimal`)
-*   [Debt](ModelDebt/Debt.cs) - запись о долге, сущность
-*   [IDebtStorageAccess](ModelDebt/IDebtStarageAccess.cs) - интерфейс хранилища долгов.
-*	[Debts](ModelDebt/Debts.cs) - 
+### РџСЂРµРґРјРµС‚РЅР°СЏ РѕР±Р»Р°СЃС‚СЊ
+РџРѕР»РЅРѕСЃС‚СЊСЋ РїСЂРµРґСЃС‚Р°РІР»РµРЅР° РІ РїСЂРѕРµРєС‚Рµ [ModelDebt](DebtModel):
+*   [Contact](ModelDebt/Contact.cs) - РєРѕРЅС‚Р°РєС‚
+*   [Currency](ModelDebt/Currency.cs) - РІР°Р»СЋС‚Р°, Value-С‚РёРї
+*   [Currencies](ModelDebt/Currencies.cs) - С…СЂР°РЅРёР»РёС‰Рµ РІР°Р»СЋС‚, РЅР°СЃР»РµРґСѓРµС‚СЃСЏ РѕС‚ `StaticStorage<Currency, Currencies>`
+*   [Money](ModelDebt/Money.cs) - РјРѕРґРµР»СЊ РґРµРЅРµРі, РїСЂРµРґСЃС‚Р°РІР»СЏРµС‚ РёР· СЃРµР±СЏ СЃРєР°Р»СЏСЂРЅСѓСЋ РІРµР»РёС‡РёРЅСѓ(СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ - `Currency`, Р·РЅР°С‡РµРЅРёРµ - `decimal`)
+*   [Debt](ModelDebt/Debt.cs) - Р·Р°РїРёСЃСЊ Рѕ РґРѕР»РіРµ, СЃСѓС‰РЅРѕСЃС‚СЊ
+*	  [Debts](ModelDebt/Debts.cs) - ???
