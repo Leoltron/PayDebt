@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace PayDebt
@@ -7,8 +8,6 @@ namespace PayDebt
     {
         public string Name { get; }
         public CultureInfo Culture { get; }
-
-        public IReadOnlyList<Currency> Currencies = PayDebt.Currencies.CurrencyTypes;
 
         public Currency(string name, CultureInfo culture)
         {
