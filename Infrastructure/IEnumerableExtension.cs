@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PayDebt
+namespace Infrastructure
 {
     public static class IEnumerableExtension
     {

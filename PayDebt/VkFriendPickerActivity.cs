@@ -7,6 +7,7 @@ using Android.OS;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Infrastructure;
 using Org.Json;
 using VKontakte.API;
 

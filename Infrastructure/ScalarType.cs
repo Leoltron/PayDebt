@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PayDebt
+namespace Infrastructure
 {
     public abstract class ScalarType<TValue, TUnit> 
         : ValueType<ScalarType<TValue, TUnit>> 

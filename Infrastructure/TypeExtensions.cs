@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PayDebt
+namespace Infrastructure
 {
     public static class TypeExtensions
     {

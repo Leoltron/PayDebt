@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace PayDebt
+namespace Infrastructure
 {
     public class ValueType<T> : IEquatable<T> where T : class
     {

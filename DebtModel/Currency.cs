@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Infrastructure;
 
-namespace PayDebt
+
+namespace DebtModel
 {
     public class Currency : ValueType<Currency>, IFormatProvider
     {

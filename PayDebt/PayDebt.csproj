@@ -115,30 +115,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddDebtActivity.cs" />
-    <Compile Include="Contact.cs" />
-    <Compile Include="Currencies.cs" />
-    <Compile Include="Currency.cs" />
     <Compile Include="CurrencySpinner.cs" />
     <Compile Include="CustomApplication.cs" />
-    <Compile Include="Debt.cs" />
     <Compile Include="DebtHistoryActivity.cs" />
     <Compile Include="DebtInfoAdapter.cs" />
     <Compile Include="DebtListFragment.cs" />
-    <Compile Include="Debts.cs" />
-    <Compile Include="IDebtsStorageAccess.cs" />
-    <Compile Include="IEnumerableExtension.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Money.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScalarType.cs" />
     <Compile Include="SettingsActivity.cs" />
     <Compile Include="SharedPrefDebts.cs" />
     <Compile Include="SharedPrefExtensions.cs" />
-    <Compile Include="StaticStorage.cs" />
     <Compile Include="TabsFragmentPagerAdapter.cs" />
-    <Compile Include="ValueType.cs" />
-    <Compile Include="TypeExtensions.cs" />
     <Compile Include="ViewExtensions.cs" />
     <Compile Include="VkFriendPickerActivity.cs" />
     <Compile Include="VkRequestListener.cs" />
@@ -162,7 +150,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{96E50196-77F7-446F-92A8-D9FF98A1A789}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace PayDebt
+﻿namespace DebtModel
 {
     public class Contact
     {

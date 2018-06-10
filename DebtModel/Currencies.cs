@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using Infrastructure;
 
-namespace PayDebt
+namespace DebtModel
 {
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     // ReSharper disable once ClassNeverInstantiated.Global

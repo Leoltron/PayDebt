@@ -1,7 +1,6 @@
 ﻿using System;
-using Java.Lang;
 
-namespace PayDebt
+namespace DebtModel
 {
     public class Debt
     {
@@ -25,7 +24,7 @@ namespace PayDebt
         public Debt(int id, Contact assosiatedContact, Money money, string comment, DateTime creationDate)
         {
             if (money.Amount == 0)
-                throw new IllegalArgumentException("Zero amount! There's no debt!");
+                throw new ArgumentException("Zero amount! There's no debt!");
             AssosiatedContact = assosiatedContact;
             Money = money;
             Comment = comment;

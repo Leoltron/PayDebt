@@ -1,6 +1,7 @@
 ﻿using System;
+using Infrastructure;
 
-namespace PayDebt
+namespace DebtModel
 {
     public class Money : ScalarType<decimal, Currency>
     {

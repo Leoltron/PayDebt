@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PayDebt
+namespace DebtModel
 {
     public class Debts : IEnumerable<Debt>
     {
