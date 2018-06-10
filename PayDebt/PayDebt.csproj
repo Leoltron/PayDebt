@@ -118,7 +118,6 @@
     <Compile Include="Contact.cs" />
     <Compile Include="Currencies.cs" />
     <Compile Include="Currency.cs" />
-    <Compile Include="CurrencyAttribute.cs" />
     <Compile Include="CurrencySpinner.cs" />
     <Compile Include="CustomApplication.cs" />
     <Compile Include="Debt.cs" />
