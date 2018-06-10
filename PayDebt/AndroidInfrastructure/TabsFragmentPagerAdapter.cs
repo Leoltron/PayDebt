@@ -1,7 +1,7 @@
 ﻿using Android.Support.V4.App;
 using Java.Lang;
 
-namespace PayDebt
+namespace PayDebt.AndroidInfrastructure
 {
     public class TabsFragmentPagerAdapter : FragmentPagerAdapter
     {

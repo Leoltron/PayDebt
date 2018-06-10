@@ -126,10 +126,10 @@
     <Compile Include="SettingsActivity.cs" />
     <Compile Include="SharedPrefDebts.cs" />
     <Compile Include="SharedPrefExtensions.cs" />
-    <Compile Include="TabsFragmentPagerAdapter.cs" />
-    <Compile Include="ViewExtensions.cs" />
+    <Compile Include="AndroidInfrastructure\TabsFragmentPagerAdapter.cs" />
+    <Compile Include="AndroidInfrastructure\ViewExtensions.cs" />
     <Compile Include="VkFriendPickerActivity.cs" />
-    <Compile Include="VkRequestListener.cs" />
+    <Compile Include="AndroidInfrastructure\VkRequestListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

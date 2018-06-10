@@ -1,7 +1,7 @@
 ﻿using System;
 using VKontakte.API;
 
-namespace PayDebt
+namespace PayDebt.AndroidInfrastructure
 {
     internal class VkRequestListener : VKRequest.VKRequestListener
     {

@@ -7,6 +7,7 @@ using Android.Support.V4.Content;
 using Android.Views;
 using Android.Widget;
 using DebtModel;
+using PayDebt.AndroidInfrastructure;
 
 namespace PayDebt
 {

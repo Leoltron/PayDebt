@@ -9,6 +9,7 @@ using Android.Views;
 using Android.Widget;
 using Infrastructure;
 using Org.Json;
+using PayDebt.AndroidInfrastructure;
 using VKontakte.API;
 
 namespace PayDebt

@@ -2,7 +2,7 @@
 using Android.Views;
 using Android.Widget;
 
-namespace PayDebt
+namespace PayDebt.AndroidInfrastructure
 {
     public static class ViewExtensions
     {
