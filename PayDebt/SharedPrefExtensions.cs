@@ -35,7 +35,7 @@ namespace PayDebt
         public static Currency GetDefaultCurrency(this ISharedPreferences sharedPref)
         {
             var name = sharedPref.GetString(DefaultCurrencyKey, "NONE");
-            return Currencies.CurrencyTypes.FirstOrDefault(c => c.Name == name);
+            return Currencies.All.FirstOrDefault(c => c.Name == name);
         }
 
         private const string MessageTemplateKey = "messageTemplate";

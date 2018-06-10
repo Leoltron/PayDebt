@@ -208,7 +208,7 @@ namespace PayDebt
         private Currency GetSelectedCurrency()
         {
             var selectedCurrencyName = (string) currencySpinner.SelectedItem;
-            return Currency.Currencies.FirstOrDefault(c => c.Name == selectedCurrencyName);
+            return Currencies.All.FirstOrDefault(c => c.Name == selectedCurrencyName);
         }
 
         private void UpdateDate()
