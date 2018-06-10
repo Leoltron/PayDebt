@@ -47,7 +47,7 @@ namespace PayDebt
 
         public static string GetMessageTemplate(this ISharedPreferences sharedPref)
         {
-            return sharedPref.GetString(MessageTemplateKey, "");
+            return sharedPref.GetString(MessageTemplateKey, "PayDebt");
         }
 
         private const string IdSuffix = "_id";

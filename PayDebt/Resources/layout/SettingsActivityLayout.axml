@@ -40,4 +40,18 @@
         android:id="@+id/messageTemplateTextView"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp" />
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/messageTemplatescrollView"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+        <EditText
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/messageTemplateEditText" />
+    </ScrollView>
 </LinearLayout>

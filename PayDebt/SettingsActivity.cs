@@ -25,6 +25,7 @@ namespace PayDebt
             InitActionBar();
 
             InitCurrencySpinner();
+            InitMessageTemplateEditText();
             InitVkLoginButton();
         }
 
@@ -51,7 +52,15 @@ namespace PayDebt
             SetTitle(Resource.String.settings);
         }
 
-        public override bool OnMenuItemSelected(int featureId, IMenuItem item)
+        private void InitMessageTemplateEditText()
+        {
+            messageTemplateEditText = FindViewById<EditText>(Resource.Id.messageTemplateEditText);
+            var sharedPref = SharedPrefExtensions.GetAppSharedPref(this);
+            messageTemplateEditText.Text = sharedPref.GetMessageTemplate();
+            messageTemplateEditText.TextChanged += (sender, args) => messageTemplateChanged = true;
+        }
+
+    public override bool OnMenuItemSelected(int featureId, IMenuItem item)
         {
             if (item.ItemId == Android.Resource.Id.Home)
             {

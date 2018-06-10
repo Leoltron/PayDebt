@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace PayDebt
 {
-    public static class Currencies
+    public class Currencies : StaticStorage<Currency, Currencies>
     {
         public static readonly Currency AmericanDollars =
             new Currency("USD", CultureInfo.GetCultureInfoByIetfLanguageTag("en-US"));
@@ -14,16 +14,6 @@ namespace PayDebt
         public static readonly Currency RussianRoubles =
             new Currency("RUB", CultureInfo.GetCultureInfoByIetfLanguageTag("ru-RU"));
 
-        public static IEnumerable<Currency> All { get; private set; }
-
-        static Currencies()
-        {
-            All = typeof(Currency)
-                .GetFields(BindingFlags.Static | BindingFlags.Public)
-                .Where(f => f.GetType().IsEqualOrSubclassOf(typeof(Currency)))
-                .Select(x => x.GetValue(x))
-                .OfType<Currency>()
-                .ToList();
-        }
+        public static IEnumerable<Currency> All => StaticFieldValues;
     }
 }

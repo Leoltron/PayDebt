@@ -133,7 +133,9 @@
     <Compile Include="SettingsActivity.cs" />
     <Compile Include="SharedPrefDebts.cs" />
     <Compile Include="SharedPrefExtensions.cs" />
+    <Compile Include="StaticStorage.cs" />
     <Compile Include="TabsFragmentPagerAdapter.cs" />
+    <Compile Include="ValueType.cs" />
     <Compile Include="TypeExtensions.cs" />
     <Compile Include="ViewExtensions.cs" />
     <Compile Include="VkFriendPickerActivity.cs" />
