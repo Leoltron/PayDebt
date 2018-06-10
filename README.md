@@ -31,11 +31,25 @@
 *   [VkRequestListener](PayDebt/AndroidInfrastructure/VkRequestListener.cs)
 
 
-### Предметная область
+##### Предметная область
 Полностью представлена в проекте [ModelDebt](DebtModel):
 *   [Contact](ModelDebt/Contact.cs) - контакт
 *   [Currency](ModelDebt/Currency.cs) - валюта, Value-тип
 *   [Currencies](ModelDebt/Currencies.cs) - хранилище валют, наследуется от `StaticStorage<Currency, Currencies>`
 *   [Money](ModelDebt/Money.cs) - модель денег, представляет из себя скалярную величину(размерность - `Currency`, значение - `decimal`)
 *   [Debt](ModelDebt/Debt.cs) - запись о долге, сущность
-*	  [Debts](ModelDebt/Debts.cs) - ???
+*	  [Debts](ModelDebt/Debts.cs) -
+
+
+##### Слой приложения
+В этом слое находятся все файлы, находящиеся непосредственно в [Application](PayDebt/Application):
+*   Классы из [Activities](PayDebt/Application/Activities), каждый из которых отвечает за поведение приложения на определенном экране
+*	Различные классы, задающие взаимодествие с виджетами, а также связывающие данные с их представлением([CurrencySpinner](PayDebt/Application/CurrencySpinner.cs), [DebtListFragment](PayDebt/Application/DebtListFragment), [DebtInfoAdapter](PayDebt/Application/DebtInfoAdapter.cs))
+*   [SharedPrefDebt](PayDebt/Application/ShSharedPrefDebt.cs) - реализация `IEntityStorageAccess<int, Debt>`
+*   [SharedPrefDebtExtensions](PayDebt/Application/ShSharedPrefDebtExtensions.cs) - методы расширения для `SharedPrefDebt`
+
+
+##### GUI
+Реализован с помощью AXML, находится в [Resources](PayDebt/Resources). Макеты можно найти в [layout](PayDebt/Resources/layout).
+
+

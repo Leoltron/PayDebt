@@ -5,7 +5,7 @@ using Android.Views;
 using Android.Widget;
 using VKontakte;
 
-namespace PayDebt.Application
+namespace PayDebt.Application.Activities
 {
     [Activity(Name = "ru.leoltron.PayDebt.SettingsActivity", Label = "SettingsActivity", Theme = "@style/DesignTheme1")]
     public class SettingsActivity : Activity

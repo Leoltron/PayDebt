@@ -10,7 +10,7 @@ using Org.Json;
 using PayDebt.AndroidInfrastructure;
 using VKontakte.API;
 
-namespace PayDebt.Application
+namespace PayDebt.Application.Activities
 {
 
     [Activity(Name= "ru.leoltron.PayDebt.VkFriendPickerActivity", Label = "", Theme = "@style/DesignTheme1")]

@@ -14,7 +14,7 @@ using PayDebt.AndroidInfrastructure;
 using VKontakte;
 using Fragment = Android.Support.V4.App.Fragment;
 
-namespace PayDebt.Application
+namespace PayDebt.Application.Activities
 {
     [Activity(Label = "PayDebt", MainLauncher = true, Name = "ru.leoltron.PayDebt.MainActivity",
         ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]

@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using DebtModel;
+using PayDebt.Application.Activities;
 using Fragment = Android.Support.V4.App.Fragment;
 
 namespace PayDebt.Application
