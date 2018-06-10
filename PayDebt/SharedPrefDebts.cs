@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using Android.Content;
 using Android.Util;
 using DebtModel;
+using Infrastructure;
 
 namespace PayDebt
 {
-    public class SharedPrefDebts : IDebtsStorageAccess
+    public class SharedPrefDebts : IEntityStorageAccess<int, Debt>
     {
         private const string DebtIdsSetKey = "debtIds";
 
@@ -19,7 +20,7 @@ namespace PayDebt
 
         private static string GetDebtKey(int id) => "debt#" + id;
 
-        public IEnumerable<Debt> LoadDebts()
+        public IEnumerable<Debt> LoadEntities()
         {
             var ids = sharedPreferences.GetStringSet(DebtIdsSetKey, new HashSet<string>());
             foreach (var idStr in ids)
@@ -47,7 +48,7 @@ namespace PayDebt
             return sharedPreferences.GetDebt(GetDebtKey(int.Parse(idStr)));
         }
 
-        public void SaveDebt(Debt debt)
+        public void SaveEntity(Debt debt)
         {
             var ids = new HashSet<string>(sharedPreferences.GetStringSet(DebtIdsSetKey, new HashSet<string>()))
             {
@@ -60,7 +61,7 @@ namespace PayDebt
             editor.Apply();
         }
 
-        public bool DeleteDebt(Debt debt)
+        public bool DeleteEntity(Debt debt)
         {
             var ids = new HashSet<string>(sharedPreferences.GetStringSet(DebtIdsSetKey, new HashSet<string>()));
             var result = ids.Remove(debt.Id.ToString());
@@ -70,7 +71,7 @@ namespace PayDebt
             return result;
         }
 
-        public bool DebtWithIdExisis(int id)
+        public bool EntityWithIdExisis(int id)
         {
             return sharedPreferences.GetStringSet(DebtIdsSetKey, new HashSet<string>()).Contains(id.ToString());
         }

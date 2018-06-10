@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Infrastructure;
 
 namespace DebtModel
 {
@@ -27,16 +28,16 @@ namespace DebtModel
             return debts.TryGetValue(id, out debt);
         }
 
-        public void Add(Debt debt, IDebtsStorageAccess storage)
+        public void Add(Debt debt, IEntityStorageAccess<int, Debt> storage)
         {
             debts[debt.Id] = debt;
-            storage.SaveDebt(debt);
+            storage.SaveEntity(debt);
         }
 
-        public void SaveTo(IDebtsStorageAccess storage)
+        public void SaveTo(IEntityStorageAccess<int, Debt> storage)
         {
             foreach (var debt in debts.Values)
-                storage.SaveDebt(debt);
+                storage.SaveEntity(debt);
         }
 
         public IEnumerator<Debt> GetEnumerator()
@@ -49,9 +50,9 @@ namespace DebtModel
             return GetEnumerator();
         }
 
-        public static Debts LoadFrom(IDebtsStorageAccess storage)
+        public static Debts LoadFrom(IEntityStorageAccess<int, Debt> storage)
         {
-            return new Debts(storage.LoadDebts().ToDictionary(d => d.Id));
+            return new Debts(storage.LoadEntities().ToDictionary(d => d.Id));
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System;
+using Infrastructure;
 
 namespace DebtModel
 {
-    public class Debt
+    public class Debt : Entity<int>
     {
-        public readonly int Id;
         public Contact AssosiatedContact { get; }
         public Money Money { get; }
         public DateTime CreationDate { get; }
@@ -21,7 +21,7 @@ namespace DebtModel
 
         public bool IsPaid { get; set; }
 
-        public Debt(int id, Contact assosiatedContact, Money money, string comment, DateTime creationDate)
+        public Debt(int id, Contact assosiatedContact, Money money, string comment, DateTime creationDate) : base(id)
         {
             if (money.Amount == 0)
                 throw new ArgumentException("Zero amount! There's no debt!");
@@ -29,7 +29,6 @@ namespace DebtModel
             Money = money;
             Comment = comment;
             CreationDate = creationDate;
-            Id = id;
             HasPaymentDate = false;
             PaymentDate = DateTime.MaxValue;
             IsPaid = false;

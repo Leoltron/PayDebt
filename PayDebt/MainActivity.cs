@@ -8,6 +8,7 @@ using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
 using DebtModel;
+using Infrastructure;
 using PayDebt.AndroidInfrastructure;
 using VKontakte;
 using static Android.Graphics.Color;
@@ -23,7 +24,7 @@ namespace PayDebt
         private const int AddDebtRequestCode = 512;
         private const int HistoryRequestCode = 874;
 
-        public static IDebtsStorageAccess Storage;
+        public static IEntityStorageAccess<int, Debt> Storage;
         public static Debts Debts;
 
         private bool initialized;
