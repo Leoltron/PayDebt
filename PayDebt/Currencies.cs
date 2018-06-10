@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Linq;
-using System.Reflection;
 
 namespace PayDebt
 {
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class Currencies : StaticStorage<Currency, Currencies>
     {
         public static readonly Currency AmericanDollars =
@@ -13,7 +13,5 @@ namespace PayDebt
             new Currency("EUR", CultureInfo.GetCultureInfoByIetfLanguageTag("fr-FR"));
         public static readonly Currency RussianRoubles =
             new Currency("RUB", CultureInfo.GetCultureInfoByIetfLanguageTag("ru-RU"));
-
-        public static IEnumerable<Currency> All => StaticFieldValues;
     }
 }
