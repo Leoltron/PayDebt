@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace PayDebt
 {
-    public class Currency : ValueType<Currency>, IFormatProvider
+    public class Currency : ValueType<Currency>, IFormatProvider, IEquatable<Currency>
     {
         public string Name { get; }
         public CultureInfo Culture { get; }

@@ -130,6 +130,7 @@
     <Compile Include="Money.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScalarType.cs" />
     <Compile Include="SettingsActivity.cs" />
     <Compile Include="SharedPrefDebts.cs" />
     <Compile Include="SharedPrefExtensions.cs" />
