@@ -126,6 +126,7 @@
     <Compile Include="DebtListFragment.cs" />
     <Compile Include="Debts.cs" />
     <Compile Include="IDebtsStorageAccess.cs" />
+    <Compile Include="IEnumerableExtension.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

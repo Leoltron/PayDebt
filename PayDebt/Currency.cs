@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace PayDebt
 {
-    public class Currency : ValueType<Currency>, IFormatProvider, IEquatable<Currency>
+    public class Currency : ValueType<Currency>, IFormatProvider
     {
         public string Name { get; }
         public CultureInfo Culture { get; }

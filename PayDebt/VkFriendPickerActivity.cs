@@ -59,7 +59,7 @@ namespace PayDebt
         private void FilterFriendList()
         {
             friendListAdapter.Clear();
-            foreach (var name in names.Where(n => n.StartsWith(searchEditText.Text, StringComparison.OrdinalIgnoreCase)))
+            foreach (var name in names.GetAllStartsWith(searchEditText.Text))
                 friendListAdapter.Add(name);
             friendListAdapter.NotifyDataSetInvalidated();
         }
@@ -154,7 +154,7 @@ namespace PayDebt
             var firstName = obj.Has("first_name") ? obj.GetString("first_name") : "";
             var lastName = obj.Has("last_name") ? obj.GetString("last_name") : "";
 
-            var name = string.Join(" ", new[] {firstName, lastName}.Where(x => !string.IsNullOrWhiteSpace(x)));
+            var name = string.Join(" ", new[] {firstName, lastName}.GetAllNonEmpty());
 
             names.Add(name);
             ids.Add(obj.GetInt("id").ToString());
