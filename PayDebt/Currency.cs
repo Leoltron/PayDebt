@@ -1,37 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Reflection;
 
 namespace PayDebt
 {
     public class Currency : IFormatProvider
     {
-        [Currency]
-        public static readonly Currency AmericanDollars =
-            new Currency("USD", CultureInfo.GetCultureInfoByIetfLanguageTag("en-US"));
-
-        [Currency]
-        public static readonly Currency EurosFrenchCulture =
-            new Currency("EUR", CultureInfo.GetCultureInfoByIetfLanguageTag("fr-FR"));
-
-        [Currency]
-        public static readonly Currency RussianRoubles =
-            new Currency("RUB", CultureInfo.GetCultureInfoByIetfLanguageTag("ru-RU"));
-
-        public static readonly IReadOnlyList<Currency> Currencies;
-
-        static Currency()
-        {
-            Currencies = typeof(Currency)
-                .GetFields(BindingFlags.Static | BindingFlags.Public)
-                .Where(f => f.GetCustomAttributes(false).OfType<CurrencyAttribute>().Any())
-                .Select(x => x.GetValue(x))
-                .OfType<Currency>()
-                .ToList();
-        }
-
         public string Name { get; }
         public CultureInfo Culture { get; }
 
