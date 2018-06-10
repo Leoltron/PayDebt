@@ -12,7 +12,6 @@ namespace PayDebt
         {
             StaticFieldValues = typeof(TStorage)
                 .GetFields(BindingFlags.Static | BindingFlags.Public)
-                .Where(f => f.GetCustomAttributes(false).OfType<CurrencyAttribute>().Any())
                 .Select(x => x.GetValue(x))
                 .OfType<TValue>()
                 .ToList();
