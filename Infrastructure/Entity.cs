@@ -2,15 +2,16 @@
 
 namespace Infrastructure
 {
-    public class Entity<TId>
+    public abstract class Entity<TId>
     {
-        public Entity(TId id)
+        protected Entity(TId id)
         {
             Id = id;
         }
 
         public TId Id { get; }
 
+        // ReSharper disable once MemberCanBePrivate.Global
         protected bool Equals(Entity<TId> other)
         {
             return EqualityComparer<TId>.Default.Equals(Id, other.Id);
@@ -20,7 +21,7 @@ namespace Infrastructure
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
             return Equals((Entity<TId>)obj);
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using Infrastructure;
+#pragma warning disable 660,661
 
 namespace DebtModel
 {

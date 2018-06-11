@@ -11,7 +11,7 @@ namespace DebtModel
         public Debt this[int id] => debts[id];
         private int nextId = 0;
 
-        public Debts(Dictionary<int, Debt> debts)
+        private Debts(Dictionary<int, Debt> debts)
         {
             this.debts = debts;
             if (debts.Any())

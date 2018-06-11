@@ -2,7 +2,7 @@
 
 namespace Infrastructure
 {
-    public interface IEntityStorageAccess<TKey, TEntity> where TEntity : Entity<TKey>
+    public interface IEntityStorageAccess<in TKey, TEntity> where TEntity : Entity<TKey>
     {
         IEnumerable<TEntity> LoadEntities();
         void SaveEntity(TEntity debt);
