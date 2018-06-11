@@ -12,11 +12,10 @@ using VKontakte.API;
 
 namespace PayDebt.Application.Activities
 {
-    [Activity(Label = "AddDebtActivity", Name = "ru.leoltron.PayDebt.AddDebtActivity")]
+    [Activity(Label = "AddDebtActivity", Name = "ru.leoltron.PayDebt.AddDebtActivity",
+        ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class AddDebtActivity : Activity, DatePickerDialog.IOnDateSetListener
     {
-        private Random rand = new Random();
-
         private const int FindVkFriendRequestCode = 339000236;
         private Button finishButton;
 
