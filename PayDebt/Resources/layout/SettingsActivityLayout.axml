@@ -17,7 +17,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:id="@+id/defaultCurrencyTextView" />
-        <PayDebt.CurrencySpinner
+        <PayDebt.Application.CurrencySpinner
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="0"
