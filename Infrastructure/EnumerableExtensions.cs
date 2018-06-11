@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Infrastructure
 {
-    public static class IEnumerableExtensions
+    public static class EnumerableExtensions
     {
         public static IEnumerable<string> GetAllStartsWith(
                 this IEnumerable<string> enumerable,
