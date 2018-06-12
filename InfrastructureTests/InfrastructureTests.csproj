@@ -55,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EnumerableExtensions_Should.cs" />
     <Compile Include="StaticStorage_Should.cs" />
+    <Compile Include="TypeExtensions_Should.cs" />
     <Compile Include="ValueType_Should.cs" />
   </ItemGroup>
   <ItemGroup>
