@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Infrastructure;
 using NUnit.Framework;
+
 // ReSharper disable InconsistentNaming
 
 namespace InfrastructureTests
@@ -44,11 +45,8 @@ namespace InfrastructureTests
             var other = new object();
             entity.Equals(other).Should().BeFalse();
         }
-    }
 
-    [TestFixture]
-    public class GetHashCode_Should
-    {
+
         [Test]
         public void GetHashCode_ShouldReturnSameForSameIds()
         {
@@ -56,14 +54,10 @@ namespace InfrastructureTests
             {
                 var one = new TestEntity(id);
                 var other = new TestEntity(id);
-                one.GetHashCode().Should().Be(other.GetHashCode());   
+                one.GetHashCode().Should().Be(other.GetHashCode());
             }
         }
-    }
 
-    [TestFixture]
-    public class ToString_Should
-    {
         [Test]
         public void ToString_ShouldReturnStringOfCertainFormat()
         {
