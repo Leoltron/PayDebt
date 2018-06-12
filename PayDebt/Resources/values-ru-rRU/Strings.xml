@@ -19,7 +19,7 @@
   <string name="set_unpaid">Не оплачен</string>
   <string name="default_currency">Валюта по умолчанию</string>
   <string name="set_date">Установить дату</string>
-  <string name="message_template">Шаблон заголовка сообщения</string>
+  <string name="message_template">Шаблон сообщения (\'{0}\' будет заменен суммой долга, экранируйте с помощью \'{1}\')</string>
   <string name="message">Сообщение </string>
   <string name="vk_login">Присоединить ВК</string>
   <string name="vk_logout">Отсоединить ВК</string>
@@ -28,5 +28,6 @@
   <string name="manually">Вручную</string>
   <string name="update">Обновить</string>
   <string name="friend_list_load_failed">Загрузка не удалась. Проверьте соединение с Интернетом</string>
-  <string name="send_debt_ask_msq">Долг создан. Хотите послать сообщение другу?</string>
+  <string name="send_debt_ask_msq">Долг создан. Хотите послать сообщение выбранному контакту?</string>
+  <string name="select_debt_type">Выберите тип долга</string>
 </resources>

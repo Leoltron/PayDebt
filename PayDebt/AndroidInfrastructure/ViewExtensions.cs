@@ -20,5 +20,10 @@ namespace PayDebt.AndroidInfrastructure
         {
             textView.PaintFlags = textView.PaintFlags & ~flag;
         }
+
+        public static void FormatText(this TextView textView, params object[] args)
+        {
+            textView.Text = string.Format(textView.Text, args);
+        }
     }
 }

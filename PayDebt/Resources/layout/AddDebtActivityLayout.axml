@@ -147,7 +147,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1"
+        android:id="@+id/commentLinearLayout"
         android:paddingLeft="5dp">
         <TextView
             android:text="@string/comment"
@@ -168,14 +168,14 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/addDebtMessage"
+        android:id="@+id/messageLinearLayout"
         android:paddingLeft="5dp">
         <TextView
             android:text="@string/message"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0"
-            android:id="@+id/textView2"
+            android:id="@+id/messageTextView"
             android:gravity="center"
             android:layout_marginRight="15dp" />
         <EditText

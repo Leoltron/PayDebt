@@ -3,6 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using PayDebt.AndroidInfrastructure;
 using VKontakte;
 
 namespace PayDebt.Application.Activities
@@ -23,6 +24,9 @@ namespace PayDebt.Application.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.SettingsActivityLayout);
             InitActionBar();
+            
+            FindViewById<TextView>(Resource.Id.messageTemplateTextView)
+                .FormatText(Constants.MessageTemplateAmountOfDebtSymbol, Constants.ScreenSymbol);
 
             InitCurrencySpinner();
             InitMessageTemplateEditText();

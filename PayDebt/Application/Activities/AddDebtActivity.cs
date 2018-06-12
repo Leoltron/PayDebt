@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using DebtModel;
@@ -13,7 +15,8 @@ using VKontakte.API;
 namespace PayDebt.Application.Activities
 {
     [Activity(Label = "AddDebtActivity", Name = "ru.leoltron.PayDebt.AddDebtActivity",
-        ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
+        ConfigurationChanges =
+            Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class AddDebtActivity : Activity, DatePickerDialog.IOnDateSetListener
     {
         private const int FindVkFriendRequestCode = 339000236;
@@ -21,7 +24,10 @@ namespace PayDebt.Application.Activities
 
         private EditText nameEditText;
         private EditText amountEditText;
+
+        private LinearLayout messageLinearLayout;
         private EditText messageEditText;
+
         private Button inputTypeSwitchButton;
 
         private Button dateButton;
@@ -52,6 +58,7 @@ namespace PayDebt.Application.Activities
             InitControlButtons();
             nameEditText = FindViewById<EditText>(Resource.Id.personNameEditText);
             isBorrowingDebtSwitch = FindViewById<Switch>(Resource.Id.selectDebtTypeSwitch);
+            isBorrowingDebtSwitch.Checked = Intent.GetBooleanExtra(Constants.IsBorrowingintentExtraKey, false);
             InitPaymentInputArea();
             InitPaymentDateChoosingArea();
             commentEditText = FindViewById<EditText>(Resource.Id.commentEditText);
@@ -61,13 +68,15 @@ namespace PayDebt.Application.Activities
         {
             InitAmountEditText();
             InitCurrencySpinner();
-            InitMessageEditText();
+            InitMessageViews();
         }
 
-        private void InitMessageEditText()
+        private void InitMessageViews()
         {
+            messageLinearLayout = FindViewById<LinearLayout>(Resource.Id.messageLinearLayout);
+            messageLinearLayout.Visibility = VKSdk.IsLoggedIn ? ViewStates.Visible : ViewStates.Gone;
             messageEditText = FindViewById<EditText>(Resource.Id.messageEditText);
-            messageEditText.Enabled = VKSdk.IsLoggedIn;
+            messageEditText.Text = SharedPrefExtensions.GetAppSharedPref(this).GetMessageTemplate();
         }
 
         private void InitAmountEditText()
@@ -126,17 +135,45 @@ namespace PayDebt.Application.Activities
             if (string.IsNullOrWhiteSpace(lastVkFriendId)) return;
             var vkParams = new VKParameters();
             vkParams.Put("user_id", lastVkFriendId);
-            var sharedPref = SharedPrefExtensions.GetAppSharedPref(this);
-            vkParams.Put("message", $"[{sharedPref.GetMessageTemplate()}] {messageEditText.Text}");
-            new VKRequest("messages.send", vkParams).ExecuteWithListener(new VkRequestListener(OnAttemptFailed, OnRequestComplete));
+            vkParams.Put("message", GetFormattedMessage(money));
+            new VKRequest("messages.send", vkParams).ExecuteWithListener(new VkRequestListener(OnAttemptFailed,
+                OnRequestComplete));
         }
 
-        private void OnRequestComplete(VKResponse obj)
+        private string GetFormattedMessage(Money money)
+        {
+            var moneyString = money.ToString();
+            var message = messageEditText.Text;
+            var sb = new StringBuilder();
+            var screened = false;
+            foreach (var c in message)
+            {
+                switch (c)
+                {
+                    case Constants.MessageTemplateAmountOfDebtSymbol:
+                        sb.Append(screened ? c.ToString() : moneyString);
+                        screened = false;
+                        break;
+                    case Constants.ScreenSymbol:
+                        if (screened)
+                            sb.Append(c.ToString());
+                        screened = !screened;
+                        break;
+                    default:
+                        sb.Append(c.ToString());
+                        screened = false;
+                        break;
+                }
+            }
+            return sb.ToString();
+        }
+
+        private void OnRequestComplete(VKResponse response)
         {
             //Toast.MakeText(this, Resource.String.msg_sent_sucessfully, ToastLength.Short);
         }
 
-        private void OnAttemptFailed(VKRequest arg1, int arg2, int arg3)
+        private void OnAttemptFailed(VKRequest request, int arg2, int arg3)
         {
             //Toast.MakeText(this, Resource.String.msg_sent_failed, ToastLength.Short);
         }
@@ -180,7 +217,7 @@ namespace PayDebt.Application.Activities
             MainActivity.Debts.Add(debt, MainActivity.Storage);
             SetResult(Result.Ok);
 
-            if (usingVkFriendAsName && isBorrowingDebtSwitch.Checked)
+            if (usingVkFriendAsName && isBorrowingDebtSwitch.Checked && !string.IsNullOrWhiteSpace(messageEditText.Text))
             {
                 var builder = new AlertDialog.Builder(this);
                 builder.SetMessage(Resource.String.send_debt_ask_msq);

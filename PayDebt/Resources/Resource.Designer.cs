@@ -2320,26 +2320,8 @@ namespace PayDebt
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020077
-			public const int avd_hide_password_1 = 2130837623;
-			
-			// aapt resource value: 0x7f020078
-			public const int avd_hide_password_2 = 2130837624;
-			
-			// aapt resource value: 0x7f020079
-			public const int avd_hide_password_3 = 2130837625;
-			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
-			
-			// aapt resource value: 0x7f02007a
-			public const int avd_show_password_1 = 2130837626;
-			
-			// aapt resource value: 0x7f02007b
-			public const int avd_show_password_2 = 2130837627;
-			
-			// aapt resource value: 0x7f02007c
-			public const int avd_show_password_3 = 2130837628;
 			
 			// aapt resource value: 0x7f020055
 			public const int baseline_more_vert_24 = 2130837589;
@@ -2540,9 +2522,6 @@ namespace PayDebt
 			// aapt resource value: 0x7f08008a
 			public const int addDebtControlButtonsLL = 2131230858;
 			
-			// aapt resource value: 0x7f08009f
-			public const int addDebtMessage = 2131230879;
-			
 			// aapt resource value: 0x7f080091
 			public const int addDebtNameFieldLL = 2131230865;
 			
@@ -2635,6 +2614,9 @@ namespace PayDebt
 			
 			// aapt resource value: 0x7f0800a6
 			public const int commentLL = 2131230886;
+			
+			// aapt resource value: 0x7f08009c
+			public const int commentLinearLayout = 2131230876;
 			
 			// aapt resource value: 0x7f08009d
 			public const int commentTextView = 2131230877;
@@ -2813,9 +2795,6 @@ namespace PayDebt
 			// aapt resource value: 0x7f080018
 			public const int line3 = 2131230744;
 			
-			// aapt resource value: 0x7f08009c
-			public const int linearLayout1 = 2131230876;
-			
 			// aapt resource value: 0x7f0800e6
 			public const int linkHost = 2131230950;
 			
@@ -2849,6 +2828,9 @@ namespace PayDebt
 			// aapt resource value: 0x7f0800a1
 			public const int messageEditText = 2131230881;
 			
+			// aapt resource value: 0x7f08009f
+			public const int messageLinearLayout = 2131230879;
+			
 			// aapt resource value: 0x7f0800d4
 			public const int messageTemplateEditText = 2131230932;
 			
@@ -2857,6 +2839,9 @@ namespace PayDebt
 			
 			// aapt resource value: 0x7f0800d3
 			public const int messageTemplatescrollView = 2131230931;
+			
+			// aapt resource value: 0x7f0800a0
+			public const int messageTextView = 2131230880;
 			
 			// aapt resource value: 0x7f080030
 			public const int middle = 2131230768;
@@ -3100,9 +3085,6 @@ namespace PayDebt
 			
 			// aapt resource value: 0x7f080092
 			public const int textView1 = 2131230866;
-			
-			// aapt resource value: 0x7f0800a0
-			public const int textView2 = 2131230880;
 			
 			// aapt resource value: 0x7f0800b6
 			public const int text_input_password_toggle = 2131230902;
@@ -3687,6 +3669,9 @@ namespace PayDebt
 			
 			// aapt resource value: 0x7f090013
 			public const int search_menu_title = 2131296275;
+			
+			// aapt resource value: 0x7f09004c
+			public const int select_debt_type = 2131296332;
 			
 			// aapt resource value: 0x7f09004b
 			public const int send_debt_ask_msq = 2131296331;
