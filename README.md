@@ -38,8 +38,8 @@
 В этом слое находятся все файлы, находящиеся непосредственно в [Application](PayDebt/Application):
 *   Классы из [Activities](PayDebt/Application/Activities), каждый из которых отвечает за поведение приложения на определенном экране
 *	Различные классы, задающие взаимодествие с виджетами, а также связывающие данные с их представлением([CurrencySpinner](PayDebt/Application/CurrencySpinner.cs), [DebtListFragment](PayDebt/Application/DebtListFragment), [DebtInfoAdapter](PayDebt/Application/DebtInfoAdapter.cs))
-*   [SharedPrefDebt](PayDebt/Application/ShSharedPrefDebt.cs) - реализация `IEntityStorageAccess<int, Debt>`
-*   [SharedPrefDebtExtensions](PayDebt/Application/ShSharedPrefDebtExtensions.cs) - методы расширения для `SharedPrefDebt`
+*   [SharedPrefDebt](PayDebt/Application/SharedPrefDebt.cs) - реализация `IEntityStorageAccess<int, Debt>`
+*   [SharedPrefDebtExtensions](PayDebt/Application/SharedPrefDebtExtensions.cs) - методы расширения для `SharedPrefDebt`
 
 
 ##### GUI
