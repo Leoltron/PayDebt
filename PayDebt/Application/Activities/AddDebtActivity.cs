@@ -8,7 +8,9 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using DebtModel;
+using Infrastructure;
 using PayDebt.AndroidInfrastructure;
+using PayDebt.Model;
 using VKontakte;
 using VKontakte.API;
 
@@ -20,6 +22,7 @@ namespace PayDebt.Application.Activities
     public class AddDebtActivity : Activity, DatePickerDialog.IOnDateSetListener
     {
         private const int FindVkFriendRequestCode = 339000236;
+           
         private Button finishButton;
 
         private EditText nameEditText;
@@ -187,7 +190,9 @@ namespace PayDebt.Application.Activities
             }
             else
             {
-                StartActivityForResult(new Intent(this, typeof(VkFriendPickerActivity)), FindVkFriendRequestCode);
+                var intent = new Intent(this, typeof(FriendPickerActivity));
+                intent.PutExtra("picker", new ContactPicker<VKContact>(new VKContactProvider()).SerializeToBytes());
+                StartActivityForResult(intent, FindVkFriendRequestCode);
             }
 
             UpdateButtons();
@@ -283,8 +288,11 @@ namespace PayDebt.Application.Activities
             {
                 if (resultCode == Result.Canceled)
                     return;
-                lastVkFriendName = data.GetStringExtra(VkFriendPickerActivity.IntentExtraNameKey);
-                lastVkFriendId = data.GetStringExtra(VkFriendPickerActivity.IntentExtraIdKey);
+                var contact = data
+                    .GetByteArrayExtra(FriendPickerActivity.IntentExtraContactKey)
+                    .FromBinary<VKContact>();
+                lastVkFriendName = contact.Name;
+                lastVkFriendId = contact.Id.ToString();
                 usingVkFriendAsName = true;
                 nameEditText.Text = lastVkFriendName;
                 nameEditText.Enabled = false;

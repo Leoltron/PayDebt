@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace DebtModel
 {
-    public abstract class ContactPicker<TContact> where TContact : Contact
+    public class ContactPicker<TContact> where TContact : Contact
     {
         private readonly IContactProvider<TContact> provider;   
         private List<TContact> allContacts;
@@ -13,7 +13,7 @@ namespace DebtModel
         public string[] Names => currentlyDisplayedContacts.Select(x => x.Name).ToArray();
         public TContact this[int x] => DisplayedContacts[x];
 
-        protected ContactPicker(IContactProvider<TContact> provider)
+        public ContactPicker(IContactProvider<TContact> provider)
         {
             this.provider = provider;
         }

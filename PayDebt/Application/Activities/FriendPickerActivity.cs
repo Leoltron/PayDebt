@@ -13,27 +13,35 @@ using PayDebt.AndroidInfrastructure;
 
 namespace PayDebt.Application.Activities
 {
-    
+    public static class FriendPickerActivity
+    {
+        public const string IntentExtraContactKey = "Contact";
+    }
+
+
+    [Activity(Name = "ru.leoltron.PayDebt.FriendPickerActivity", Label = "", Theme = "@style/DesignTheme1")]
     public class FriendPickerActivity<TPicker, TContact> : Activity
             where TPicker : ContactPicker<TContact>
             where TContact : Contact
     {
 #pragma warning disable 414
-        protected bool isLoading = true;
+        private bool isLoading = true;
 #pragma warning restore 414
 
-        protected ProgressBar loadingProgressBar;
+        private ProgressBar loadingProgressBar;
 
-        protected LinearLayout friendListLl;
-        protected ListView friendList;
-        protected EditText searchEditText;
-        protected ArrayAdapter<string> friendListAdapter;
-        protected TPicker picker;
+        private LinearLayout friendListLl;
+        private ListView friendList;
+        private EditText searchEditText;
+        private ArrayAdapter<string> friendListAdapter;
+        private TPicker picker;
+        private const string IntentExtraContactKey = "Contact";
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.VkFriendPickerActivityLayout);
+            picker = Intent.GetByteArrayExtra("picker").FromBinary<TPicker>();
+            SetContentView(Resource.Layout.FriendPickerActivityLayout);
             SetResult(Result.Canceled);
 
             FindViewById<Button>(Resource.Id.update).Click += (sender, args) => UpdateContacts();
@@ -56,6 +64,15 @@ namespace PayDebt.Application.Activities
         {
             searchEditText = FindViewById<EditText>(Resource.Id.searchEditText);
             searchEditText.TextChanged += (sender, args) => FilterContacts();
+        }
+
+        private void FriendListOnItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var intent = new Intent();
+            intent.PutExtra(IntentExtraContactKey, picker.DisplayedContacts[e.Position].SerializeToBytes());
+
+            SetResult(Result.Ok, intent);
+            Finish();
         }
 
         public override bool OnMenuItemSelected(int featureId, IMenuItem item)
@@ -93,11 +110,6 @@ namespace PayDebt.Application.Activities
             isLoading = false;
             friendListLl.Visibility = ViewStates.Visible;
             loadingProgressBar.Visibility = ViewStates.Gone;
-        }
-
-
-        protected virtual void FriendListOnItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
         }
 
         protected void UpdateContacts()

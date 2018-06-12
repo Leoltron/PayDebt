@@ -23,7 +23,7 @@ namespace PayDebt.AndroidInfrastructure
 
         private static void AttemptFailed(VKRequest arg1, int arg2, int arg3)
         {
-            throw new NotImplementedException();
+            throw new SystemException();
         }
 
         private static List<Tuple<int, string>> ParseVKGetFriendsRequest(VKResponse response)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DebtModel;
 using PayDebt.AndroidInfrastructure;
 using VKontakte.API;
@@ -10,8 +11,16 @@ namespace PayDebt.Model
     {
         public bool TryGetContacts(out IEnumerable<VKContact> contacts)
         {
-            contacts = new[] { new VKContact("Айдар Исламов", "lowgear1000")};
-            return true;
+            try
+            {
+                contacts = VkFriends.GetVKFriends().Result.Select(p => new VKContact(p.Item2, p.Item1));
+                return true;
+            }
+            catch (SystemException)
+            {
+                contacts = null;
+                return false;
+            }
         }
     }
 }

@@ -2,9 +2,9 @@
 {
     public class VKContact : Contact
     {
-        public string Id { get; }
+        public int Id { get; }
 
-        public VKContact(string name, string id) : base(name)
+        public VKContact(string name, int id) : base(name)
         {
             Id = id;
         }

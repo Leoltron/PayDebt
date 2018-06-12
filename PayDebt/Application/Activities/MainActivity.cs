@@ -26,6 +26,7 @@ namespace PayDebt.Application.Activities
         private const int AddDebtRequestCode = 512;
         private const int HistoryRequestCode = 874;
 
+
         public static IEntityStorageAccess<int, Debt> Storage;
         public static Debts Debts;
 
