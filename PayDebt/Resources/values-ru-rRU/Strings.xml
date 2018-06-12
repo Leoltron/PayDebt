@@ -28,5 +28,5 @@
   <string name="manually">Вручную</string>
   <string name="update">Обновить</string>
   <string name="friend_list_load_failed">Загрузка не удалась. Проверьте соединение с Интернетом</string>
-  <string name="send_debt_ask_msq">Долг создан. Хотите послать сообщение другу?</string>
+  <string name="send_debt_ask_msq">Долг создан. Хотите послать сообщение выбранному контакту?</string>
 </resources>

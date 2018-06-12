@@ -28,5 +28,5 @@
   <string name="manually">Manually</string>
   <string name="update">Update</string>
   <string name="friend_list_load_failed">Load failed. Check your Internet connection.</string>
-  <string name="send_debt_ask_msq">Debt created. Want to send message to a friend?</string>
+  <string name="send_debt_ask_msq">Debt created. Want to send message to choosen contact?</string>
 </resources>
