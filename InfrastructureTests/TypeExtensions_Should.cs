@@ -9,25 +9,25 @@ namespace InfrastructureTests
     public class TypeExtensions_Should
     {
         [Test]
-        public void IsEqualOrSubclassOf_ShouldReturnTrueOnSelf()
+        public void IsEqualOrSubclassOf_ShouldReturnTrue_OnSelf()
         {
             typeof(A).IsEqualOrSubclassOf(typeof(A)).Should().BeTrue();
         }
         
         [Test]
-        public void IsEqualOrSubclassOf_ShouldReturnFalseOnChildren()
+        public void IsEqualOrSubclassOf_ShouldReturnFalse_OnChildren()
         {
             typeof(A).IsEqualOrSubclassOf(typeof(B)).Should().BeFalse();
         }
 
         [Test]
-        public void IsEqualOrSubclassOf_ShouldReturnTrueOnAncestor()
+        public void IsEqualOrSubclassOf_ShouldReturnTrue_OnAncestor()
         {
             typeof(B).IsEqualOrSubclassOf(typeof(A)).Should().BeTrue();
         }
 
         [Test]
-        public void IsEqualOrSubclassOf_ShouldReturnTrueOnObjectType()
+        public void IsEqualOrSubclassOf_ShouldReturnTrue_OnObjectType()
         {
             typeof(B).IsEqualOrSubclassOf(typeof(object)).Should().BeTrue();
         }

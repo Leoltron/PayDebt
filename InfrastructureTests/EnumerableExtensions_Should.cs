@@ -10,7 +10,7 @@ namespace InfrastructureTests
     public class EnumerableExtensions_Should
     {
         [Test]
-        public void GetAllStartsWith_ShouldAcceptAllByEmptyPrefix()
+        public void GetAllStartsWith_ShouldAcceptAll_ByEmptyPrefix()
         {
             var strings = new[] {"string1", "other string", "!@$##%^some more"};
 

@@ -13,7 +13,7 @@ using VKontakte.API;
 namespace PayDebt.Application.Activities
 {
 
-    [Activity(Name= "ru.leoltron.PayDebt.VkFriendPickerActivity", Label = "", Theme = "@style/DesignTheme1")]
+    [Activity(Name = "ru.leoltron.PayDebt.VkFriendPickerActivity", Label = "", Theme = "@style/DesignTheme1")]
     public class VkFriendPickerActivity : Activity
     {
         public const string IntentExtraNameKey = "VKFriendName";
@@ -154,7 +154,7 @@ namespace PayDebt.Application.Activities
             var firstName = obj.Has("first_name") ? obj.GetString("first_name") : "";
             var lastName = obj.Has("last_name") ? obj.GetString("last_name") : "";
 
-            var name = string.Join(" ", new[] {firstName, lastName}.GetAllNonEmpty());
+            var name = string.Join(" ", new[] { firstName, lastName }.GetAllNonEmpty());
 
             names.Add(name);
             ids.Add(obj.GetInt("id").ToString());

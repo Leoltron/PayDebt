@@ -13,7 +13,7 @@ namespace DebtModelTests
         Currency otherCurrency = new Currency("other", CultureInfo.CurrentCulture);
 
         [Test]
-        public void OperatorSum_ShouldThrowOnDifferentCurrencies()
+        public void OperatorSum_ShouldThrow_OnDifferentCurrencies()
         {
             var one = new Money(1, oneCurrency);
             var other = new Money(1, otherCurrency);
@@ -26,7 +26,7 @@ namespace DebtModelTests
         }
 
         [Test]
-        public void OperatorSubstraction_ShouldThrowOnDifferentCurrencies()
+        public void OperatorSubstraction_ShouldThrow_OnDifferentCurrencies()
         {
             var one = new Money(1, oneCurrency);
             var other = new Money(1, otherCurrency);
@@ -75,7 +75,7 @@ namespace DebtModelTests
         }
 
         [Test]
-        public void OperatorEqual_ShouldReturnTrueOnSelf()
+        public void OperatorEqual_ShouldReturnTrue_OnSelf()
         {
             var one = new Money(4, oneCurrency);
 
@@ -83,7 +83,7 @@ namespace DebtModelTests
         }
 
         [Test]
-        public void OperatorEqual_ShouldReturnTrueOnSame()
+        public void OperatorEqual_ShouldReturnTrue_OnSame()
         {
             var one = new Money(4, oneCurrency);
             var other = new Money(4, oneCurrency);
@@ -92,7 +92,7 @@ namespace DebtModelTests
         }
 
         [Test]
-        public void OperatorEqual_ShouldReturnFalseOnDiffentCurrencies()
+        public void OperatorEqual_ShouldReturnFalse_OnDiffentCurrencies()
         {
             var one = new Money(4, oneCurrency);
             var other = new Money(4, otherCurrency);
@@ -101,7 +101,7 @@ namespace DebtModelTests
         }
 
         [Test]
-        public void OperatorEqual_ShouldReturnFalseOnDiffentValues()
+        public void OperatorEqual_ShouldReturnFalse_OnDiffentValues()
         {
             var one = new Money(4, oneCurrency);
             var other = new Money(3, oneCurrency);

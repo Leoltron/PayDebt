@@ -2,8 +2,8 @@
 
 namespace DebtModel
 {
-    public interface IContactProvider<out TContact> where TContact : Contact
+    public interface IContactProvider<TContact> where TContact : Contact
     {
-        IEnumerable<TContact> GetContacts();
+        bool TryGetContacts(out IEnumerable<TContact> contacts);
     }
 }
