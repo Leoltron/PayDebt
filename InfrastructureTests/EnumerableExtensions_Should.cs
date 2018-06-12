@@ -58,6 +58,37 @@ namespace InfrastructureTests
                 .Should().Contain(strings.Skip(1).Take(1));
         }
 
+        [Test]
+        public void GetAllNonEmpty_ShouldKeepNonEmpty()
+        {
+            var strings = new[] {null, "non empty", "", "  \t\r   ", "other"};
+            var expected = new[] {"non empty", "other"};
 
+            strings.GetAllNonEmpty().Should().Contain(expected);
+        }
+
+        [Test]
+        public void GetAllNonEmpty_ShouldNotKeepNull()
+        {
+            var strings = new[] {null, "non empty", "", "  \t\r   ", "other"};
+
+            strings.GetAllNonEmpty().Should().NotContain(new string[]{null});
+        }
+
+        [Test]
+        public void GetAllNonEmpty_ShouldNotKeepEmpty()
+        {
+            var strings = new[] {null, "non empty", "", "  \t\r   ", "other"};
+
+            strings.GetAllNonEmpty().Should().NotContain("");
+        }
+
+        [Test]
+        public void GetAllNonEmpty_ShouldNotKeepWhiteSpaceOnly()
+        {
+            var strings = new[] {null, "non empty", "", "  \t\r   ", "other"};
+
+            strings.GetAllNonEmpty().Should().NotContain("  \t\r   ");
+        }
     }
 }
