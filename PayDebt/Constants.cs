@@ -4,5 +4,7 @@
     {
         public const char MessageTemplateAmountOfDebtSymbol = '$';
         public const char ScreenSymbol = '\\';
+
+        public const string IsBorrowingintentExtraKey = "isBorrowing";
     }
 }

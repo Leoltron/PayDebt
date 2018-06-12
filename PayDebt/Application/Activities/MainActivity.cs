@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
@@ -17,7 +18,8 @@ using Fragment = Android.Support.V4.App.Fragment;
 namespace PayDebt.Application.Activities
 {
     [Activity(Label = "PayDebt", MainLauncher = true, Name = "ru.leoltron.PayDebt.MainActivity",
-        ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
+        ConfigurationChanges =
+            Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     // ReSharper disable once UnusedMember.Global
     public class MainActivity : FragmentActivity
     {
@@ -91,22 +93,32 @@ namespace PayDebt.Application.Activities
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if (item.ItemId == Resource.Id.menu_debt_history)
+            switch (item.ItemId)
             {
-                StartActivityForResult(new Intent(this, typeof(DebtHistoryActivity)), HistoryRequestCode);
-                return true;
-            }
+                case Resource.Id.menu_debt_history:
+                    StartActivityForResult(new Intent(this, typeof(DebtHistoryActivity)), HistoryRequestCode);
+                    return true;
+                case Resource.Id.menu_add:
+                    var intent = new Intent(this, typeof(AddDebtActivity));
 
-            if (item.ItemId == Resource.Id.menu_add)
-            {
-                StartActivityForResult(new Intent(this, typeof(AddDebtActivity)), AddDebtRequestCode);
-                return true;
-            }
+                    var builder = new AlertDialog.Builder(this);
+                    builder.SetMessage(Resource.String.select_debt_type);
+                    builder.SetNegativeButton(Resource.String.borrowing, (sender, args) =>
+                    {
+                        intent.PutExtra(Constants.IsBorrowingintentExtraKey, true);
+                        StartActivityForResult(intent, AddDebtRequestCode);
+                    });
+                    builder.SetPositiveButton(Resource.String.lending, (sender, args) =>
+                    {
+                        intent.PutExtra(Constants.IsBorrowingintentExtraKey, false);
+                        StartActivityForResult(intent, AddDebtRequestCode);
+                    });
+                    builder.Show();
 
-            if (item.ItemId == Resource.Id.menu_settings)
-            {
-                StartActivity(new Intent(this, typeof(SettingsActivity)));
-                return true;
+                    return true;
+                case Resource.Id.menu_settings:
+                    StartActivity(new Intent(this, typeof(SettingsActivity)));
+                    return true;
             }
 
             return false;

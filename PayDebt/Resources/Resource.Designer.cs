@@ -3670,6 +3670,9 @@ namespace PayDebt
 			// aapt resource value: 0x7f090013
 			public const int search_menu_title = 2131296275;
 			
+			// aapt resource value: 0x7f09004c
+			public const int select_debt_type = 2131296332;
+			
 			// aapt resource value: 0x7f09004b
 			public const int send_debt_ask_msq = 2131296331;
 			

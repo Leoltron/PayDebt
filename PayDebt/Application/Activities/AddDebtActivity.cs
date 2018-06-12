@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -7,7 +8,6 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using DebtModel;
-using Java.Lang;
 using PayDebt.AndroidInfrastructure;
 using VKontakte;
 using VKontakte.API;
@@ -58,6 +58,7 @@ namespace PayDebt.Application.Activities
             InitControlButtons();
             nameEditText = FindViewById<EditText>(Resource.Id.personNameEditText);
             isBorrowingDebtSwitch = FindViewById<Switch>(Resource.Id.selectDebtTypeSwitch);
+            isBorrowingDebtSwitch.Checked = Intent.GetBooleanExtra(Constants.IsBorrowingintentExtraKey, false);
             InitPaymentInputArea();
             InitPaymentDateChoosingArea();
             commentEditText = FindViewById<EditText>(Resource.Id.commentEditText);
