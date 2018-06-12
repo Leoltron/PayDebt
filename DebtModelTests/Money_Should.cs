@@ -2,17 +2,17 @@
 using System.Globalization;
 using DebtModel;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace DebtModelTests
 {
-    [TestClass]
+    [TestFixture]
     public class Money_Should
     {
         Currency oneCurrency = new Currency("one", CultureInfo.CurrentCulture);
         Currency otherCurrency = new Currency("other", CultureInfo.CurrentCulture);
 
-        [TestMethod]
+        [Test]
         public void OperatorSum_ShouldThrowOnDifferentCurrencies()
         {
             var one = new Money(1, oneCurrency);
@@ -25,7 +25,7 @@ namespace DebtModelTests
             sum.Should().Throw<ArgumentException>();
         }
 
-        [TestMethod]
+        [Test]
         public void OperatorSubstraction_ShouldThrowOnDifferentCurrencies()
         {
             var one = new Money(1, oneCurrency);
@@ -38,7 +38,7 @@ namespace DebtModelTests
             sum.Should().Throw<ArgumentException>();
         }
 
-        [TestMethod]
+        [Test]
         public void OperatorSum_ShouldSubstractKeepCurrency()
         {
             var one = new Money(1, oneCurrency);
@@ -47,7 +47,7 @@ namespace DebtModelTests
             (one + other).Currency.Should().Be(oneCurrency);
         }
 
-        [TestMethod]
+        [Test]
         public void OperatorSubstraction_ShouldKeepCurrency()
         {
             var one = new Money(1, oneCurrency);
@@ -56,7 +56,7 @@ namespace DebtModelTests
             (one - other).Currency.Should().Be(oneCurrency);
         }
 
-        [TestMethod]
+        [Test]
         public void OperatorSum_ShouldSumValues()
         {
             var one = new Money(4, oneCurrency);
@@ -65,7 +65,7 @@ namespace DebtModelTests
             (one + other).Value.Should().Be(5);
         }
 
-        [TestMethod]
+        [Test]
         public void OperatorSubstract_ShouldSubstractValues()
         {
             var one = new Money(4, oneCurrency);
@@ -74,7 +74,7 @@ namespace DebtModelTests
             (one - other).Value.Should().Be(3);
         }
 
-        [TestMethod]
+        [Test]
         public void OperatorEqual_ShouldReturnTrueOnSelf()
         {
             var one = new Money(4, oneCurrency);
@@ -82,7 +82,7 @@ namespace DebtModelTests
             (one == one).Should().BeTrue();
         }
 
-        [TestMethod]
+        [Test]
         public void OperatorEqual_ShouldReturnTrueOnSame()
         {
             var one = new Money(4, oneCurrency);
@@ -91,7 +91,7 @@ namespace DebtModelTests
             (one == other).Should().BeTrue();
         }
 
-        [TestMethod]
+        [Test]
         public void OperatorEqual_ShouldReturnFalseOnDiffentCurrencies()
         {
             var one = new Money(4, oneCurrency);
@@ -100,7 +100,7 @@ namespace DebtModelTests
             (one == other).Should().BeFalse();
         }
 
-        [TestMethod]
+        [Test]
         public void OperatorEqual_ShouldReturnFalseOnDiffentValues()
         {
             var one = new Money(4, oneCurrency);
