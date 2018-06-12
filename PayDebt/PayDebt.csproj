@@ -123,6 +123,7 @@
     <Compile Include="Application\DebtListFragment.cs" />
     <Compile Include="Application\Activities\MainActivity.cs" />
     <Compile Include="Application\Activities\FriendPickerActivity.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Model\VKContactProvider.cs" />
     <Compile Include="Model\VKContactPicker.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
