@@ -19,7 +19,7 @@
   <string name="set_unpaid">Set unpaid</string>
   <string name="default_currency">Default currency</string>
   <string name="set_date">Set date</string>
-  <string name="message_template">Message header template</string>
+  <string name="message_template">Message template (\'{0}\' will be replaced by amount of debt, screen these with \'{1}\')</string>
   <string name="message">Message</string>
   <string name="vk_login">VK Login</string>
   <string name="vk_logout">VK Logout</string>
@@ -28,5 +28,5 @@
   <string name="manually">Manually</string>
   <string name="update">Update</string>
   <string name="friend_list_load_failed">Load failed. Check your Internet connection.</string>
-  <string name="send_debt_ask_msq">Debt created. Want to send message to a friend?</string>
+  <string name="send_debt_ask_msq">Debt created. Want to send message to choosen contact?</string>
 </resources>
