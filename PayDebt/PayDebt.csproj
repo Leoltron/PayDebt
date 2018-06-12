@@ -115,6 +115,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndroidInfrastructure\VkFriends.cs" />
     <Compile Include="Application\Activities\AddDebtActivity.cs" />
     <Compile Include="Application\CurrencySpinner.cs" />
     <Compile Include="Application\CustomApplication.cs" />
