@@ -2744,8 +2744,8 @@ namespace PayDebt
 			// aapt resource value: 0x7f080057
 			public const int forever = 2131230807;
 			
-			// aapt resource value: 0x7f0800eb
-			public const int friendsListLL = 2131230955;
+			// aapt resource value: 0x7f0800e8
+			public const int friendsListLL = 2131230952;
 			
 			// aapt resource value: 0x7f0800ed
 			public const int friendsListView = 2131230957;
@@ -2966,14 +2966,14 @@ namespace PayDebt
 			// aapt resource value: 0x7f080054
 			public const int scrollable = 2131230804;
 			
+			// aapt resource value: 0x7f0800ec
+			public const int searchEditText = 2131230956;
+			
 			// aapt resource value: 0x7f0800ea
-			public const int searchEditText = 2131230954;
+			public const int searchLL = 2131230954;
 			
-			// aapt resource value: 0x7f0800e8
-			public const int searchLL = 2131230952;
-			
-			// aapt resource value: 0x7f0800e9
-			public const int searchTextView = 2131230953;
+			// aapt resource value: 0x7f0800eb
+			public const int searchTextView = 2131230955;
 			
 			// aapt resource value: 0x7f08007f
 			public const int search_badge = 2131230847;
@@ -3161,8 +3161,8 @@ namespace PayDebt
 			// aapt resource value: 0x7f080009
 			public const int up = 2131230729;
 			
-			// aapt resource value: 0x7f0800ec
-			public const int update = 2131230956;
+			// aapt resource value: 0x7f0800e9
+			public const int update = 2131230953;
 			
 			// aapt resource value: 0x7f080025
 			public const int useLogo = 2131230757;
