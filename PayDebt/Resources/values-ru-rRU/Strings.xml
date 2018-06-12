@@ -19,7 +19,7 @@
   <string name="set_unpaid">Не оплачен</string>
   <string name="default_currency">Валюта по умолчанию</string>
   <string name="set_date">Установить дату</string>
-  <string name="message_template">Шаблон заголовка сообщения</string>
+  <string name="message_template">Шаблон сообщения (\'{0}\' будет заменен суммой долга, экранируйте с помощью \'{1}\')</string>
   <string name="message">Сообщение </string>
   <string name="vk_login">Присоединить ВК</string>
   <string name="vk_logout">Отсоединить ВК</string>
