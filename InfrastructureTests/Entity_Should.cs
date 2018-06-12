@@ -10,20 +10,20 @@ namespace InfrastructureTests
     public class Entity_Should
     {
         [Test]
-        public void Equals_ShouldReturnFalseOnNull()
+        public void Equals_ShouldReturnFalse_OnNull()
         {
             new TestEntity(0).Equals(null).Should().BeFalse();
         }
 
         [Test]
-        public void Equals_ShouldReturnTrueOnSelf()
+        public void Equals_ShouldReturnTrue_OnSelf()
         {
             var entity = new TestEntity(0);
             entity.Equals(entity).Should().BeTrue();
         }
 
         [Test]
-        public void Equals_ShouldReturnTrueOnOtherOfSameId()
+        public void Equals_ShouldReturnTrue_OnOtherOfSameId()
         {
             var entity = new TestEntity(0);
             var other = new TestEntity(0);
@@ -31,7 +31,7 @@ namespace InfrastructureTests
         }
 
         [Test]
-        public void Equals_ShouldReturnFalseOnOtherOfDifferentId()
+        public void Equals_ShouldReturnFalse_OnOtherOfDifferentId()
         {
             var entity = new TestEntity(0);
             var other = new TestEntity(1);
@@ -39,7 +39,7 @@ namespace InfrastructureTests
         }
 
         [Test]
-        public void Equals_ShouldReturnFalseOnObjectsOfOtherTypes()
+        public void Equals_ShouldReturnFalse_OnObjectsOfOtherTypes()
         {
             var entity = new TestEntity(0);
             var other = new object();
@@ -48,7 +48,7 @@ namespace InfrastructureTests
 
 
         [Test]
-        public void GetHashCode_ShouldReturnSameForSameIds()
+        public void GetHashCode_ShouldReturnSame_ForSameIds()
         {
             for (var id = 0; id < 10; id++)
             {
