@@ -64,7 +64,7 @@ namespace Infrastructure
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != typeof(T)) return false;
+            if (!obj.GetType().IsEqualOrSubclassOf(typeof(T))) return false;
             return Equals((T) obj);
         }
 
