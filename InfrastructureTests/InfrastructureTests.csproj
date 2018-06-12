@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Entity_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EnumerableExtensions_Should.cs" />
     <Compile Include="ValueType_Should.cs" />
   </ItemGroup>
   <ItemGroup>
