@@ -1,10 +1,10 @@
 ﻿namespace DebtModel
 {
-    public class VKContact : Contact
+    public class VkContact : Contact
     {
         public int Id { get; }
 
-        public VKContact(string name, int id) : base(name)
+        public VkContact(string name, int id) : base(name)
         {
             Id = id;
         }

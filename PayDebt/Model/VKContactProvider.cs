@@ -7,13 +7,15 @@ using PayDebt.AndroidInfrastructure;
 namespace PayDebt.Model
 {
     [Serializable]
-    public class VKContactProvider : IContactProvider<VKContact>
+    public class VkContactProvider : IContactProvider<VkContact>
     {
-        public bool TryGetContacts(out IEnumerable<VKContact> contacts)
+        public bool TryGetContacts(out IEnumerable<VkContact> contacts)
         {
             try
             {
-                contacts = VkFriends.GetVKFriends().Result.Select(p => new VKContact(p.Item2, p.Item1));
+                var task = VkFriends.GetVKFriends();
+                task.Wait();
+                contacts = task.Result.Select(p => new VkContact(p.Item2, p.Item1));
                 return true;
             }
             catch (SystemException)

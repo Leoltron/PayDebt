@@ -191,7 +191,7 @@ namespace PayDebt.Application.Activities
             else
             {
                 var intent = new Intent(this, typeof(VkFriendPickerActivity));
-                intent.PutExtra("picker", new ContactPicker<VKContact>(new VKContactProvider()).SerializeToBytes());
+                intent.PutExtra("picker", new ContactPicker<VkContact>(new VkContactProvider()).SerializeToBytes());
                 StartActivityForResult(intent, FindVkFriendRequestCode);
             }
 
@@ -290,7 +290,7 @@ namespace PayDebt.Application.Activities
                     return;
                 var contact = data
                     .GetByteArrayExtra(FriendPickerActivity.IntentExtraContactKey)
-                    .FromBinary<VKContact>();
+                    .FromBinary<VkContact>();
                 lastVkFriendName = contact.Name;
                 lastVkFriendId = contact.Id.ToString();
                 usingVkFriendAsName = true;
