@@ -17,8 +17,8 @@ namespace PayDebt.Application.Activities
 
     [Activity(Name = "ru.leoltron.PayDebt.FriendPickerActivity", Label = "", Theme = "@style/DesignTheme1")]
     public class FriendPickerActivity<TPicker, TContact> : Activity
-            where TPicker : ContactPicker<TContact>
-            where TContact : Contact
+        where TPicker : ContactPicker<TContact>
+        where TContact : Contact
     {
 #pragma warning disable 414
         private bool isLoading = true;
@@ -89,9 +89,8 @@ namespace PayDebt.Application.Activities
             picker.FilterContacts(searchEditText.Text);
             foreach (var name in picker.Names)
                 friendListAdapter.Add(name);
-                
-            friendListAdapter.NotifyDataSetInvalidated();
 
+            friendListAdapter.NotifyDataSetInvalidated();
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
@@ -111,19 +110,26 @@ namespace PayDebt.Application.Activities
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
-        protected void UpdateContacts()
+        protected async void UpdateContacts()
         {
             SwitchToLoading();
+            var updateSuccesfull = true;
             try
             {
-                RunOnUiThread(() => picker.UpdateContactsAsync());
-                FilterContacts();
+                await picker.UpdateContactsAsync();
             }
             catch (SystemException)
             {
+                updateSuccesfull = false;
                 Toast.MakeText(this, GetString(Resource.String.friend_list_load_failed), ToastLength.Short).Show();
-            }                
-            SwitchToLoaded();
+            }
+
+            RunOnUiThread(() =>
+            {
+                if (updateSuccesfull)
+                    FilterContacts();
+                SwitchToLoaded();
+            });
         }
 
         private void InitActionBar()
