@@ -8,7 +8,7 @@ namespace DebtModel
     [Serializable]
     public class ContactPicker<TContact> where TContact : Contact
     {
-        private readonly IContactProvider<TContact> provider;   
+        private readonly IContactProvider<TContact> provider;
         private List<TContact> allContacts;
         private List<TContact> currentlyDisplayedContacts;
         public List<string> Names;
@@ -23,15 +23,10 @@ namespace DebtModel
             allContacts = currentlyDisplayedContacts = new List<TContact>();
         }
 
-        public Task UpdateContactsAsync()
+        public async Task UpdateContactsAsync()
         {
-            return provider
-                .GetContactsAsync()
-                .ContinueWith(contacts =>
-                {
-                    allContacts = currentlyDisplayedContacts = contacts.Result.ToList();
-                    UpdateNames();
-                });
+            var contacts = await provider.GetContactsAsync();
+            allContacts = currentlyDisplayedContacts = contacts.ToList();
         }
 
         public void FilterContacts(string prefix)
