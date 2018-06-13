@@ -190,7 +190,7 @@ namespace PayDebt.Application.Activities
             }
             else
             {
-                var intent = new Intent(this, typeof(FriendPickerActivity));
+                var intent = new Intent(this, typeof(VkFriendPickerActivity));
                 intent.PutExtra("picker", new ContactPicker<VKContact>(new VKContactProvider()).SerializeToBytes());
                 StartActivityForResult(intent, FindVkFriendRequestCode);
             }

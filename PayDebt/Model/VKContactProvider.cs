@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using DebtModel;
 using PayDebt.AndroidInfrastructure;
-using VKontakte.API;
 
 namespace PayDebt.Model
 {
+    [Serializable]
     public class VKContactProvider : IContactProvider<VKContact>
     {
         public bool TryGetContacts(out IEnumerable<VKContact> contacts)

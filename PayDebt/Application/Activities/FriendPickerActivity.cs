@@ -115,8 +115,10 @@ namespace PayDebt.Application.Activities
         protected void UpdateContacts()
         {
             SwitchToLoading();
-            picker.UpdateContacts();
-            FilterContacts();
+            if (!picker.UpdateContacts())
+                Toast.MakeText(this, GetString(Resource.String.friend_list_load_failed), ToastLength.Short).Show();
+            else
+                FilterContacts();
             SwitchToLoaded();
         }
 
