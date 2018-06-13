@@ -1,10 +1,13 @@
-﻿namespace DebtModel
-{
-    public class VKContact : Contact
-    {
-        public string Id { get; }
+﻿using System;
 
-        public VKContact(string name, string id) : base(name)
+namespace DebtModel
+{
+    [Serializable]
+    public class VkContact : Contact
+    {
+        public int Id { get; }
+
+        public VkContact(string name, int id) : base(name)
         {
             Id = id;
         }

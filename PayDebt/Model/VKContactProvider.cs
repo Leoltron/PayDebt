@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using DebtModel;
 using PayDebt.AndroidInfrastructure;
-using VKontakte.API;
 
 namespace PayDebt.Model
 {
-    public class VKContactProvider : IContactProvider<VKContact>
+    [Serializable]
+    public class VkContactProvider : IContactProvider<VkContact>
     {
-        public bool TryGetContacts(out IEnumerable<VKContact> contacts)
+        public async Task<IEnumerable<VkContact>> GetContactsAsync()
         {
-            contacts = new[] { new VKContact("Айдар Исламов", "lowgear1000")};
-            return true;
+            var friends = await VkFriends.GetVKFriends();
+            return friends.Select(p => new VkContact(p.Item2, p.Item1));
         }
     }
 }
