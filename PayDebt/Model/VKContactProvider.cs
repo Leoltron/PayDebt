@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Android.App;
 using DebtModel;
 using PayDebt.AndroidInfrastructure;
 
@@ -9,20 +11,11 @@ namespace PayDebt.Model
     [Serializable]
     public class VkContactProvider : IContactProvider<VkContact>
     {
-        public bool TryGetContacts(out IEnumerable<VkContact> contacts)
+        public Task<IEnumerable<VkContact>> GetContactsAsync()
         {
-            try
-            {
-                var task = VkFriends.GetVKFriends();
-                task.Wait();
-                contacts = task.Result.Select(p => new VkContact(p.Item2, p.Item1));
-                return true;
-            }
-            catch (SystemException)
-            {
-                contacts = null;
-                return false;
-            }
+            return VkFriends
+                .GetVKFriends()
+                .ContinueWith(t => t.Result.Select(p => new VkContact(p.Item2, p.Item1)));
         }
     }
 }

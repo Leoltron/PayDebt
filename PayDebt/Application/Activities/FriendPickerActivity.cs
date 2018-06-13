@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using System.Collections.Generic;
 using System.Linq;
 using Android.Content;
@@ -115,10 +116,15 @@ namespace PayDebt.Application.Activities
         protected void UpdateContacts()
         {
             SwitchToLoading();
-            if (!picker.UpdateContacts())
-                Toast.MakeText(this, GetString(Resource.String.friend_list_load_failed), ToastLength.Short).Show();
-            else
+            try
+            {
+                RunOnUiThread(() => picker.UpdateContactsAsync());
                 FilterContacts();
+            }
+            catch (SystemException)
+            {
+                Toast.MakeText(this, GetString(Resource.String.friend_list_load_failed), ToastLength.Short).Show();
+            }                
             SwitchToLoaded();
         }
 

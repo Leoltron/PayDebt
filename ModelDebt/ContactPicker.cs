@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DebtModel
 {
@@ -19,21 +20,25 @@ namespace DebtModel
         {
             this.provider = provider;
             Names = new List<string>();
+            allContacts = currentlyDisplayedContacts = new List<TContact>();
         }
 
-        public bool UpdateContacts()
+        public Task UpdateContactsAsync()
         {
-
-            var result = provider.TryGetContacts(out var contacts);
-            if (!result) return result;
-            allContacts = currentlyDisplayedContacts = contacts.ToList();
-            UpdateNames();
-            return result;
+            return provider
+                .GetContactsAsync()
+                .ContinueWith(contacts =>
+                {
+                    allContacts = currentlyDisplayedContacts = contacts.Result.ToList();
+                    UpdateNames();
+                });
         }
 
         public void FilterContacts(string prefix)
         {
-            currentlyDisplayedContacts = allContacts.Where(c => c != null && c.Name.StartsWith(prefix)).ToList();
+            currentlyDisplayedContacts = allContacts
+                .Where(c => c != null && c.Name.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+                .ToList();
             UpdateNames();
         }
 

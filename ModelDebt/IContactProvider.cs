@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DebtModel
 {
     public interface IContactProvider<TContact> where TContact : Contact
     {
-        bool TryGetContacts(out IEnumerable<TContact> contacts);
+        Task<IEnumerable<TContact>> GetContactsAsync();
     }
 }

@@ -1,5 +1,8 @@
-﻿namespace DebtModel
+﻿using System;
+
+namespace DebtModel
 {
+    [Serializable]
     public class VkContact : Contact
     {
         public int Id { get; }
