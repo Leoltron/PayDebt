@@ -1,16 +1,11 @@
 ﻿using System;
 using Android.App;
-using System.Collections.Generic;
-using System.Linq;
 using Android.Content;
 using Android.OS;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using DebtModel;
 using Infrastructure;
-using Org.Json;
-using PayDebt.AndroidInfrastructure;
 
 namespace PayDebt.Application.Activities
 {
@@ -87,7 +82,7 @@ namespace PayDebt.Application.Activities
             return base.OnMenuItemSelected(featureId, item);
         }
 
-
+        // ReSharper disable once MemberCanBePrivate.Global
         protected void FilterContacts()
         {
             friendListAdapter.Clear();
@@ -99,6 +94,7 @@ namespace PayDebt.Application.Activities
 
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
         protected void SwitchToLoading()
         {
             isLoading = true;
@@ -106,6 +102,7 @@ namespace PayDebt.Application.Activities
             loadingProgressBar.Visibility = ViewStates.Visible;
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
         protected void SwitchToLoaded()
         {
             isLoading = false;
@@ -113,6 +110,7 @@ namespace PayDebt.Application.Activities
             loadingProgressBar.Visibility = ViewStates.Gone;
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
         protected void UpdateContacts()
         {
             SwitchToLoading();
