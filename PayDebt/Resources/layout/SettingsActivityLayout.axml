@@ -24,12 +24,21 @@
             android:id="@+id/defaultCurrencySpinner" />
     </LinearLayout>
     <Button
-        android:text="Button"
+        android:text="@string/connect_source"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/connectButton"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
+    <Button
+        android:text="@string/disconnect_source"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="25dp"
-        android:id="@+id/vkConnectButton"
+        android:id="@+id/disconnectButton"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp" />
     <TextView

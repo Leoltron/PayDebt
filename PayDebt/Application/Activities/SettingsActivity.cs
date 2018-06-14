@@ -1,9 +1,14 @@
-﻿using Android.App;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using DebtModel;
 using PayDebt.AndroidInfrastructure;
+using PayDebt.Model;
 using VKontakte;
 
 namespace PayDebt.Application.Activities
@@ -14,7 +19,8 @@ namespace PayDebt.Application.Activities
         private bool defaultCurrencyChanged = false;
         private CurrencySpinner defaultCurrencySpinner;
 
-        private Button switchVkUsingButton;
+        private Button connectButton;
+        private Button disconnectButton;
 
         private bool messageTemplateChanged = false;
         private EditText messageTemplateEditText;
@@ -30,23 +36,56 @@ namespace PayDebt.Application.Activities
 
             InitCurrencySpinner();
             InitMessageTemplateEditText();
-            InitVkLoginButton();
+            InitConnectButton();
+            InitDisconnectButton();
         }
 
-        private void InitVkLoginButton()
+        private void InitDisconnectButton()
         {
-            switchVkUsingButton = FindViewById<Button>(Resource.Id.vkConnectButton);
-            switchVkUsingButton.Click += (sender, args) => SwitchVkLoggedInState();
-            UpdateVkButton();
+            disconnectButton = FindViewById<Button>(Resource.Id.disconnectButton);
+            disconnectButton.Click += (sender, args) => ShowDisconnectDialog();
+            UpdateConnectButton();
         }
 
-        private void SwitchVkLoggedInState()
+        private void InitConnectButton()
         {
-            if (VKSdk.IsLoggedIn)
-                VKSdk.Logout();
-            else
-                VKSdk.Login(this, "friends", "messages");
-            UpdateVkButton();
+            connectButton = FindViewById<Button>(Resource.Id.connectButton);
+            connectButton.Click += (sender, args) => ShowConnectDialog();
+            UpdateDisconnectButton();
+        }
+
+        private void UpdateDisconnectButton()
+        {
+            connectButton.Enabled = ContactPickers.HasAuthorized;
+        }
+
+        private void ShowDisconnectDialog()
+        {
+            ShowDialog(ContactPickers.All.Where(p => p.IsAuthorized).ToArray(),
+                picker => picker.LogOut(),
+                GetString(Resource.String.disconnect_source));
+        }
+
+        private void UpdateConnectButton()
+        {
+            connectButton.Enabled = ContactPickers.HasNotAuthorized;
+        }
+
+        private void ShowConnectDialog()
+        {
+            ShowDialog(ContactPickers.All.Where(p => !p.IsAuthorized).ToArray(),
+                picker => picker.LogIn(this),
+                GetString(Resource.String.connect_source));
+        }
+
+        private void ShowDialog(IContactPicker<Contact>[] pickers, Action<IContactPicker<Contact>> action, string title)
+        {
+            new AlertDialog.Builder(this)
+                .SetTitle(title)
+                .SetItems(pickers.Select(p => p.Name).ToArray(), (sender, args) => action(pickers[args.Which]))
+                .SetNegativeButton(Android.Resource.String.Cancel, (sender, args) => {})
+                .Show();
+
         }
 
         private void InitActionBar()
@@ -98,15 +137,11 @@ namespace PayDebt.Application.Activities
             base.OnDestroy();
         }
 
-        private void UpdateVkButton()
-        {
-            switchVkUsingButton.Text =
-                GetString(VKSdk.IsLoggedIn ? Resource.String.vk_logout : Resource.String.vk_login);
-        }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            UpdateVkButton();
+            UpdateConnectButton();
+            UpdateDisconnectButton();
             base.OnActivityResult(requestCode, resultCode, data);
         }
     }

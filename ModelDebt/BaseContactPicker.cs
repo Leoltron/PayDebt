@@ -27,6 +27,7 @@ namespace DebtModel
         {
             var contacts = await provider.GetContactsAsync();
             allContacts = currentlyDisplayedContacts = contacts.ToList();
+            UpdateNames();
         }
 
         public void FilterContacts(string prefix)
