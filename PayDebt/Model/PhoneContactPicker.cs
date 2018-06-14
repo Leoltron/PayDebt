@@ -4,6 +4,7 @@ using DebtModel;
 
 namespace PayDebt.Model
 {
+    [Serializable]
     public class PhoneContactPicker : ContactPicker<PhoneContact>
     {
         public PhoneContactPicker(IContactProvider<PhoneContact> provider, string name, int requestCode, Type activityType) 
@@ -11,7 +12,7 @@ namespace PayDebt.Model
         {
         }
 
-        public override bool IsAuthorized => true;
+        public override bool IsLoggedIn => true;
 
         public override void LogIn(Activity activity)
         {

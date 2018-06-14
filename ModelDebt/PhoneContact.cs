@@ -1,5 +1,8 @@
-﻿namespace DebtModel
+﻿using System;
+
+namespace DebtModel
 {
+    [Serializable]
     public class PhoneContact : Contact
     {
         public string PhoneNumber { get; }
