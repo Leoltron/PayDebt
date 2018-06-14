@@ -10,6 +10,7 @@ namespace PayDebt.Model
     {
         public Task<IEnumerable<PhoneContact>> GetContactsAsync()
         {
+            return Task.Factory.StartNew(GetContacts);
         }
 
         public IEnumerable<PhoneContact> GetContacts()

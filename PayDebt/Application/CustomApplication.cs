@@ -35,6 +35,10 @@ namespace PayDebt.Application
                                                    GetString(Resource.String.vk),
                                                    0,
                                                    typeof(VkFriendPickerActivity)));
+            ContactPickers.Add(new PhoneContactPicker(new PhoneContactProvider(), 
+                                                      "Контакты телефона",
+                                                      1,
+                                                      typeof(PhoneFriendPickerActivity)));
             VKSdk.Initialize(this);
         }
     }

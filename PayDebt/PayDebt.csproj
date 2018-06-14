@@ -117,6 +117,7 @@
   <ItemGroup>
     <Compile Include="AndroidInfrastructure\VkFriends.cs" />
     <Compile Include="Application\Activities\AddDebtActivity.cs" />
+    <Compile Include="Application\Activities\PhoneFriendPickerActivity.cs" />
     <Compile Include="Application\CurrencySpinner.cs" />
     <Compile Include="Application\CustomApplication.cs" />
     <Compile Include="Application\Activities\DebtHistoryActivity.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Model\ContactPickers.cs" />
     <Compile Include="Model\IAuthorizable.cs" />
     <Compile Include="Model\IContactPicker.cs" />
+    <Compile Include="Model\PhoneContactPicker.cs" />
     <Compile Include="Model\PhoneContactProvider.cs" />
     <Compile Include="Model\VkContactPicker.cs" />
     <Compile Include="Model\VKContactProvider.cs" />
