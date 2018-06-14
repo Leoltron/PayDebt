@@ -103,23 +103,12 @@ namespace InfrastructureTests
         }
 
         [Test]
-        public void Names_ShouldBeEmpty_AfterUpdateContacts()
+        public void Names_ShouldBeUpdated_AfterUpdateContacts()
         {
             var contactPicker = new ContactPicker<Contact>(Provider);
 
             contactPicker.UpdateContactsAsync().Wait();
-
-            contactPicker.Names.Should().BeEmpty();
-        }
-
-        [Test]
-        public void Names_ShouldBeUpdated_AfterUpdateNames()
-        {
-            var contactPicker = new ContactPicker<Contact>(Provider);
-
-            contactPicker.UpdateContactsAsync().Wait();
-            contactPicker.
-
+            
             contactPicker.Names.Should().BeEquivalentTo(FirstProvision.Select(c => c.Name));
         }
     }
