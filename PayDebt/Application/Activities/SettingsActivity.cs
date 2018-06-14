@@ -42,26 +42,32 @@ namespace PayDebt.Application.Activities
         {
             disconnectButton = FindViewById<Button>(Resource.Id.disconnectButton);
             disconnectButton.Click += (sender, args) => ShowDisconnectDialog();
-            UpdateConnectButton();
+            UpdateDisconnectButton();
         }
 
         private void InitConnectButton()
         {
             connectButton = FindViewById<Button>(Resource.Id.connectButton);
             connectButton.Click += (sender, args) => ShowConnectDialog();
-            UpdateDisconnectButton();
+            UpdateConnectButton();
         }
 
         private void UpdateDisconnectButton()
         {
-            connectButton.Enabled = ContactPickers.HasAnyConnected;
+            disconnectButton.Enabled = ContactPickers.HasAnyConnected;
         }
 
         private void ShowDisconnectDialog()
         {
-            ShowChoosePickerDialog(ContactPickers.All.Where(p => p.IsLoggedIn).ToArray(),
-                picker => picker.LogOut(),
-                GetString(Resource.String.disconnect_source));
+            ShowChoosePickerDialog(
+                ContactPickers.All.Where(p => p.IsLoggedIn).ToArray(),
+                picker =>
+                {
+                    picker.LogOut();
+                    UpdateConnectionButtons();
+                },
+                GetString(Resource.String.disconnect_source)
+                );
         }
 
         private void UpdateConnectButton()
@@ -73,7 +79,11 @@ namespace PayDebt.Application.Activities
         {
             ShowChoosePickerDialog(
                 ContactPickers.All.Where(p => !p.IsLoggedIn).ToArray(),
-                picker => picker.LogIn(this),
+                picker =>
+                {
+                    picker.LogIn(this);
+                    UpdateConnectionButtons();
+                },
                 GetString(Resource.String.connect_source)
             );
         }
@@ -140,9 +150,14 @@ namespace PayDebt.Application.Activities
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
+            UpdateConnectionButtons();
+            base.OnActivityResult(requestCode, resultCode, data);
+        }
+
+        private void UpdateConnectionButtons()
+        {
             UpdateConnectButton();
             UpdateDisconnectButton();
-            base.OnActivityResult(requestCode, resultCode, data);
         }
     }
 }
