@@ -191,8 +191,9 @@ namespace PayDebt.Application.Activities
             else
             {
                 var intent = new Intent(this, typeof(VkFriendPickerActivity));
-                intent.PutExtra("picker", new ContactPicker<VkContact>(new VkContactProvider()).SerializeToBytes());
-                StartActivityForResult(intent, FindVkFriendRequestCode);
+                var contactPicker = ContactPickers.All[0];
+                intent.PutExtra("picker", contactPicker.SerializeToBytes());
+                StartActivityForResult(intent, contactPicker.RequestCode);
             }
 
             UpdateButtons();
@@ -284,7 +285,7 @@ namespace PayDebt.Application.Activities
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            if (requestCode == FindVkFriendRequestCode)
+            if (requestCode == ContactPickers.All[0].RequestCode)
             {
                 if (resultCode == Result.Canceled)
                     return;

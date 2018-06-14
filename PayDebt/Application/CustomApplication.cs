@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Globalization;
 using Android.App;
 using Android.Runtime;
+using DebtModel;
+using PayDebt.Model;
 using VKontakte;
 
 namespace PayDebt.Application
@@ -24,6 +27,10 @@ namespace PayDebt.Application
         public override void OnCreate()
         {
             base.OnCreate();
+            Currencies.Add(new Currency("USD", CultureInfo.GetCultureInfoByIetfLanguageTag("en-US")));
+            Currencies.Add(new Currency("EUR", CultureInfo.GetCultureInfoByIetfLanguageTag("fr-FR")));
+            Currencies.Add(new Currency("RUB", CultureInfo.GetCultureInfoByIetfLanguageTag("ru-RU")));
+            ContactPickers.Add(new VkContactPicker(new VkContactProvider(), "vk"));
             VKSdk.Initialize(this);
         }
     }

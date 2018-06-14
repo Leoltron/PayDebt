@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 namespace DebtModel
 {
     [Serializable]
-    public class ContactPicker<TContact> where TContact : Contact
+    public class BaseContactPicker<TContact> : IBaseContactPicker<TContact> where TContact : Contact
     {
         private readonly IContactProvider<TContact> provider;
         private List<TContact> allContacts;
         private List<TContact> currentlyDisplayedContacts;
-        public List<string> Names;
+        public List<string> Names { get; }
 
         public IReadOnlyList<TContact> DisplayedContacts => currentlyDisplayedContacts;
         public TContact this[int x] => DisplayedContacts[x];
 
-        public ContactPicker(IContactProvider<TContact> provider)
+        public BaseContactPicker(IContactProvider<TContact> provider)
         {
             this.provider = provider;
             Names = new List<string>();

@@ -125,6 +125,11 @@
     <Compile Include="Application\Activities\MainActivity.cs" />
     <Compile Include="Application\Activities\FriendPickerActivity.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Model\ContactPicker.cs" />
+    <Compile Include="Model\ContactPickers.cs" />
+    <Compile Include="Model\IAuthorizable.cs" />
+    <Compile Include="Model\IContactPicker.cs" />
+    <Compile Include="Model\VkContactPicker.cs" />
     <Compile Include="Model\VKContactProvider.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
