@@ -71,7 +71,7 @@ namespace PayDebt.Application.Activities
         private void InitMessageViews()
         {
             messageLinearLayout = FindViewById<LinearLayout>(Resource.Id.messageLinearLayout);
-            messageLinearLayout.Visibility = ContactPickers.HasAuthorized ? ViewStates.Visible : ViewStates.Gone;
+            messageLinearLayout.Visibility = ContactPickers.HasAnyConnected ? ViewStates.Visible : ViewStates.Gone;
             messageEditText = FindViewById<EditText>(Resource.Id.messageEditText);
             messageEditText.Text = SharedPrefExtensions.GetAppSharedPref(this).GetMessageTemplate();
         }
@@ -179,7 +179,7 @@ namespace PayDebt.Application.Activities
         private void ShowChoiceDialog()
         {
             var items = ContactPickers.All
-                .Where(x => x.IsAuthorized)
+                .Where(x => x.IsLoggedIn)
                 .Select(x => x.Name)
                 .ToArray();
             new AlertDialog.Builder(this)
@@ -187,7 +187,7 @@ namespace PayDebt.Application.Activities
                 .SetItems(items, (sender, args) =>
                 {
                     var picker = ContactPickers.All[args.Which];
-                    var intent = new Intent(this, picker.ActivityType);
+                    var intent = new Intent(this, picker.PickerActivityType);
                     intent.PutExtra("picker", picker.SerializeToBytes());
                     StartActivityForResult(intent, picker.RequestCode);
                 })
@@ -197,7 +197,7 @@ namespace PayDebt.Application.Activities
 
         private void UpdateButtons()
         {
-            inputTypeSwitchButton.Visibility = ContactPickers.HasAuthorized ? ViewStates.Visible : ViewStates.Gone;
+            inputTypeSwitchButton.Visibility = ContactPickers.HasAnyConnected ? ViewStates.Visible : ViewStates.Gone;
             inputTypeSwitchButton.Text = 
                 GetString(lastContact != null ? Resource.String.manually : Resource.String.choose_source);
         }
