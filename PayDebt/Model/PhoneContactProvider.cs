@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Android.Provider;
 using DebtModel;
 
 namespace PayDebt.Model
 {
+    [Serializable]
     public class PhoneContactProvider : IContactProvider<PhoneContact>
     {
         public async Task<IEnumerable<PhoneContact>> GetContactsAsync()
