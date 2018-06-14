@@ -127,7 +127,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Model\ContactPicker.cs" />
     <Compile Include="Model\ContactPickers.cs" />
-    <Compile Include="Model\IAuthorizable.cs" />
+    <Compile Include="Model\IAuth.cs" />
     <Compile Include="Model\IContactPicker.cs" />
     <Compile Include="Model\VkContactPicker.cs" />
     <Compile Include="Model\VKContactProvider.cs" />
@@ -143,11 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\AddDebtActivityLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>

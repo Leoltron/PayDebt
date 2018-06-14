@@ -16,11 +16,11 @@ namespace PayDebt.Model
         }
 
         public override bool CanSendMessage => true;
-        public override bool IsAuthorized => VKSdk.IsLoggedIn;
+        public override bool IsLoggedIn => VKSdk.IsLoggedIn;
 
         public override void LogIn(Activity activity)
         {
-            if (IsAuthorized)
+            if (IsLoggedIn)
                 return;
             VKSdk.Login(activity, "friends", "messages");
         }

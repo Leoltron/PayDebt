@@ -11,19 +11,20 @@ namespace PayDebt.Model
         public string Name { get; }
         public int RequestCode { get; }
         public virtual bool CanSendMessage { get; } = false;
-        public Type ActivityType { get; }
+        public Type PickerActivityType { get; }
 
-        protected ContactPicker(IContactProvider<TContact> provider, string name, int requestCode, Type activityType) : base(provider)
+        protected ContactPicker(IContactProvider<TContact> provider, string name, int requestCode, Type pickerActivityType)
+            : base(provider)
         {
             Name = name;
             RequestCode = requestCode;
-            ActivityType = activityType;
+            PickerActivityType = pickerActivityType;
         }
 
-        public virtual bool IsAuthorized { get; private set; }
+        public virtual bool IsLoggedIn { get; private set; }
         public virtual void LogIn(Activity activity)
         {
-            IsAuthorized = true;
+            IsLoggedIn = true;
         }
 
         public virtual void SendMessage(Contact contact, string message, Activity activity)
@@ -32,7 +33,7 @@ namespace PayDebt.Model
 
         public virtual void LogOut()
         {
-            IsAuthorized = false;
+            IsLoggedIn = false;
         }
     }
 }

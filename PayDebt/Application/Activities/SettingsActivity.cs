@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Android.App;
 using Android.Content;
@@ -9,7 +8,6 @@ using Android.Widget;
 using DebtModel;
 using PayDebt.AndroidInfrastructure;
 using PayDebt.Model;
-using VKontakte;
 
 namespace PayDebt.Application.Activities
 {
@@ -30,7 +28,7 @@ namespace PayDebt.Application.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.SettingsActivityLayout);
             InitActionBar();
-            
+
             FindViewById<TextView>(Resource.Id.messageTemplateTextView)
                 .FormatText(Constants.MessageTemplateAmountOfDebtSymbol, Constants.ScreenSymbol);
 
@@ -56,36 +54,38 @@ namespace PayDebt.Application.Activities
 
         private void UpdateDisconnectButton()
         {
-            connectButton.Enabled = ContactPickers.HasAuthorized;
+            connectButton.Enabled = ContactPickers.HasAnyConnected;
         }
 
         private void ShowDisconnectDialog()
         {
-            ShowDialog(ContactPickers.All.Where(p => p.IsAuthorized).ToArray(),
+            ShowChoosePickerDialog(ContactPickers.All.Where(p => p.IsLoggedIn).ToArray(),
                 picker => picker.LogOut(),
                 GetString(Resource.String.disconnect_source));
         }
 
         private void UpdateConnectButton()
         {
-            connectButton.Enabled = ContactPickers.HasNotAuthorized;
+            connectButton.Enabled = ContactPickers.HasAnyNotConnected;
         }
 
         private void ShowConnectDialog()
         {
-            ShowDialog(ContactPickers.All.Where(p => !p.IsAuthorized).ToArray(),
+            ShowChoosePickerDialog(
+                ContactPickers.All.Where(p => !p.IsLoggedIn).ToArray(),
                 picker => picker.LogIn(this),
-                GetString(Resource.String.connect_source));
+                GetString(Resource.String.connect_source)
+            );
         }
 
-        private void ShowDialog(IContactPicker<Contact>[] pickers, Action<IContactPicker<Contact>> action, string title)
+        private void ShowChoosePickerDialog(IContactPicker<Contact>[] pickers, Action<IContactPicker<Contact>> action,
+            string title)
         {
             new AlertDialog.Builder(this)
                 .SetTitle(title)
                 .SetItems(pickers.Select(p => p.Name).ToArray(), (sender, args) => action(pickers[args.Which]))
-                .SetNegativeButton(Android.Resource.String.Cancel, (sender, args) => {})
+                .SetNegativeButton(Android.Resource.String.Cancel, (sender, args) => { })
                 .Show();
-
         }
 
         private void InitActionBar()
@@ -103,7 +103,7 @@ namespace PayDebt.Application.Activities
             messageTemplateEditText.TextChanged += (sender, args) => messageTemplateChanged = true;
         }
 
-    public override bool OnMenuItemSelected(int featureId, IMenuItem item)
+        public override bool OnMenuItemSelected(int featureId, IMenuItem item)
         {
             if (item.ItemId == Android.Resource.Id.Home)
             {

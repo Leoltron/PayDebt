@@ -2,9 +2,9 @@
 
 namespace PayDebt.Model
 {
-    public interface IAuthorizable
+    public interface IAuth
     {
-        bool IsAuthorized { get; }
+        bool IsLoggedIn { get; }
         void LogIn(Activity activity);
         void LogOut();
     }
