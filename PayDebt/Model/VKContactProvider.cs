@@ -13,7 +13,7 @@ namespace PayDebt.Model
         public async Task<IEnumerable<VkContact>> GetContactsAsync()
         {
             var friends = await VkFriends.GetVKFriends();
-            return friends.Select(p => new VkContact(p.Item2, p.Item1));
+            return friends.Select(p => p == null ? null : new VkContact(p.Item2, p.Item1));
         }
     }
 }

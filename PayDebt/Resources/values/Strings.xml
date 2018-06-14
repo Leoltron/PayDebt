@@ -24,10 +24,16 @@
   <string name="vk_login">VK Login</string>
   <string name="vk_logout">VK Logout</string>
   <string name="vk_friends">VK Friends</string>
+  <string name="connect_source">Add contact source</string>
+  <string name="disconnect_source">Delete contact source</string>
+  <string name="vk">VK</string>
+  <string name="select">Choose contacts source</string>
+  <string name="choose_source">Choose</string>
   <string name="search">Search</string>
   <string name="manually">Manually</string>
   <string name="update">Update</string>
   <string name="friend_list_load_failed">Load failed. Check your Internet connection.</string>
   <string name="send_debt_ask_msq">Debt created. Want to send message to choosen contact?</string>
   <string name="select_debt_type">Select debt type</string>
+  <string name="read_contact_permission_required">Contact read permission is required to use them.</string>
 </resources>

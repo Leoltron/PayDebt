@@ -117,6 +117,8 @@
   <ItemGroup>
     <Compile Include="AndroidInfrastructure\VkFriends.cs" />
     <Compile Include="Application\Activities\AddDebtActivity.cs" />
+    <Compile Include="Application\Activities\PhoneFriendPickerActivity.cs" />
+    <Compile Include="Application\Activities\RefreshableActivity.cs" />
     <Compile Include="Application\CurrencySpinner.cs" />
     <Compile Include="Application\CustomApplication.cs" />
     <Compile Include="Application\Activities\DebtHistoryActivity.cs" />
@@ -125,6 +127,13 @@
     <Compile Include="Application\Activities\MainActivity.cs" />
     <Compile Include="Application\Activities\FriendPickerActivity.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Model\ContactPicker.cs" />
+    <Compile Include="Model\ContactPickers.cs" />
+    <Compile Include="Model\IAuth.cs" />
+    <Compile Include="Model\IContactPicker.cs" />
+    <Compile Include="Model\PhoneContactPicker.cs" />
+    <Compile Include="Model\PhoneContactProvider.cs" />
+    <Compile Include="Model\VkContactPicker.cs" />
     <Compile Include="Model\VKContactProvider.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,11 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\AddDebtActivityLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
