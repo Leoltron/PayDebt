@@ -24,6 +24,9 @@
   <string name="vk_login">Присоединить ВК</string>
   <string name="vk_logout">Отсоединить ВК</string>
   <string name="vk_friends">Друзья ВК</string>
+  <string name="vk">ВК</string>
+  <string name="select">Выберите источник контактов</string>
+  <string name="choose_source">Выбрать</string>
   <string name="search">Поиск</string>
   <string name="manually">Вручную</string>
   <string name="update">Обновить</string>

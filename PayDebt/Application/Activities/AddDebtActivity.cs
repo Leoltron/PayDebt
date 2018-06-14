@@ -4,15 +4,11 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using DebtModel;
 using Infrastructure;
-using PayDebt.AndroidInfrastructure;
 using PayDebt.Model;
-using VKontakte;
-using VKontakte.API;
 
 namespace PayDebt.Application.Activities
 {
@@ -21,7 +17,6 @@ namespace PayDebt.Application.Activities
             Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class AddDebtActivity : Activity, DatePickerDialog.IOnDateSetListener
     {
-        private const int FindVkFriendRequestCode = 339000236;
            
         private Button finishButton;
 
@@ -44,9 +39,8 @@ namespace PayDebt.Application.Activities
 
         private EditText commentEditText;
 
-        private bool usingVkFriendAsName = false;
-        private string lastVkFriendName = "";
-        private string lastVkFriendId = "";
+        private Contact lastContact = null;
+        private IContactPicker<Contact> lastPicker = null;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -77,7 +71,7 @@ namespace PayDebt.Application.Activities
         private void InitMessageViews()
         {
             messageLinearLayout = FindViewById<LinearLayout>(Resource.Id.messageLinearLayout);
-            messageLinearLayout.Visibility = VKSdk.IsLoggedIn ? ViewStates.Visible : ViewStates.Gone;
+            messageLinearLayout.Visibility = ContactPickers.HasAuthorized ? ViewStates.Visible : ViewStates.Gone;
             messageEditText = FindViewById<EditText>(Resource.Id.messageEditText);
             messageEditText.Text = SharedPrefExtensions.GetAppSharedPref(this).GetMessageTemplate();
         }
@@ -135,12 +129,7 @@ namespace PayDebt.Application.Activities
 
         private void SendMessageToLastChoosedFriend(Money money)
         {
-            if (string.IsNullOrWhiteSpace(lastVkFriendId)) return;
-            var vkParams = new VKParameters();
-            vkParams.Put("user_id", lastVkFriendId);
-            vkParams.Put("message", GetFormattedMessage(money));
-            new VKRequest("messages.send", vkParams).ExecuteWithListener(new VkRequestListener(OnAttemptFailed,
-                OnRequestComplete));
+            lastPicker.SendMessage(lastContact, GetFormattedMessage(money), this);
         }
 
         private string GetFormattedMessage(Money money)
@@ -171,39 +160,46 @@ namespace PayDebt.Application.Activities
             return sb.ToString();
         }
 
-        private void OnRequestComplete(VKResponse response)
-        {
-            //Toast.MakeText(this, Resource.String.msg_sent_sucessfully, ToastLength.Short);
-        }
-
-        private void OnAttemptFailed(VKRequest request, int arg2, int arg3)
-        {
-            //Toast.MakeText(this, Resource.String.msg_sent_failed, ToastLength.Short);
-        }
 
         private void SwitchNameInputType()
         {
-            if (usingVkFriendAsName)
+            if (lastContact != null)
             {
                 nameEditText.Enabled = true;
-                usingVkFriendAsName = false;
+                lastPicker = null;
+                lastContact = null;
+                UpdateButtons();
+                return;
             }
-            else
-            {
-                var intent = new Intent(this, typeof(VkFriendPickerActivity));
-                var contactPicker = ContactPickers.All[0];
-                intent.PutExtra("picker", contactPicker.SerializeToBytes());
-                StartActivityForResult(intent, contactPicker.RequestCode);
-            }
+            ShowChoiceDialog();
 
             UpdateButtons();
         }
 
+        private void ShowChoiceDialog()
+        {
+            var items = ContactPickers.All
+                .Where(x => x.IsAuthorized)
+                .Select(x => x.Name)
+                .ToArray();
+            new AlertDialog.Builder(this)
+                .SetTitle(Resource.String.select)
+                .SetItems(items, (sender, args) =>
+                {
+                    var picker = ContactPickers.All[args.Which];
+                    var intent = new Intent(this, picker.ActivityType);
+                    intent.PutExtra("picker", picker.SerializeToBytes());
+                    StartActivityForResult(intent, picker.RequestCode);
+                })
+                .SetNegativeButton(Android.Resource.String.Cancel, (sender, args) => { })
+                .Show();
+        }
+
         private void UpdateButtons()
         {
-            inputTypeSwitchButton.Visibility = VKSdk.IsLoggedIn ? ViewStates.Visible : ViewStates.Gone;
-            inputTypeSwitchButton.Text =
-                GetString(usingVkFriendAsName ? Resource.String.manually : Resource.String.vk_friends);
+            inputTypeSwitchButton.Visibility = ContactPickers.HasAuthorized ? ViewStates.Visible : ViewStates.Gone;
+            inputTypeSwitchButton.Text = 
+                GetString(lastContact != null ? Resource.String.manually : Resource.String.choose_source);
         }
 
         private void AddDebtAndFinish()
@@ -223,7 +219,10 @@ namespace PayDebt.Application.Activities
             MainActivity.Debts.Add(debt, MainActivity.Storage);
             SetResult(Result.Ok);
 
-            if (usingVkFriendAsName && isBorrowingDebtSwitch.Checked && !string.IsNullOrWhiteSpace(messageEditText.Text))
+            if (lastPicker != null 
+                    && lastPicker.CanSendMessage 
+                    && isBorrowingDebtSwitch.Checked 
+                    && !string.IsNullOrWhiteSpace(messageEditText.Text))
             {
                 var builder = new AlertDialog.Builder(this);
                 builder.SetMessage(Resource.String.send_debt_ask_msq);
@@ -285,22 +284,23 @@ namespace PayDebt.Application.Activities
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            if (requestCode == ContactPickers.All[0].RequestCode)
+            var picker = ContactPickers.All.SingleOrDefault(p => p.RequestCode == requestCode);
+            if (picker == null)
             {
-                if (resultCode == Result.Canceled)
-                    return;
-                var contact = data
-                    .GetByteArrayExtra(FriendPickerActivity.IntentExtraContactKey)
-                    .FromBinary<VkContact>();
-                lastVkFriendName = contact.Name;
-                lastVkFriendId = contact.Id.ToString();
-                usingVkFriendAsName = true;
-                nameEditText.Text = lastVkFriendName;
-                nameEditText.Enabled = false;
-                UpdateButtons();
-            }
-            else
                 base.OnActivityResult(requestCode, resultCode, data);
+                lastPicker = null;
+                lastContact = null;
+                return;
+            }
+            if (resultCode == Result.Canceled)
+                return;
+            lastContact = data
+                .GetByteArrayExtra(FriendPickerActivity.IntentExtraContactKey)
+                .FromBinary<Contact>();
+            lastPicker = picker;
+            nameEditText.Text = lastContact.Name;
+            nameEditText.Enabled = false;
+            UpdateButtons();
         }
     }
 }

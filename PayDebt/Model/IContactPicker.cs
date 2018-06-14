@@ -1,4 +1,6 @@
-﻿using DebtModel;
+﻿using System;
+using Android.App;
+using DebtModel;
 
 namespace PayDebt.Model
 {
@@ -7,5 +9,8 @@ namespace PayDebt.Model
     {
         string Name { get; }
         int RequestCode { get; }
+        bool CanSendMessage { get; }
+        Type ActivityType { get; }
+        void SendMessage(Contact contact, string message, Activity activity);
     }
 }

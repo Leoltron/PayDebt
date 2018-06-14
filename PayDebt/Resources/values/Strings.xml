@@ -24,6 +24,9 @@
   <string name="vk_login">VK Login</string>
   <string name="vk_logout">VK Logout</string>
   <string name="vk_friends">VK Friends</string>
+  <string name="vk">VK</string>
+  <string name="select">Choose contacts source</string>
+  <string name="choose_source">Choose</string>
   <string name="search">Search</string>
   <string name="manually">Manually</string>
   <string name="update">Update</string>

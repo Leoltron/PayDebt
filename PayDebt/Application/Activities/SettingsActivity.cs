@@ -4,7 +4,6 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using PayDebt.AndroidInfrastructure;
-using PayDebt.Model;
 using VKontakte;
 
 namespace PayDebt.Application.Activities

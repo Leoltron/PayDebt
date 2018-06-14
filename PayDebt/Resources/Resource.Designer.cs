@@ -3634,6 +3634,9 @@ namespace PayDebt
 			// aapt resource value: 0x7f090023
 			public const int character_counter_pattern = 2131296291;
 			
+			// aapt resource value: 0x7f090049
+			public const int choose_source = 2131296329;
+			
 			// aapt resource value: 0x7f09003a
 			public const int comment = 2131296314;
 			
@@ -3643,8 +3646,8 @@ namespace PayDebt
 			// aapt resource value: 0x7f090040
 			public const int default_currency = 2131296320;
 			
-			// aapt resource value: 0x7f09004a
-			public const int friend_list_load_failed = 2131296330;
+			// aapt resource value: 0x7f09004d
+			public const int friend_list_load_failed = 2131296333;
 			
 			// aapt resource value: 0x7f090031
 			public const int given_debts = 2131296305;
@@ -3655,8 +3658,8 @@ namespace PayDebt
 			// aapt resource value: 0x7f090033
 			public const int lending = 2131296307;
 			
-			// aapt resource value: 0x7f090048
-			public const int manually = 2131296328;
+			// aapt resource value: 0x7f09004b
+			public const int manually = 2131296331;
 			
 			// aapt resource value: 0x7f090043
 			public const int message = 2131296323;
@@ -3682,17 +3685,20 @@ namespace PayDebt
 			// aapt resource value: 0x7f090028
 			public const int path_password_strike_through = 2131296296;
 			
-			// aapt resource value: 0x7f090047
-			public const int search = 2131296327;
+			// aapt resource value: 0x7f09004a
+			public const int search = 2131296330;
 			
 			// aapt resource value: 0x7f090013
 			public const int search_menu_title = 2131296275;
 			
-			// aapt resource value: 0x7f09004c
-			public const int select_debt_type = 2131296332;
+			// aapt resource value: 0x7f090048
+			public const int select = 2131296328;
 			
-			// aapt resource value: 0x7f09004b
-			public const int send_debt_ask_msq = 2131296331;
+			// aapt resource value: 0x7f09004f
+			public const int select_debt_type = 2131296335;
+			
+			// aapt resource value: 0x7f09004e
+			public const int send_debt_ask_msq = 2131296334;
 			
 			// aapt resource value: 0x7f090041
 			public const int set_date = 2131296321;
@@ -3712,8 +3718,11 @@ namespace PayDebt
 			// aapt resource value: 0x7f090032
 			public const int taken_debts = 2131296306;
 			
-			// aapt resource value: 0x7f090049
-			public const int update = 2131296329;
+			// aapt resource value: 0x7f09004c
+			public const int update = 2131296332;
+			
+			// aapt resource value: 0x7f090047
+			public const int vk = 2131296327;
 			
 			// aapt resource value: 0x7f090029
 			public const int vk_enter_captcha_text = 2131296297;
