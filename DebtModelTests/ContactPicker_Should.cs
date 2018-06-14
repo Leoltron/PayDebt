@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace InfrastructureTests
 {
     [TestFixture]
-    public class ContactPicker_Should
+    public class BaseContactPicker_Should
     {
         public Contact[] FirstProvision = {
             new Contact("Leonid"),
@@ -36,7 +36,7 @@ namespace InfrastructureTests
         [Test]
         public void Names_ShouldBeEmpty()
         {
-            var contactPicker = new ContactPicker<Contact>(Provider);
+            var contactPicker = new BaseContactPicker<Contact>(Provider);
 
             contactPicker.Names.Should().BeEmpty();
         }
@@ -44,7 +44,7 @@ namespace InfrastructureTests
         [Test]
         public void DisplayedContacts_ShouldBeEmpty()
         {
-            var contactPicker = new ContactPicker<Contact>(Provider);
+            var contactPicker = new BaseContactPicker<Contact>(Provider);
 
             contactPicker.DisplayedContacts.Should().BeEmpty();
         }
@@ -52,7 +52,7 @@ namespace InfrastructureTests
         [Test]
         public void DisplayedContacts_ShouldBeEquivalentToFirstProvision_AfterFirstUpdateContacts()
         {
-            var contactPicker = new ContactPicker<Contact>(Provider);
+            var contactPicker = new BaseContactPicker<Contact>(Provider);
 
             contactPicker.UpdateContactsAsync().Wait();
 
@@ -62,7 +62,7 @@ namespace InfrastructureTests
         [Test]
         public void DisplayedContacts_ShouldBeInSameOrderAsFirstProvision_AfterFirstUpdateContacts()
         {
-            var contactPicker = new ContactPicker<Contact>(Provider);
+            var contactPicker = new BaseContactPicker<Contact>(Provider);
 
             contactPicker.UpdateContactsAsync().Wait();
 
@@ -72,7 +72,7 @@ namespace InfrastructureTests
         [Test]
         public void DisplayedContacts_ShouldBeEquivalentToSecondProvision_AfterSecondUpdateContacts()
         {
-            var contactPicker = new ContactPicker<Contact>(Provider);
+            var contactPicker = new BaseContactPicker<Contact>(Provider);
 
             contactPicker.UpdateContactsAsync().Wait();
             contactPicker.UpdateContactsAsync().Wait();
@@ -83,7 +83,7 @@ namespace InfrastructureTests
         [Test]
         public void Indexer_ShouldBeEquivalentToDisplayedContactsIndexer()
         {
-            var contactPicker = new ContactPicker<Contact>(Provider);
+            var contactPicker = new BaseContactPicker<Contact>(Provider);
 
             contactPicker.UpdateContactsAsync().Wait();
 
@@ -94,7 +94,7 @@ namespace InfrastructureTests
         [Test]
         public void Filter_ShouldBeShouldLeaveInDisplayedContactsOnlyThoseWithGivenPrefix()
         {
-            var contactPicker = new ContactPicker<Contact>(Provider);
+            var contactPicker = new BaseContactPicker<Contact>(Provider);
 
             contactPicker.UpdateContactsAsync().Wait();
             contactPicker.FilterContacts("A");
@@ -105,7 +105,7 @@ namespace InfrastructureTests
         [Test]
         public void Names_ShouldBeUpdated_AfterUpdateContacts()
         {
-            var contactPicker = new ContactPicker<Contact>(Provider);
+            var contactPicker = new BaseContactPicker<Contact>(Provider);
 
             contactPicker.UpdateContactsAsync().Wait();
             
