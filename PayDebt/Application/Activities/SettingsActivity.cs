@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Android.App;
 using Android.Content;
@@ -9,7 +8,6 @@ using Android.Widget;
 using DebtModel;
 using PayDebt.AndroidInfrastructure;
 using PayDebt.Model;
-using VKontakte;
 
 namespace PayDebt.Application.Activities
 {

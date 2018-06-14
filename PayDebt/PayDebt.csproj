@@ -129,6 +129,7 @@
     <Compile Include="Model\ContactPickers.cs" />
     <Compile Include="Model\IAuthorizable.cs" />
     <Compile Include="Model\IContactPicker.cs" />
+    <Compile Include="Model\PhoneContactProvider.cs" />
     <Compile Include="Model\VkContactPicker.cs" />
     <Compile Include="Model\VKContactProvider.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
