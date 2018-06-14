@@ -35,4 +35,5 @@
   <string name="friend_list_load_failed">Load failed. Check your Internet connection.</string>
   <string name="send_debt_ask_msq">Debt created. Want to send message to choosen contact?</string>
   <string name="select_debt_type">Select debt type</string>
+  <string name="read_contact_permission_required">Contact read permission is required to use them.</string>
 </resources>

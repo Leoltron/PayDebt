@@ -35,4 +35,5 @@
   <string name="friend_list_load_failed">Загрузка не удалась. Проверьте соединение с Интернетом</string>
   <string name="send_debt_ask_msq">Долг создан. Хотите послать сообщение выбранному контакту?</string>
   <string name="select_debt_type">Выберите тип долга</string>
+  <string name="read_contact_permission_required">Разрешение на чтение контактов требуется для их использования.</string>
 </resources>

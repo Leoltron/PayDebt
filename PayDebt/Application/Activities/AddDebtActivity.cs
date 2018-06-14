@@ -178,15 +178,17 @@ namespace PayDebt.Application.Activities
 
         private void ShowChoiceDialog()
         {
-            var items = ContactPickers.All
+            var pickers = ContactPickers.All
                 .Where(x => x.IsLoggedIn)
+                .ToArray();
+            var items = pickers
                 .Select(x => x.Name)
                 .ToArray();
             new AlertDialog.Builder(this)
                 .SetTitle(Resource.String.select)
                 .SetItems(items, (sender, args) =>
                 {
-                    var picker = ContactPickers.All[args.Which];
+                    var picker = pickers[args.Which];
                     var intent = new Intent(this, picker.PickerActivityType);
                     intent.PutExtra("picker", picker.SerializeToBytes());
                     StartActivityForResult(intent, picker.RequestCode);
