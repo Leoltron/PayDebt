@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using DebtModel;
-using PayDebt.Model;
 
 namespace PayDebt.Application.Activities
 {
