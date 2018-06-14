@@ -1,5 +1,4 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
@@ -21,6 +20,7 @@ namespace PayDebt.Application.Activities
         ConfigurationChanges =
             Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     // ReSharper disable once UnusedMember.Global
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class MainActivity : FragmentActivity
     {
         private const int AddDebtRequestCode = 512;
@@ -60,7 +60,7 @@ namespace PayDebt.Application.Activities
         private DebtListFragment myDebtsListFragment;
         private DebtListFragment theirDebtsListFragment;
 
-        public void UpdateFragments()
+        private void UpdateFragments()
         {
             myDebtsListFragment.UpdateAdapter();
             theirDebtsListFragment.UpdateAdapter();
@@ -120,9 +120,9 @@ namespace PayDebt.Application.Activities
                 case Resource.Id.menu_settings:
                     StartActivity(new Intent(this, typeof(SettingsActivity)));
                     return true;
+                default:
+                    return false;
             }
-
-            return false;
         }
 
         protected override void OnDestroy()

@@ -7,17 +7,20 @@ namespace Infrastructure
 {
     public class StaticStorage<TValue, TStorage>
     {
-        public static readonly IEnumerable<TValue> All;
+        public static IReadOnlyList<TValue> All => all;
+        private static readonly List<TValue> all;
 
         static StaticStorage()
         {
-            All = typeof(TStorage)
+            all = typeof(TStorage)
                 .GetFields(BindingFlags.Static | BindingFlags.Public)
                 .Select(x => x.GetValue(x))
                 .Where(value => value.GetType().IsEqualOrSubclassOf(typeof(TValue)))
                 .OfType<TValue>()
                 .ToList();
         }
+
+        public static void Add(TValue value) => all.Add(value);
         
         protected StaticStorage()
         {

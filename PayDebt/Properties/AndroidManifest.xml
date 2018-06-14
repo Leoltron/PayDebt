@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="ru.leoltron.PayDebt" android:installLocation="auto" android:versionCode="5" android:versionName="1.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="ru.leoltron.PayDebt" android:installLocation="auto" android:versionCode="6" android:versionName="2.0">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="26" />
 	<uses-permission android:name="android.permission.INTERNET" />
-		<activity android:name="com.vk.sdk.VKServiceActivity" android:label="ServiceActivity" android:theme="@style/VK.Transparent" />
+	<uses-permission android:name="android.permission.READ_CONTACTS" />
+	<activity android:name="com.vk.sdk.VKServiceActivity" android:label="ServiceActivity" android:theme="@style/VK.Transparent" />
+	<application />
 </manifest>

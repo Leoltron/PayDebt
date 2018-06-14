@@ -17,7 +17,7 @@ namespace PayDebt.Application.Activities
 
     [Activity(Name = "ru.leoltron.PayDebt.FriendPickerActivity", Label = "", Theme = "@style/DesignTheme1")]
     public class FriendPickerActivity<TPicker, TContact> : Activity
-        where TPicker : ContactPicker<TContact>
+        where TPicker : BaseContactPicker<TContact>
         where TContact : Contact
     {
 #pragma warning disable 414
