@@ -1,7 +1,6 @@
 ﻿using System;
 using Android.App;
 using DebtModel;
-using VKontakte.API;
 
 namespace PayDebt.Model
 {

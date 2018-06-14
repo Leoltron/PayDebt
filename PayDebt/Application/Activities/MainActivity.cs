@@ -1,6 +1,4 @@
-﻿using System;
-using System.Globalization;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
@@ -13,7 +11,6 @@ using Android.Widget;
 using DebtModel;
 using Infrastructure;
 using PayDebt.AndroidInfrastructure;
-using PayDebt.Model;
 using VKontakte;
 using Fragment = Android.Support.V4.App.Fragment;
 

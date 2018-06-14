@@ -1,7 +1,6 @@
 ﻿using System;
 using Android.App;
 using DebtModel;
-using Infrastructure;
 using PayDebt.AndroidInfrastructure;
 using VKontakte;
 using VKontakte.API;
