@@ -20,20 +20,13 @@ namespace Infrastructure
             if (ghc == null)
                 throw new NullReferenceException("Unexpected null from typeof(object).GetMethod(\"GetHashCode\")");
 
-            if (props.Length == 1)
-                GetHashCodeFast = Expression.Lambda<Func<T, int>>(
-                        Expression.Call(Expression.MakeMemberAccess(valueTypeParam, props[0]), ghc), valueTypeParam)
-                    .Compile();
-            else
-            {
-                var p = Expression.Add(
-                    Expression.Call(Expression.MakeMemberAccess(valueTypeParam, props[0]), ghc),
-                    Expression.Call(Expression.MakeMemberAccess(valueTypeParam, props[1]), ghc)
-                );
-                for (var i = 2; i < props.Length; i++)
-                    p = Expression.Add(p, Expression.Call(Expression.MakeMemberAccess(valueTypeParam, props[i]), ghc));
-                GetHashCodeFast = Expression.Lambda<Func<T, int>>(p, valueTypeParam).Compile();
-            }
+            var p = props
+                .Select(prop =>
+                    Expression.Call(Expression.MakeMemberAccess(valueTypeParam, prop), ghc))
+                .Aggregate<Expression>((a, propHashCodeExpression) =>
+                    Expression.Add(a, propHashCodeExpression));
+
+            GetHashCodeFast = Expression.Lambda<Func<T, int>>(p, valueTypeParam).Compile();
         }
 
         private static PropertyInfo[] GetPublicInstanceProperties()
