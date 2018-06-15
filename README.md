@@ -99,7 +99,7 @@
 ##### DDD
 Явное разделение на области. 
 
-![Граф зависимостей](https://cdn1.savepice.ru/uploads/2018/6/15/6d7a1410ea9d56e7d278148e063b1be5-full.png)
+![Граф зависимостей](https://github.com/Leoltron/PayDebt/blob/master/Dependencies%20Graph.png)
 
 ##### Тесты
 Тестирование уровня инфраструктуры и предметной области.
