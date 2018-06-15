@@ -39,7 +39,7 @@ namespace PayDebt.Model
             if (!ActivityCompat.ShouldShowRequestPermissionRationale(activity,
                 Manifest.Permission.ReadContacts))
             {
-                ShowPermissionDiolog(activity);
+                ShowPermissionDialog(activity);
                 UpdateLoggedInStatus(activity);
                 return;
             }
@@ -49,7 +49,7 @@ namespace PayDebt.Model
                     Android.Resource.String.Ok,
                     (sender, args) =>
                     {
-                        ShowPermissionDiolog(activity);
+                        ShowPermissionDialog(activity);
                         UpdateLoggedInStatus(activity);
                     }
                 ).SetNegativeButton(Android.Resource.String.Cancel, (s, a) => { })
@@ -64,7 +64,7 @@ namespace PayDebt.Model
                 refreshableActivity.Refresh();
         }
 
-        private void ShowPermissionDiolog(Activity activity)
+        private void ShowPermissionDialog(Activity activity)
         {
             ActivityCompat.RequestPermissions(activity,
                 new[] { Manifest.Permission.ReadContacts },
