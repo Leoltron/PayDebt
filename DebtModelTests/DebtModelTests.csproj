@@ -63,7 +63,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContactPicker_Should.cs" />
+    <Compile Include="BaseContactPicker_Should.cs" />
     <Compile Include="Debts_Should.cs" />
     <Compile Include="Debt_Should.cs" />
     <Compile Include="Money_Should.cs" />
