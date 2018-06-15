@@ -31,14 +31,10 @@ namespace PayDebt.Application
             Currencies.Add(new Currency("USD", CultureInfo.GetCultureInfoByIetfLanguageTag("en-US")));
             Currencies.Add(new Currency("EUR", CultureInfo.GetCultureInfoByIetfLanguageTag("fr-FR")));
             Currencies.Add(new Currency("RUB", CultureInfo.GetCultureInfoByIetfLanguageTag("ru-RU")));
-            ContactPickers.Add(new VkContactPicker(new VkContactProvider(),
-                                                   GetString(Resource.String.vk),
-                                                   0,
-                                                   typeof(VkFriendPickerActivity)));
-            ContactPickers.Add(new PhoneContactPicker(new PhoneContactProvider(), 
-                                                      "Контакты телефона",
-                                                      1,
-                                                      typeof(PhoneFriendPickerActivity)));
+            ContactPickers.Add(new VkContactPicker(new VkContactProvider(), GetString(Resource.String.vk),
+                                                   0, typeof(VkFriendPickerActivity)));
+            ContactPickers.Add(new PhoneContactPicker(new PhoneContactProvider(), GetString(Resource.String.contacts),
+                                                      1, typeof(PhoneFriendPickerActivity)));
             VKSdk.Initialize(this);
         }
     }

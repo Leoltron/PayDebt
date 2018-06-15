@@ -27,6 +27,7 @@
   <string name="connect_source">Добавить источник контактов</string>
   <string name="disconnect_source">Удалить источник контактов</string>
   <string name="vk">ВК</string>
+  <string name="contacts">Контакты телефона</string>
   <string name="select">Выберите источник контактов</string>
   <string name="choose_source">Выбрать</string>
   <string name="search">Поиск</string>

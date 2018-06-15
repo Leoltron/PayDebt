@@ -110,7 +110,7 @@ namespace PayDebt.Application.Activities
         private void InitDatePickerDialog()
         {
             var today = DateTime.Today;
-            datePickerDialog = new DatePickerDialog(this, this, today.Year, today.Month, today.Day);
+            datePickerDialog = new DatePickerDialog(this, this, today.Year, today.Month - 1, today.Day);
             datePickerDialog.DatePicker.MinDate = today.Millisecond;
             datePickerDialog.CancelEvent += (sender, args) => dateSwitch.Checked = false;
         }
@@ -280,7 +280,7 @@ namespace PayDebt.Application.Activities
 
         public void OnDateSet(DatePicker view, int year, int month, int dayOfMonth)
         {
-            lastPaymentDateChoosed = new DateTime(year, month, dayOfMonth);
+            lastPaymentDateChoosed = new DateTime(year, month + 1, dayOfMonth);
             ShowDateButton(lastPaymentDateChoosed.ToShortDateString());
         }
 
