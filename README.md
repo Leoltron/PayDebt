@@ -10,29 +10,45 @@
 ##### Слой инфраструктуры
 Представлен [Infrastructure](Infrastructure) и [AndroidInfrastructure](PayDebt/AndroidInfrastructure).
 
-[Infrastructure](Infrastructure)
-*   [IEnumerableExtension](Infrastructure/IEnumerableExtension.cs), [TypeExtensions](Infrastructure/TypeExtensions.cs) - методы расширения
+###### [Infrastructure](Infrastructure)
+*   [EnumerableExtensions](Infrastructure/EnumerableExtensions.cs), [TypeExtensions](Infrastructure/TypeExtensions.cs) - методы расширения
 *   [ValueType](Infrastructure/ValueType.cs) - базовый класс для Value-типов
 *   [Entity](Infrastructure/Entity.cs) - базовый класс для сущностей
 *   [ScalarType](Infrastructure/ScalarType.cs) - Value-тип, имеющий единицы измерения
 *   [StaticStorage](Infrastructure/StaticStorage.cs) - класс, предоставляющий наследникам возможность получить перечисление всех значений статических полей определенного типа
 *   [IEntityStorageAccess](Infrastructure/IEntityStorageAccess.cs) - интерфейс хранилища сущностей
+*	[BytesExtensions](Infrastructure/BytesExtensions.cs) - расширения для сериализации
 
-[AndroidInfrastructure](PayDebt/AndroidInfrastructure)
+###### [AndroidInfrastructure](PayDebt/AndroidInfrastructure)
 *   [TabsFragmentPagerAdapter](PayDebt/AndroidInfrastructure/TabsFragmentPagerAdapter.cs)
 *   [ViewExtensions](PayDebt/AndroidInfrastructure/ViewExtensions.cs)
 *   [VkRequestListener](PayDebt/AndroidInfrastructure/VkRequestListener.cs)
+*	[VkFriends](PayDebt/AndroidInfrastructure/VkFriends.cs) - статический класс, позволяющий получить список друзей ВК
 
 
 ##### Предметная область
-Полностью представлена в проекте [ModelDebt](DebtModel):
-*   [Contact](ModelDebt/Contact.cs) - контакт
+Представлена в проекте [ModelDebt](ModelDebt) и в папке [PayDebt/Model](PayDebt/Model):
+
+###### [ModelDebt](ModelDebt):
+*   [Contact](ModelDebt/Contact.cs), [VKContact](ModelDebt/VKContact.cs), [PhoneContact](ModelDebt/PhoneContact.cs) - базовый класс для контактов, а также его реализации
 *   [Currency](ModelDebt/Currency.cs) - валюта, Value-тип
 *   [Currencies](ModelDebt/Currencies.cs) - хранилище валют, наследуется от `StaticStorage<Currency, Currencies>`
 *   [Money](ModelDebt/Money.cs) - модель денег, представляет из себя скалярную величину(размерность - `Currency`, значение - `decimal`)
 *   [Debt](ModelDebt/Debt.cs) - запись о долге, сущность
 *   [Debts](ModelDebt/Debts.cs) - информация о займах
+*	[IContactProvider](ModelDebt/IContactProvider.cs) - интерфейс поставщика контактов
+*	[IBaseContactPicker](ModelDebt/IBaseContactPicker.cs) - базовый интерфейс для работы с контактами
+*	[BaseContactPicker](ModelDebt/BaseContactPicker.cs) - реализация `IBaseContactPicker`
 
+###### [PayDebt/Model](PayDebt/Model):
+*	[IAuth](PayDebt/Model/IAuth.cs) - интерфейс авторизации
+*	[IContactPicker](PayDebt/Model/IContactPicker.cs) - интерфейс работы с контактами, наследуется от `IAuth` и `IBaseContactPicker`
+*	[ContactPicker](PayDebt/Model/ContactPicker.cs) - реализация интерфейса `IContactPicker`
+*	[ContactPickers](PayDebt/Model/ContactPickers.cs) - хранилище сборщиков контактов, наследуется от `StaticStorage<IContactPicker<Contact>, ContactPickers>`
+*	[PhoneContactProvider](PayDebt/Model/PhoneContactProvider.cs) - реализация `IContactProvider<PhoneContact>`
+*	[PhoneContactPicker](PayDebt/Model/PhoneContactPicker.cs) - наследник `ContactPicker<PhoneContact>`
+*	[VKContactProvider](PayDebt/Model/VKContactProvider.cs) - реализация `IContactProvider<VkContact>`
+*	[VkContactPicker](PayDebt/Model/VkContactPicker.cs) - наследник `ContactPicker<VkContact>`
 
 ##### Слой приложения
 В этом слое находятся все файлы, находящиеся непосредственно в [Application](PayDebt/Application):
@@ -55,25 +71,37 @@
 Удобный способ записи долгов.
 
 ##### Реализованные функции
-*  Запись и удаление долгов
-*  Возможность установки даты выплаты
-*  Привязка к VK, отправка сообщения о взятии займа пользователю
-*  Выбор валюты
-*  История займов
+*	Запись и удаление долгов
+*	Возможность установки даты выплаты
+*	Возможность выбора контакта из VK, отправка сообщения о взятии займа пользователю
+*	Возможность выбора контакта из контактов телефона
+*  	Выбор валюты
+*  	История займов
 
 ##### Кто чем занимался
-__TODO__
+1.	[Айдар](https://github.com/lowgear) - тестирование платформонезависимой части приложнения
+2.	[Александр](https://github.com/ashibaev) - разбиение на слои, выделение абстракций
+3.	[Леонид](https://github.com/Leoltron) - всё остальное
 
 ##### Точки расширения 
 *	Легко добавлять новые валюты
 *	Возможность выбора друзей из других источников
+	Для этого необходимо реализовать:
+	*	класс `MyContact : Contact`
+	*	реализацию `IContactProvider<MyContact>`
+	*	класс `MyContactPicker : ContactPicker<MyContact>`
+	*	класс `MyContactPickerActivity : FriendPickerActivity<BaseContactPicker<MyContact>, MyContact>`
+*	Хранилища данных
 
 ##### DI-контейнеры
-А их вроде и нет.
+Их до сих пор нет. Тем не менее, все зависимости могут быть внедрены в [одном месте](PayDebt/Application/CustomApplication.cs). Используется `StaticStorage` для внедрения зависимостей.
 
 ##### DDD
-Явное разделение на области. Можно прикрепить граф зависимостей.
+Явное разделение на области. 
+
+![Граф зависимостей](https://cdn1.savepice.ru/uploads/2018/6/15/ccea3af1368864f45d7f64fc75ac0264-full.png)
 
 ##### Тесты
 Тестирование уровня инфраструктуры и предметной области.
-
+*	[InfrastructureTests](InfrastructureTests)
+*	[DebtModelTests](DebtModelTests)
