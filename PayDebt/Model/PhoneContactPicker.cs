@@ -6,7 +6,6 @@ using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using DebtModel;
 using PayDebt.AndroidInfrastructure;
-using PayDebt.Application.Activities;
 
 namespace PayDebt.Model
 {

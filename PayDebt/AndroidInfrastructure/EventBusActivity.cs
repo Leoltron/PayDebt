@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 
-namespace PayDebt.Application.Activities
+namespace PayDebt.AndroidInfrastructure
 {
     public abstract class EventBusActivity : Activity
     {

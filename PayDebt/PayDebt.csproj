@@ -117,7 +117,7 @@
   <ItemGroup>
     <Compile Include="AndroidInfrastructure\VkFriends.cs" />
     <Compile Include="Application\Activities\AddDebtActivity.cs" />
-    <Compile Include="Application\Activities\EventBusActivity.cs" />
+    <Compile Include="AndroidInfrastructure\EventBusActivity.cs" />
     <Compile Include="Application\Activities\PhoneFriendPickerActivity.cs" />
     <Compile Include="AndroidInfrastructure\IRefreshable.cs" />
     <Compile Include="Application\CurrencySpinner.cs" />
