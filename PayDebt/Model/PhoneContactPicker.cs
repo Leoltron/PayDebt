@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Android;
 using Android.App;
 using Android.Content.PM;
+using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
+using Android.Views;
 using Android.Widget;
 using DebtModel;
 using PayDebt.Application.Activities;
@@ -27,38 +30,45 @@ namespace PayDebt.Model
         public override void LogIn(Activity activity)
         {
             if (ContextCompat.CheckSelfPermission(activity,
-                    Manifest.Permission.ReadContacts) != Permission.Granted)
+                    Manifest.Permission.ReadContacts) == Permission.Granted)
             {
-                if (ActivityCompat.ShouldShowRequestPermissionRationale(activity,
-                    Manifest.Permission.ReadContacts))
-                {
-                    new AlertDialog.Builder(activity)
-                        .SetPositiveButton(
-                            Android.Resource.String.Ok,
-                            (sender, args) =>
-                            {
-                                ActivityCompat.RequestPermissions(activity,
-                                    new[] {Manifest.Permission.ReadContacts},
-                                    MyPermissionsRequestReadContacts);
-                                LogIn(activity);
-                            }
-                        ).SetNegativeButton(Android.Resource.String.Cancel, (s, a) => { })
-                        .SetMessage(Resource.String.read_contact_permission_required).Show();
-                }
-                else
-                {
-                    ActivityCompat.RequestPermissions(activity,
-                        new[] {Manifest.Permission.ReadContacts},
-                        MyPermissionsRequestReadContacts);
-                    LogIn(activity);
-                }
+                UpdateLoggedInStatus(activity);
+                return;
             }
-            else
+
+            if (!ActivityCompat.ShouldShowRequestPermissionRationale(activity,
+                Manifest.Permission.ReadContacts))
             {
-                isLoggedIn = true;
-                if (activity is RefreshableActivity refreshableActivity)
-                    refreshableActivity.Refresh();
+                ShowPermissionDiolog(activity);
+                UpdateLoggedInStatus(activity);
+                return;
             }
+
+            new AlertDialog.Builder(activity)
+                .SetPositiveButton(
+                    Android.Resource.String.Ok,
+                    (sender, args) =>
+                    {
+                        ShowPermissionDiolog(activity);
+                        UpdateLoggedInStatus(activity);
+                    }
+                ).SetNegativeButton(Android.Resource.String.Cancel, (s, a) => { })
+                .SetMessage(Resource.String.read_contact_permission_required)
+                .Show();
+        }
+
+        private void UpdateLoggedInStatus(Activity activity)
+        {
+            isLoggedIn = ContextCompat.CheckSelfPermission(activity, Manifest.Permission.ReadContacts) == Permission.Granted;
+            if (activity is RefreshableActivity refreshableActivity)
+                refreshableActivity.Refresh();
+        }
+
+        private void ShowPermissionDiolog(Activity activity)
+        {
+            ActivityCompat.RequestPermissions(activity,
+                new[] { Manifest.Permission.ReadContacts },
+                MyPermissionsRequestReadContacts);
         }
 
         public override void LogOut()
