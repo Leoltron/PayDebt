@@ -12,7 +12,7 @@ using PayDebt.Model;
 namespace PayDebt.Application.Activities
 {
     [Activity(Name = "ru.leoltron.PayDebt.SettingsActivity", Label = "SettingsActivity", Theme = "@style/DesignTheme1")]
-    public class SettingsActivity : RefreshableActivity
+    public class SettingsActivity : EventBusActivity, IRefreshable
     {
         private bool defaultCurrencyChanged = false;
         private CurrencySpinner defaultCurrencySpinner;
@@ -124,7 +124,7 @@ namespace PayDebt.Application.Activities
             return base.OnMenuItemSelected(featureId, item);
         }
 
-        public override void Refresh()
+        public void Refresh()
         {
             UpdateConnectionButtons();
         }

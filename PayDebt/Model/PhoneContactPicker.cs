@@ -29,6 +29,13 @@ namespace PayDebt.Model
 
         public override void LogIn(Activity activity)
         {
+            if (activity is EventBusActivity eventBusActivity)
+                eventBusActivity.RequestPermissionsResult += (code, permissions, results) =>
+                {
+                    if (code == MyPermissionsRequestReadContacts)
+                        UpdateLoggedInStatus(activity);
+                };
+
             if (ContextCompat.CheckSelfPermission(activity,
                     Manifest.Permission.ReadContacts) == Permission.Granted)
             {
@@ -60,8 +67,8 @@ namespace PayDebt.Model
         private void UpdateLoggedInStatus(Activity activity)
         {
             isLoggedIn = ContextCompat.CheckSelfPermission(activity, Manifest.Permission.ReadContacts) == Permission.Granted;
-            if (activity is RefreshableActivity refreshableActivity)
-                refreshableActivity.Refresh();
+            if (activity is IRefreshable refreshable)
+                refreshable.Refresh();
         }
 
         private void ShowPermissionDialog(Activity activity)
