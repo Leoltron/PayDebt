@@ -1,5 +1,5 @@
 ﻿
-namespace PayDebt.Application.Activities
+namespace PayDebt.AndroidInfrastructure
 {
     public interface IRefreshable
     {

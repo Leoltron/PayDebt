@@ -119,7 +119,7 @@
     <Compile Include="Application\Activities\AddDebtActivity.cs" />
     <Compile Include="Application\Activities\EventBusActivity.cs" />
     <Compile Include="Application\Activities\PhoneFriendPickerActivity.cs" />
-    <Compile Include="Application\Activities\IRefreshable.cs" />
+    <Compile Include="AndroidInfrastructure\IRefreshable.cs" />
     <Compile Include="Application\CurrencySpinner.cs" />
     <Compile Include="Application\CustomApplication.cs" />
     <Compile Include="Application\Activities\DebtHistoryActivity.cs" />

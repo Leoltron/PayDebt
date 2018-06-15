@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Android;
 using Android.App;
 using Android.Content.PM;
-using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
-using Android.Views;
-using Android.Widget;
 using DebtModel;
+using PayDebt.AndroidInfrastructure;
 using PayDebt.Application.Activities;
 
 namespace PayDebt.Model
