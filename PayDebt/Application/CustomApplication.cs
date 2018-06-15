@@ -3,6 +3,8 @@ using System.Globalization;
 using Android.App;
 using Android.Runtime;
 using DebtModel;
+using Java.IO;
+using Ninject;
 using PayDebt.Application.Activities;
 using PayDebt.Model;
 using VKontakte;
@@ -28,6 +30,7 @@ namespace PayDebt.Application
         public override void OnCreate()
         {
             base.OnCreate();
+
             Currencies.Add(new Currency("USD", CultureInfo.GetCultureInfoByIetfLanguageTag("en-US")));
             Currencies.Add(new Currency("EUR", CultureInfo.GetCultureInfoByIetfLanguageTag("fr-FR")));
             Currencies.Add(new Currency("RUB", CultureInfo.GetCultureInfoByIetfLanguageTag("ru-RU")));
