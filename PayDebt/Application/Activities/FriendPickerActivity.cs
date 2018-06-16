@@ -6,18 +6,14 @@ using Android.Views;
 using Android.Widget;
 using DebtModel;
 using Infrastructure;
+using PayDebt.Model;
 
 namespace PayDebt.Application.Activities
 {
-    public static class FriendPickerActivity
-    {
-        public const string IntentExtraContactKey = "Contact";
-    }
-
 
     [Activity(Name = "ru.leoltron.PayDebt.FriendPickerActivity", Label = "", Theme = "@style/DesignTheme1")]
     public class FriendPickerActivity<TPicker, TContact> : Activity
-        where TPicker : BaseContactPicker<TContact>
+        where TPicker : ContactPicker<TContact>
         where TContact : Contact
     {
 #pragma warning disable 414
@@ -137,5 +133,10 @@ namespace PayDebt.Application.Activities
             ActionBar.SetDisplayHomeAsUpEnabled(true);
             ActionBar.SetHomeButtonEnabled(true);
         }
+    }
+
+    public static class FriendPickerActivity
+    {
+        public const string IntentExtraContactKey = "Contact";
     }
 }
